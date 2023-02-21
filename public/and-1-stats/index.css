@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.a1-bg-green {
+    background-color: #028448;
+}
 
 .a1-bg-blue {
     background-color: #253A73;
@@ -35,6 +38,16 @@
 
 .dropdown-item:hover {
     background-color: black;
+}
+
+.a1-team-page-image {
+    width: 90px;
+    height: 100px;
+}
+
+.a1-player-image {
+    width: 60px;
+    height: 50px;
 }
 
 
@@ -119,11 +132,11 @@
     filter: invert(0%) sepia(4%) saturate(0%) hue-rotate(309deg) brightness(100%) contrast(107%);
 }
 
-.no_underline {
+.a1-no_underline {
     text-decoration: none;
 }
 
-.forum-background{
+.a1-forum-background{
     background: url('images/background.jpeg') no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -131,8 +144,45 @@
     background-size: cover;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
 
+.a1-login-background{
+    /* The image used */
+    background-image: url("images/login-background.png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.a1-title-login-pos {
+    position: absolute;
+    top: 15%;
+    left: 18%;
+
+}
+
+.a1-login-section {
+    background-image: linear-gradient(to right, #B42532 ,  #253A73);
+    opacity: .9;
+}
+
+.a1-login-block-shift {
+    bottom: 100px
+}
+
+
+.center_box {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 .title-wrapper {
@@ -143,7 +193,7 @@
 }
 
 
-.sweet-title {
+.forum-title {
     order: 2;
     color: #253A73;
     font-weight: 900;
@@ -158,12 +208,12 @@
     9px 7px 1px #B42532;
 }
 
-.sweet-title > span {
+.forum-title > span {
     display: block;
     position: relative;
 }
 
-.sweet-title > span:before {
+.forum-title > span:before {
          content: attr(data-text);
          position: absolute;
          text-shadow: 2px 2px 1px #ffffff, -1px -1px 1px #B42532,
@@ -171,10 +221,50 @@
          z-index: 1;
      }
 
-.sweet-title > span:nth-child(1) {
+.forum-title > span:nth-child(1) {
          padding-right: 2.25rem;
      }
 
-.sweet-title > span:nth-child(2) {
+.forum-title > span:nth-child(2) {
          padding-left: 2.25rem;
      }
+
+
+
+
+.forum-title {
+    order: 2;
+    color: #253A73;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(4rem, 15vw, 8rem);
+    line-height: 0.75em;
+    text-align: center;
+    text-shadow: 3px 1px 1px #B42532, 2px 2px 1px #ffffff, 4px 2px 1px #B42532,
+    3px 3px 1px #ffffff, 5px 3px 1px #B42532, 4px 4px 1px #ffffff,
+    6px 4px 1px #B42532, 5px 5px 1px #ffffff, 7px 5px 1px #B42532,
+    6px 6px 1px #ffffff, 8px 6px 1px #B42532, 7px 7px 1px #ffffff,
+    9px 7px 1px #B42532;
+}
+
+
+.login-title > span {
+    display: block;
+    position: relative;
+}
+
+.login-title > span:before {
+    content: attr(data-text);
+    position: absolute;
+    text-shadow: 2px 2px 1px #ffffff, -1px -1px 1px #B42532,
+    -2px 2px 1px #ffffff, 1px -1px 1px #B42532;
+    z-index: 1;
+}
+
+.login-title > span:nth-child(1) {
+    padding-right: 2.25rem;
+}
+
+.login-title > span:nth-child(2) {
+    padding-left: 2.25rem;
+}
