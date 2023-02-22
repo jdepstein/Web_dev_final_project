@@ -147,15 +147,12 @@
 
 .a1-login-background{
     /* The image used */
-    background-image: url("images/login-background.png");
-
-    /* Full height */
+    background-image: url("images/background2.jpeg");
     height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
 }
 
 
