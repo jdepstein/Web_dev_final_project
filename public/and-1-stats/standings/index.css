@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.a1-bg-blue {
+    background-color: #253A73;
+}
+
+.a1-text-blue {
+    color: #253A73;
+}
+
+.a1-bg-red {
+    background-color: #B42532;
+}
+
+.a1-text-red {
+    color: #B42532;
+}
+
+.dropdown-item:hover {
+    background-color: black;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.logo_margin {
+    margin: 5px;
+}
