@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Pacific",
+    "Teams": [
+      {"name" : "Lakers"},
+      {"name" : "Warriors"},
+      {"name" : "Suns"},
+      {"name" : "Kings"},
+      {"name" : "Clippers"}
+    ]
+
+  },
+
+  {
+    "name": "Northwest",
+    "Teams": [
+      {"name" : "Blazers"},
+      {"name" : "Thunder"},
+      {"name" : "T-Wolfs"},
+      {"name" : "Jazz"},
+      {"name" : "Nuggets"}
+
+    ]
+
+  },
+
+  {
+    "name": "Southwest",
+    "Teams": [
+      {"name" : "Mavs"},
+      {"name" : "Rockets"},
+      {"name" : "Grizzles"},
+      {"name" : "Pelicans"},
+      {"name" : "Spurs"}
+    ]
+  }
+]

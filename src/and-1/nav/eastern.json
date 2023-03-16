@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Atlantic",
+    "teams": [
+      { "name" : "Celtics",
+        "logo" : "images/celtics.png" ,
+        "wins": 10,
+        "loss": 10},
+      {"name" : "Nets",
+        "logo" : "images/nets.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "76ers",
+        "logo" : "images/76ers.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Knicks",
+        "logo" : "images/knicks.png " ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Raptors",
+        "logo" : "images/raptors.png" ,
+        "wins": 10  ,
+        "loss": 10 }
+    ]
+
+  },
+
+  {
+    "name": "Central",
+    "teams": [
+      {"name" : "Pacers",
+        "logo" : "images/pacers.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Bulls",
+        "logo" : "images/bulls.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Cavs",
+        "logo" : "images/cavs.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Pistons",
+        "logo" : "images/pistons.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Bucks",
+        "logo" : "images/bucks.png" ,
+        "wins": 10  ,
+        "loss": 10 }
+    ]
+
+  },
+
+  {
+    "name": "Southeast",
+    "teams": [
+      {"name" : "Heat",
+        "logo" : "images/heat.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Magic",
+        "logo" : "images/magic.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Wizards",
+        "logo" : "images/wizards.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Hawks",
+        "logo" : "images/hawks.png" ,
+        "wins": 10  ,
+        "loss": 10 },
+      {"name" : "Hornets",
+        "logo" : "images/hornets.png" ,
+        "wins": 10  ,
+        "loss": 10 }
+    ]
+
+  }
+]
