@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-import NavTeams from "./nav_teams";
 function Nav() {
     return (
         <nav className="navbar navbar-expand-sm a1-bg-red navbar-light sticky-top col-12 w-100">
@@ -20,7 +19,9 @@ function Nav() {
                     <li className="nav-item">
                         <Link className="ps-2 text-white nav-link" to="/stats">Stats</Link>
                     </li>
-                    <NavTeams/>
+                    <li className="nav-item">
+                        <Link className="ps-2 text-white nav-link" to="/teams">Teams</Link>
+                    </li>
                     <li className="nav-item">
                         <Link className="ps-2 text-white nav-link" to="/schedule">Schedule</Link>
                     </li>

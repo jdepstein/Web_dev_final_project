@@ -1,0 +1,89 @@
+[
+  {
+    "name" : "NBA Links",
+    "links" :
+    [
+          {"icon":  "images/insta.png",
+            "link":  "https://www.instagram.com/nba/",
+            "sizing": "a1-logo-image"
+          },
+
+          {"icon":  "images/facebook.png",
+            "link":  "https://www.facebook.com/nba",
+            "sizing": "a1-logo-image"
+          },
+
+          {"icon":  "images/twitter.png",
+           "link":  "https://twitter.com/NBA",
+           "sizing": "a1-logo-image"
+          },
+
+          {"icon":  "images/nba.png",
+            "link":  "https://www.nba.com/",
+            "sizing": "a1-link-image-2"
+          }
+
+        ]
+  },
+
+  {
+    "name" : "Ways to Watch",
+    "links" :
+    [
+      {"icon":  "images/league_pass.png",
+        "link":  "https://www.nba.com/watch/league-pass-stream?cid=nba:dlp:paid:sem:sa360:na:eg:acq:sub:dtc-acq:US:G_US_Primary_LeaguePass_English_All:LP_Core_Exact:NBA+League+Pass:43700066529455551:&gclid=CjwKCAjwzuqgBhAcEiwAdj5dRmx40G41aFOxZd_zKkingWUAESB5tH55hU3vLuC6yc6fdECxB-zy6BoCUmAQAvD_BwE&gclsrc=aw.ds",
+        "sizing": "a1-link-image-6"
+      },
+
+      {"icon":  "images/tnt.png",
+        "link":  "https://www.tntdrama.com/",
+        "sizing": "a1-link-image-3"
+      },
+
+      {"icon":  "images/epsn.png",
+        "link":  "https://www.espn.com/watch/",
+        "sizing": "a1-link-image-1"
+      }
+    ]
+  },
+
+  {
+    "name": "Sports Betting",
+    "links": [
+      {
+        "icon": "images/fanduel.png",
+        "link": "https://www.fanduel.com/",
+        "sizing": "a1-link-image-5"
+      },
+      {
+        "icon": "images/draftking.png",
+        "link": "https://www.fanduel.com/",
+        "sizing": "a1-link-image-1"
+      }
+    ]
+  },
+
+  {
+    "name": "Fantasy",
+    "links": [
+      {
+        "icon": "images/cbsfantasy.png",
+        "link": "https://www.cbssports.com/fantasy/",
+        "sizing": "a1-link-image-4"
+      },
+      {
+        "icon": "images/espnfantasy.png",
+        "link": "https://www.espn.com/fantasy/",
+        "sizing": "a1-link-image-4"
+      },
+      {
+        "icon": "images/yahoo.png",
+        "link": "https://sports.yahoo.com/fantasy/",
+        "sizing": "a1-link-image-3"
+      }
+    ]
+  }
+
+
+
+]

@@ -7,18 +7,20 @@ import Profile from "./and-1/profile";
 import Home from "./and-1/home";
 import Stats from "./and-1/stats";
 import Schedule from "./and-1/schedule";
+import TeamSearch from "./and-1/teams";
 
 function App() {
   return (
     <>
       <BrowserRouter>
           <Routes>
-            <Route index element={<Login/>}/>
-            <Route path="/forum/*" element={<Forum/>}/>
-            <Route path="/profile/*" element={<Profile/>}/>
-            <Route path="/home" element={<Home/>}/>
-            <Route path="/stats" element={<Stats/>}/>
-            <Route path="/schedule" element={<Schedule/>}/>
+              <Route index element={<Login/>}/>
+              <Route path="/forum/*" element={<Forum/>}/>
+              <Route path="/profile/*" element={<Profile/>}/>
+              <Route path="/home" element={<Home/>}/>
+              <Route path="/teams/*" element={<TeamSearch/>}/>
+              <Route path="/stats" element={<Stats/>}/>
+              <Route path="/schedule" element={<Schedule/>}/>
           </Routes>
       </BrowserRouter>
     </>

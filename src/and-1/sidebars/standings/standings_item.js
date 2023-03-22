@@ -2,7 +2,6 @@
 
 
 function StandingsItem(teams) {
-    console.log(teams)
     return (
         <>
         {
