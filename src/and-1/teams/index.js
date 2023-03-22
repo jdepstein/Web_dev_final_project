@@ -1,20 +1,22 @@
 import Nav from "../nav";
 import Standings from "../sidebars/standings";
 import Socials from "../sidebars/socials";
+import east from "../data/eastern.json";
+import west from "../data/western.json";
+import TeamSearch from "./teamsearch";
 
-function TeamSearch() {
+
+function Teams(teams) {
     return (
         <>
             <Nav/>
             <div className="row container-fluid">
                 <Standings/>
-                <div className="container-fluid col-md-9 col-lg-7 col-xl-7 p-0 border-start border-end">
-                    Search For Teams For
-                </div>
+                <TeamSearch teams={teams}/>
                 <Socials/>
             </div>
         </>
     );
 }
 
-export default TeamSearch;
+export default Teams;

@@ -8,6 +8,8 @@ import Home from "./and-1/home";
 import Stats from "./and-1/stats";
 import Schedule from "./and-1/schedule";
 import TeamSearch from "./and-1/teams";
+import CreateAccount from "./and-1/login/creat_account";
+import TeamRouting from "./and-1/teams/team_routing";
 
 function App() {
   return (
@@ -15,10 +17,11 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route index element={<Login/>}/>
+              <Route path="/create_account" element={<CreateAccount/>}/>
               <Route path="/forum/*" element={<Forum/>}/>
               <Route path="/profile/*" element={<Profile/>}/>
               <Route path="/home" element={<Home/>}/>
-              <Route path="/teams/*" element={<TeamSearch/>}/>
+              <Route path="/teams/*" element={<TeamRouting/>}/>
               <Route path="/stats" element={<Stats/>}/>
               <Route path="/schedule" element={<Schedule/>}/>
           </Routes>
