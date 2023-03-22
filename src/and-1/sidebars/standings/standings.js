@@ -1,8 +1,22 @@
-import Nav from "../nav";
-import east from "../nav/eastern.json";
-import west from "../nav/western.json";
+import east from "../../data/eastern.json";
+import west from "../../data/western.json";
 
 import StandingsItem from "./standings_item";
+
+function all_teams(teamsList) {
+    let allTeam = []
+    teamsList.forEach(item =>
+    {
+        allTeam = allTeam.concat(item.teams)
+    })
+    return allTeam.sort(
+        (t1, t2) => (t1.wins / (t1.wins + t1.loss) < t2.wins / (t2.wins + t2.loss)) ? 1
+            : (t1.wins / (t1.wins + t1.loss) > t2.wins / (t2.wins + t2.loss)) ? -1
+                : 0
+    )
+
+}
+
 
 function Standings() {
     return (
@@ -20,10 +34,7 @@ function Standings() {
                         </tr>
                         </thead>
                         <tbody>
-                            {
-                                east.map((division,i) =>
-                                    <StandingsItem key={i} my_teams={division}/>)
-                            }
+                            <StandingsItem teams={all_teams(east)}/>
                         </tbody>
                     </table>
                     <div className="mt-5 text-dark"> Western Conference</div>
@@ -36,10 +47,7 @@ function Standings() {
                         </tr>
                         </thead>
                         <tbody>
-                        {
-                            east.map((division,i) =>
-                                <StandingsItem key={i} my_teams={division}/>)
-                        }
+                            <StandingsItem teams={all_teams(west)}/>
                         </tbody>
                     </table>
                 </div>

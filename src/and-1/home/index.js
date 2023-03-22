@@ -1,5 +1,5 @@
 import Nav from "../nav";
-import Standings from "../sidebars/standings";
+import Standings from "../sidebars/standings/standings";
 
 function Home() {
     return (

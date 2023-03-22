@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Pacific",
+    "teams": [
+      {"name" : "Lakers",
+        "logo" : "images/lakers.png" ,
+        "wins": 35  ,
+        "loss": 37 },
+      {"name" : "Warriors",
+        "logo" : "images/warriors.png" ,
+        "wins": 37  ,
+        "loss": 36 },
+      {"name" : "Suns",
+        "logo" : "images/suns.png" ,
+        "wins": 38  ,
+        "loss": 33 },
+      {"name" : "Kings",
+        "logo" : "images/kings.png" ,
+        "wins": 43 ,
+        "loss": 29 },
+      {"name" : "Clippers",
+        "logo" : "images/clippers.png" ,
+        "wins": 38,
+        "loss": 35 }
+    ]
+
+  },
+
+  {
+    "name": "Northwest",
+    "teams": [
+      {"name" : "Blazers",
+        "logo" : "images/trail-blazers.png" ,
+        "wins": 31  ,
+        "loss": 40 },
+      {"name" : "Thunder",
+        "logo" : "images/thunder.png" ,
+        "wins": 36  ,
+        "loss": 36 },
+      {"name" : "T-Wolfs",
+        "logo" : "images/timberwolves.png" ,
+        "wins": 36  ,
+        "loss": 37 },
+      {"name" : "Jazz",
+        "logo" : "images/jazz.png" ,
+        "wins": 35  ,
+        "loss": 36 },
+      {"name" : "Nuggets",
+        "logo" : "images/nuggets.png" ,
+        "wins": 48  ,
+        "loss": 24 }
+
+    ]
+
+  },
+
+  {
+    "name": "Southwest",
+    "teams": [
+      {"name" : "Mavs",
+        "logo" : "images/mavs.png" ,
+        "wins": 36  ,
+        "loss": 36 },
+      {"name" : "Rockets",
+        "logo" : "images/rockets.png" ,
+        "wins": 18  ,
+        "loss": 54 },
+      {"name" : "Grizzles",
+        "logo" : "images/grizzles.png" ,
+        "wins": 44  ,
+        "loss": 27 },
+      {"name" : "Pelicans",
+        "logo" : "images/pelicans.png" ,
+        "wins": 35  ,
+        "loss": 37 },
+      {"name" : "Spurs",
+        "logo" : "images/spurs.png" ,
+        "wins": 10  ,
+        "loss": 40 }
+    ]
+  }
+]
