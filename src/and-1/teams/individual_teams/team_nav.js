@@ -8,13 +8,16 @@ function TeamNav(team) {
                 <img alt="" className="ms-2 navbar-brand a1-team-page-image" src={"../" + team.team.team.team.logo}/>
                     <ul className="navbar-nav w-100">
                         <li className="nav-item">
-                            <Link className="ps-2 text-white nav-link" to="/">Team</Link>
+                            <Link className="ps-2 text-white nav-link"
+                                  to={"team-home"}>Team</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="ps-2 text-white nav-link" to="/schedule">Schedule</Link>
+                            <Link className="ps-2 text-white nav-link" to={
+                                "/teams/" + team.team.team.team.name.toLowerCase() +  "/team-schedule"}>Schedule</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="ps-2 text-white nav-link" to="/forum">Team Forum</Link>
+                            <Link className="ps-2 text-white nav-link" to={
+                                "/teams/" + team.team.team.team.name.toLowerCase() +  "/team-forum"}>Team Forum</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="ps-2 text-white nav-link" to="#">Tickets</Link>

@@ -1,5 +1,5 @@
-import TeamNav from "../team_nav";
-import Nav from "../../../nav";
+import TeamNav from "./team_nav";
+import Nav from "../../nav";
 
 function TeamSchedule(team) {
     return (

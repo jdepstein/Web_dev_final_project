@@ -24,7 +24,7 @@ function TeamRouting() {
                 {
                     all_teams().map((team, i) =>
                         {
-                            const path = "/" + team.name.toLowerCase() + "/*";
+                            const path = "/"+team.name.toLowerCase()+"/*";
                             return <Route key={i} path={path} element={<IndividualTeamRouting team={team}/>}/>
                         }
                     )

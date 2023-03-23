@@ -8,9 +8,8 @@ function IndividualTeamRouting(team) {
     return (
         <Routes>
             <Route index element={<TeamHome team={team}/>}/>
-            <Route path="/schedule" element={<TeamSchedule team={team} />}/>
-            <Route path="/forum" element={<TeamForum team={team} />}/>
-            }
+            <Route path="/team-schedule" element={<TeamSchedule team={team} />}/>
+            <Route path="/team-forum" element={<TeamForum team={team} />}/>
         </Routes>
 
     );
