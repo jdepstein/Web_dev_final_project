@@ -27,8 +27,8 @@ function Login() {
 
 
                         <div className="form-group mb-3 d-flex justify-content-center">
-                            <Link to="home"><button className="btn rounded-pill btn-primary me-3"> Login</button></Link>
-                            <Link to="create_account"><button className="btn rounded-pill btn-primary ms-3"> Create Account</button></Link>
+                            <Link to="/home"><button className="btn rounded-pill btn-primary me-3"> Login</button></Link>
+                            <Link to="/create_account"><button className="btn rounded-pill btn-primary ms-3"> Create Account</button></Link>
                         </div>
 
                     </form>
