@@ -3,9 +3,138 @@
 @tailwind utilities;
 
 
-.a1-bg-green {
-  background-color: #028448;
+.a1-bg-celtics {
+  background-color: #048349;
 }
+
+.a1-bg-nets {
+  background-color: #222222;
+}
+
+.a1-bg-mavericks {
+  background-color: #0263B1;
+}
+
+.a1-bg-spurs {
+  background-color: #000000;
+}
+
+.a1-bg-pelicans {
+  background-color: #B3975A;
+}
+
+.a1-bg-grizzles {
+  background-color: #11173F;
+}
+
+.a1-bg-rockets {
+  background-color: #000000;
+}
+
+.a1-bg-warriors {
+  background-color: #E3AC30;
+}
+
+.a1-bg-clippers {
+  background-color: #1A428A;
+}
+
+.a1-bg-kings {
+  background-color: #592B81;
+}
+
+.a1-bg-suns {
+  background-color: #E56636;
+}
+
+.a1-bg-lakers {
+  background-color: #FCB723;
+}
+
+.a1-bg-t-wolfs {
+  background-color: #A0A1A2;
+}
+
+.a1-bg-okc {
+  background-color: #EF3B24;
+}
+
+.a1-bg-jazz {
+  background-color: #014319;
+}
+
+.a1-bg-nuggets {
+  background-color: #0D2340;
+}
+
+.a1-bg-blazers {
+  background-color: #000000;
+}
+
+.a1-bg-wizards {
+  background-color: #002B5C;
+}
+
+.a1-bg-bulls {
+  background-color: #C92343;
+}
+
+.a1-bg-hawks {
+  background-color: #C7112F;
+}
+
+.a1-bg-magic {
+  background-color: #0476C0;
+}
+
+.a1-bg-heat {
+  background-color: #F8A01B;
+}
+
+.a1-bg-hornets {
+  background-color: #250F54;
+}
+
+.a1-bg-knicks {
+  background-color: #F38326;
+}
+
+.a1-bg-bucks {
+  background-color: #00481C;
+}
+
+.a1-bg-pacers {
+  background-color: #FCB524;
+}
+
+.a1-bg-pistons {
+  background-color: #0B2340;
+}
+
+.a1-bg-cavs {
+  background-color: #850138;
+}
+
+.a1-bg-raptors {
+  background-color: #000000;
+}
+
+.a1-bg-76ers {
+  background-color: #003DA6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .a1-bg-blue {
   background-color: #253A73;
@@ -273,3 +402,6 @@
   width: 120px;
   height: 120px;
 }
+
+
+

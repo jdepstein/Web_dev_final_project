@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-import TeamRouting from "./team_routing";
 
 
 function TeamSearch(teams) {
@@ -83,7 +82,7 @@ function TeamSearch(teams) {
                 {
                     teams.teams.teams.slice(25, 30).map((team, i) =>
                         <div key={i} className="col-2">
-                            <Link to={team.name.toLowerCase() + "/*"}>
+                            <Link to={team.name.toLowerCase()}>
                                 <img alt="" className="a1-image_team_page " src={team.logo}/>
                             </Link>
                         </div>
