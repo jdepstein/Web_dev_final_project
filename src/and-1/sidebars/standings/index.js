@@ -21,10 +21,10 @@ function all_teams(teamsList) {
 function Standings() {
     return (
         <>
-            <div className="container-fluid a1-font-family d-none d-lg-block col-lg-3 col-xl-2 p-0">
+            <div className="container-fluid a1-font-family d-none d-lg-block col-lg-3 col-xl-2 p-0 m-0">
                 <div className="mt-4 text-dark fw-bold text-center"> NBA 2022-23 REGULAR SEASON STANDINGS</div>
-                <div className="mt-3 text-dark ms-2"> Eastern Conference</div>
-                <div className="ms-3 me-3">
+                <div className="mt-3 text-dark"> Eastern Conference</div>
+                <div className="">
                     <table className="a1-font-size-12px table table-bordered">
                         <thead>
                         <tr>
@@ -37,7 +37,7 @@ function Standings() {
                             <StandingsItem teams={all_teams(east)}/>
                         </tbody>
                     </table>
-                    <div className="mt-5 text-dark ms-2"> Western Conference</div>
+                    <div className="mt-5 text-dark"> Western Conference</div>
                     <table className="a1-font-size-12px table table-bordered">
                         <thead>
                         <tr>

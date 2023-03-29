@@ -1,0 +1,9 @@
+[
+  {"Team1": "Celtics", "Team2": "Wizards", "Team1Score": 111, "Team2Score": 130 },
+  {"Team1": "Cavs", "Team2": "Hawks", "Team1Score": 118, "Team2Score": 120  },
+  {"Team1": "Heat", "Team2": "Raptors", "Team1Score": 92, "Team2Score": 106  },
+  {"Team1": "Magic", "Team2": "Grizzles", "Team1Score": 108, "Team2Score": 113  },
+  {"Team1": "Hornets", "Team2": "Thunder", "Team1Score": 137, "Team2Score": 134 },
+  {"Team1": "Pelicans", "Team2": "Warriors", "Team1Score": 109, "Team2Score": 120 }
+
+]
