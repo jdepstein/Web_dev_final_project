@@ -1,34 +1,19 @@
 import {Route, Routes} from "react-router";
-import east from "../data/eastern.json";
-import west from "../data/western.json";
+
 import Teams from "./index";
-import IndividualTeamRouting from "./individual_teams/indivual_team_routing";
-
-
-function all_teams() {
-    let allTeam = []
-    east.forEach(item => {
-        allTeam = allTeam.concat(item.teams)
-    })
-    west.forEach(item => {
-        allTeam = allTeam.concat(item.teams)
-    })
-    return allTeam
-}
+import TeamHome from "./individual_teams";
+import TeamSchedule from "./individual_teams/team_schedule";
+import TeamForum from "./individual_teams/team_forum";
 
 
 function TeamRouting() {
     return (
             <Routes>
-                <Route index element={<Teams teams={all_teams()}/>}/>
-                {
-                    all_teams().map((team, i) =>
-                        {
-                            const path = "/"+team.name.toLowerCase()+"/*";
-                            return <Route key={i} path={path} element={<IndividualTeamRouting team={team}/>}/>
-                        }
-                    )
-                }
+                <Route index element={<Teams/>}/>
+                <Route path={"/:team"} element={<TeamHome/>}/>
+                <Route path="/:team/team-home" element={<TeamHome/>}/>
+                <Route path="/:team/team-schedule" element={<TeamSchedule/>}/>
+                <Route path="/:team/team-forum" element={<TeamForum/>}/>
             </Routes>
 
         );

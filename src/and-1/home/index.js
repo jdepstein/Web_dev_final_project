@@ -1,19 +1,15 @@
-import Nav from "../nav";
+import NavigationSidebar from "../sidebars/nav";
 import Standings from "../sidebars/standings";
-import Socials from "../sidebars/socials";
 
 function Home() {
     return (
-        <>
-            <Nav/>
-            <div className="row container-fluid">
-                <Standings/>
-                <div className="container-fluid col-md-9 col-lg-7 col-xl-7 p-0 border-start border-end">
-                    hello test
-                </div>
-                <Socials/>
+        <div className="row">
+        <NavigationSidebar/>
+            <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
+                Home
             </div>
-        </>
+            <Standings/>
+        </div>
     );
 }
 

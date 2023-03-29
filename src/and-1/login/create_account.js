@@ -47,7 +47,7 @@ function CreateAccount() {
 
 
                         <div className="form-group mb-3 d-flex justify-content-center">
-                            <Link to="/"><button className="btn rounded-pill btn-primary me-3"> Cancel</button></Link>
+                            <Link to="/login"><button className="btn rounded-pill btn-primary me-3"> Cancel</button></Link>
                             <Link to="/home"><button className="btn rounded-pill btn-primary ms-3"> Create Account</button></Link>
                         </div>
 
