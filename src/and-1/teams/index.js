@@ -1,7 +1,7 @@
-import Standings from "../sidebars/standings";
+import Standings from "../components/standings";
 import TeamSearch from "./teamsearch";
-import NavigationSidebar from "../sidebars/nav";
-import LatestResults from "../sidebars/latest_results";
+import NavigationSidebar from "../components/nav";
+import LatestResults from "../components/latest-results";
 
 
 function Teams(){

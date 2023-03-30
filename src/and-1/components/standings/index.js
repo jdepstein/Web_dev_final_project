@@ -23,8 +23,8 @@ function Standings() {
         <>
             <div className="container-fluid a1-font-family d-none d-lg-block col-lg-3 col-xl-2 p-0 m-0">
                 <div className="mt-4 text-dark fw-bold text-center"> NBA 2022-23 REGULAR SEASON STANDINGS</div>
-                <div className="mt-3 text-dark"> Eastern Conference</div>
-                <div className="">
+                <div className="me-2 ms-2">
+                    <div className="mt-3 text-dark"> Eastern Conference</div>
                     <table className="a1-font-size-12px table table-bordered">
                         <thead>
                         <tr>

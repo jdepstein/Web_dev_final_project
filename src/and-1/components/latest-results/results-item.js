@@ -1,5 +1,5 @@
 import {useLocation} from "react-router";
-import {get_team} from "../../helper_funcs";
+import {get_team} from "../../helper-funcs";
 
 const ResultsItem = (
     {

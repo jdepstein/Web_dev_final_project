@@ -1,6 +1,6 @@
 import {Route, Routes, useLocation} from "react-router";
 import {Link} from "react-router-dom";
-import {get_team} from "../../helper_funcs";
+import {get_team} from "../../helper-funcs";
 
 function TeamNav() {
     const {pathname} = useLocation();

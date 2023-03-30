@@ -1,0 +1,85 @@
+[
+    {
+    "title": "Are the Celtics the best team in the League?",
+    "userHandle": "@JaylenFan",
+    "profilePic" : "../images/profile1.jpeg",
+    "post_type": "text",
+    "post_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likeDislike" : 10,
+    "comment" : 5,
+    "share": 23,
+    "timestamp": "2 min ago",
+    "tag": "celtics",
+    "tagColor": "a1-bg-celtics"
+    },
+
+  {
+    "title": "Who's the MVP? My bets on Jovick ",
+    "userHandle": "@NuggetsFan",
+    "profilePic" : "../images/profile2.jpeg",
+    "post_type": "text",
+    "post_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likeDislike" : 110,
+    "comment" : 0,
+    "share": 2,
+    "timestamp": "2 min ago",
+    "tag": "nuggets",
+    "tagColor": "a1-bg-nuggets"
+  },
+
+  {
+    "title": "Embiid is the biggest baby in the NBA ",
+    "userHandle": "@GiannasFan",
+    "profilePic" : "../images/profile3.jpeg",
+    "post_type": "text",
+    "post_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likeDislike" : 1500,
+    "comment" : 50,
+    "share": 230,
+    "timestamp": "2 min ago",
+    "tag": "76ers",
+    "tagColor": "a1-bg-76ers"
+  },
+
+  {
+    "title": "Jaylen wants out of boston? You think he could be a number 1 somewhere",
+    "userHandle": "@BleedGreen",
+    "profilePic" : "../images/profile4.jpeg",
+    "post_type": "text",
+    "post_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likeDislike" : -20,
+    "comment" : 2,
+    "share": 3,
+    "timestamp": "2 min ago",
+    "tag": "celtics",
+    "tagColor": "a1-bg-celtics"
+  },
+
+  {
+    "title": "Kyrie is failing again this time in Dallas? When will he finally not get a team",
+    "userHandle": "@JaylenFan",
+    "profilePic" : "../images/profile5.jpeg",
+    "post_type": "text",
+    "post_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likeDislike" : 100,
+    "comment" : 50,
+    "share": 3,
+    "timestamp": "2 min ago",
+    "tag": "Mavericks",
+    "tagColor": "a1-bg-mavericks"
+  },
+
+  {
+    "title": "Who do you think is going #1 overall in the draft?",
+    "userHandle": "@NbaWatcher234",
+    "profilePic" : "../images/profile6.jpeg",
+    "post_type": "text",
+    "post_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "likeDislike" : 10,
+    "comment" : 5,
+    "share": 23,
+    "timestamp": "2 min ago",
+    "tag": "general",
+    "tagColor": "a1-bg-red"
+  }
+]

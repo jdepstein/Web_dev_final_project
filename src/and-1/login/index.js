@@ -5,10 +5,10 @@ function Login() {
         <div className="a1-login-background w-100">
             <div className="center">
                 <div className="center_box a1-login-section rounded p-3">
-                    <p className="fw-bold a1-font-family h3 text-center mt-2"> Login </p>
+                    <p className="text-white fw-bold a1-font-family h3 text-center mt-2"> Login </p>
                     <form>
                         <div className="form-group mb-3">
-                            <label className="fw-bold ms-2 a1-font-family h5 text-center mt-2"
+                            <label className="text-white fw-bold ms-2 a1-font-family h5 text-center mt-2"
                                    htmlFor="username">Username</label>
                             <div className="me-2 ms-2">
                                 <input className="me-3 rounded-pill form-control" id="username"
@@ -17,7 +17,7 @@ function Login() {
                         </div>
 
                         <div className="form-group mb-3">
-                            <label className="fw-bold ms-2 a1-font-family h5 text-center mt-2"
+                            <label className="text-white fw-bold ms-2 a1-font-family h5 text-center mt-2"
                                    htmlFor="password">Password</label>
                             <div className="me-2 ms-2">
                                 <input type="password" className="me-3 rounded-pill form-control" id="password"

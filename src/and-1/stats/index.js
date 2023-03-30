@@ -1,7 +1,7 @@
 import Nav from "../nav";
-import NavigationSidebar from "../sidebars/nav";
-import Standings from "../sidebars/standings";
-import LatestResults from "../sidebars/latest_results";
+import NavigationSidebar from "../components/nav";
+import Standings from "../components/standings";
+import LatestResults from "../components/latest-results";
 
 function Stats() {
     return (

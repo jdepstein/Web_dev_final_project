@@ -1,19 +1,19 @@
 import NavigationSidebar from "../components/nav";
 import Standings from "../components/standings";
 import LatestResults from "../components/latest-results";
-import ForumSummary from "../forum-summary";
+import ForumPage from "./forum-page";
 
-function Home() {
+function ForumSearch() {
     return (
-        <>
+        <div>
             <LatestResults/>
             <div className="row p-0 m-0">
                 <NavigationSidebar/>
-                <ForumSummary/>
+                <ForumPage/>
                 <Standings/>
             </div>
-        </>
+        </div>
     );
 }
 
-export default Home;
+export default ForumSearch;

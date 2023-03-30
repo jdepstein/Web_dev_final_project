@@ -1,19 +1,20 @@
 import NavigationSidebar from "../components/nav";
 import Standings from "../components/standings";
 import LatestResults from "../components/latest-results";
-import ForumSummary from "../forum-summary";
+import profile from "../data/profile.json"
+import EditProfilePage from "./edit-profile-page";
 
-function Home() {
+function EditProfile() {
     return (
         <>
             <LatestResults/>
             <div className="row p-0 m-0">
                 <NavigationSidebar/>
-                <ForumSummary/>
+                <EditProfilePage profile={profile}/>
                 <Standings/>
             </div>
         </>
     );
 }
 
-export default Home;
+export default EditProfile;

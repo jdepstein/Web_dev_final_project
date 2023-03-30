@@ -235,8 +235,9 @@
 }
 
 .a1-profile-pic {
-  width: 70px;
+  width: 60px;
   height: 60px;
+  border-radius: 50%;
 }
 
 .a1-no-bullet-pts {
@@ -272,6 +273,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 325px;
 }
 
 
@@ -304,7 +306,6 @@
   bottom: 100px
 }
 
-
 .center_box {
   margin: 0;
   position: absolute;
@@ -314,94 +315,48 @@
 }
 
 
-.title-wrapper {
-  padding-top: 50px;
-  display: inline-block;
-  justify-content: center;
-  transform: skew(0, -10deg);
-}
-
-
-.forum-title {
-  order: 2;
-  color: #253A73;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: clamp(3rem, 10vw, 6rem);
-  line-height: 0.75em;
-  text-align: center;
-  text-shadow: 3px 1px 1px #B42532, 2px 2px 1px #ffffff, 4px 2px 1px #B42532,
-  3px 3px 1px #ffffff, 5px 3px 1px #B42532, 4px 4px 1px #ffffff,
-  6px 4px 1px #B42532, 5px 5px 1px #ffffff, 7px 5px 1px #B42532,
-  6px 6px 1px #ffffff, 8px 6px 1px #B42532, 7px 7px 1px #ffffff,
-  9px 7px 1px #B42532;
-}
-
-.forum-title > span {
-  display: block;
-  position: relative;
-}
-
-.forum-title > span:before {
-  content: attr(data-text);
-  position: absolute;
-  text-shadow: 2px 2px 1px #ffffff, -1px -1px 1px #B42532,
-  -2px 2px 1px #ffffff, 1px -1px 1px #B42532;
-  z-index: 1;
-}
-
-.forum-title > span:nth-child(1) {
-  padding-right: 2.25rem;
-}
-
-.forum-title > span:nth-child(2) {
-  padding-left: 2.25rem;
-}
-
-
-
-
-.forum-title {
-  order: 2;
-  color: #253A73;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: clamp(4rem, 15vw, 8rem);
-  line-height: 0.75em;
-  text-align: center;
-  text-shadow: 3px 1px 1px #B42532, 2px 2px 1px #ffffff, 4px 2px 1px #B42532,
-  3px 3px 1px #ffffff, 5px 3px 1px #B42532, 4px 4px 1px #ffffff,
-  6px 4px 1px #B42532, 5px 5px 1px #ffffff, 7px 5px 1px #B42532,
-  6px 6px 1px #ffffff, 8px 6px 1px #B42532, 7px 7px 1px #ffffff,
-  9px 7px 1px #B42532;
-}
-
-
-.login-title > span {
-  display: block;
-  position: relative;
-}
-
-.login-title > span:before {
-  content: attr(data-text);
-  position: absolute;
-  text-shadow: 2px 2px 1px #ffffff, -1px -1px 1px #B42532,
-  -2px 2px 1px #ffffff, 1px -1px 1px #B42532;
-  z-index: 1;
-}
-
-.login-title > span:nth-child(1) {
-  padding-right: 2.25rem;
-}
-
-.login-title > span:nth-child(2) {
-  padding-left: 2.25rem;
-}
-
 .a1-image_team_page {
   width: 120px;
   height: 120px;
 }
+
+.a1-text-gradeient {
+  font-size: 50px;
+  background: -webkit-linear-gradient(#1AA0BC, #BC1F1A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.a1-width-content {
+  width: max-content;
+}
+
+.a1-text-area {
+  height: 200px;
+  min-height: 200px;
+  outline: none;
+}
+
+.a1-banner {
+  height: 300px;
+}
+
+.a1-font-16px {
+  font-size: 16px;
+}
+
+.a1-image_146_round {
+  width: 146px;
+  height: 146px;
+  border-radius: 50%;
+}
+
+.a1-pos-profile {
+  top: -73px;
+  left: 20px;
+}
+
 
 
 

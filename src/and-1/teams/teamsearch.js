@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import {all_teams} from "../helper_funcs";
+import {all_teams} from "../helper-funcs";
 
 
 function TeamSearch() {

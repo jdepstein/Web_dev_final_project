@@ -1,5 +1,3 @@
-
-
 function StandingsItem(teams) {
     const active = false;
     return (

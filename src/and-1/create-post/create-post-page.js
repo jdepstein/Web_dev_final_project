@@ -1,19 +1,21 @@
+import LatestResults from "../components/latest-results";
 import NavigationSidebar from "../components/nav";
 import Standings from "../components/standings";
-import LatestResults from "../components/latest-results";
-import ForumSummary from "../forum-summary";
+import CreateComponent from "./create-component";
 
-function Home() {
+
+function CreatePostPage() {
     return (
+
         <>
             <LatestResults/>
             <div className="row p-0 m-0">
                 <NavigationSidebar/>
-                <ForumSummary/>
+                <CreateComponent/>
                 <Standings/>
             </div>
         </>
     );
 }
 
-export default Home;
+export default CreatePostPage;

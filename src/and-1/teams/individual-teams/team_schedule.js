@@ -1,6 +1,6 @@
 import TeamNav from "./team_nav";
-import NavigationSidebar from "../../sidebars/nav";
-import Standings from "../../sidebars/standings";
+import NavigationSidebar from "../../components/nav";
+import Standings from "../../components/standings";
 
 function TeamSchedule() {
     return (

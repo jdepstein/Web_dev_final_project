@@ -1,9 +1,9 @@
 import {Route, Routes} from "react-router";
 
 import Teams from "./index";
-import TeamHome from "./individual_teams";
-import TeamSchedule from "./individual_teams/team_schedule";
-import TeamForum from "./individual_teams/team_forum";
+import TeamHome from "./individual-teams";
+import TeamSchedule from "./individual-teams/team_schedule";
+import TeamForum from "./individual-teams/team_forum";
 
 
 function TeamRouting() {
