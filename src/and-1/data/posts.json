@@ -22,7 +22,8 @@
     "likeDislike" : 110,
     "comment" : 0,
     "share": 2,
-    "timestamp": "2 min ago",
+    "liked": false,
+    "timestamp": "2020-05-18T14:10:30Z",
     "tag": "nuggets",
     "tagColor": "a1-bg-nuggets"
   },
@@ -36,7 +37,8 @@
     "likeDislike" : 1500,
     "comment" : 50,
     "share": 230,
-    "timestamp": "2 min ago",
+    "liked": false,
+    "timestamp": "2020-05-18T14:10:30Z",
     "tag": "76ers",
     "tagColor": "a1-bg-76ers"
   },
@@ -50,7 +52,8 @@
     "likeDislike" : -20,
     "comment" : 2,
     "share": 3,
-    "timestamp": "2 min ago",
+    "liked": false,
+    "timestamp": "2020-05-18T14:10:30Z",
     "tag": "celtics",
     "tagColor": "a1-bg-celtics"
   },
@@ -64,7 +67,8 @@
     "likeDislike" : 100,
     "comment" : 50,
     "share": 3,
-    "timestamp": "2 min ago",
+    "liked": false,
+    "timestamp": "2020-05-18T14:10:30Z",
     "tag": "Mavericks",
     "tagColor": "a1-bg-mavericks"
   },
@@ -78,7 +82,8 @@
     "likeDislike" : 10,
     "comment" : 5,
     "share": 23,
-    "timestamp": "2 min ago",
+    "liked": false,
+    "timestamp": "2020-05-18T14:10:30Z",
     "tag": "general",
     "tagColor": "a1-bg-red"
   }

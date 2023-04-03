@@ -6,27 +6,177 @@
         "logo" : "../images/celtics.png" ,
         "wins": 50,
         "loss": 23,
-        "colors": "a1-bg-celtics" },
+        "colors": "a1-bg-celtics",
+        "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+                    {
+                      "name" : "Jayson Tatum",
+                      "photo" : "../../../images/tatum.png",
+                      "number" : 0,
+                      "position" : "F-G",
+                      "height" : "6:8",
+                      "weight" : "210"
+                    },
+                    {
+                      "name" : "Jayson Tatum",
+                      "photo" : "../../../images/tatum.png",
+                      "number" : 0,
+                      "position" : "F-G",
+                      "height" : "6:8",
+                      "weight" : "210"
+                    },
+                    {
+                      "name" : "Jayson Tatum",
+                      "photo" : "../../../images/tatum.png",
+                      "number" : 0,
+                      "position" : "F-G",
+                      "height" : "6:8",
+                      "weight" : "210"
+                    }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
+
       {"name" : "Nets",
         "logo" : "../images/nets.png" ,
         "wins": 39  ,
         "loss": 33,
-        "colors": "a1-bg-nets" },
+        "colors": "a1-bg-nets", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
+
       {"name" : "76ers",
         "logo" : "../images/76ers.png" ,
         "wins": 48  ,
         "loss": 23,
-        "colors": "a1-bg-76ers" },
+        "colors": "a1-bg-76ers", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
+
       {"name" : "Knicks",
         "logo" : "../images/knicks.png " ,
         "wins": 42  ,
         "loss": 31,
-        "colors": "a1-bg-knicks" },
+        "colors": "a1-bg-knicks", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
+
       {"name" : "Raptors",
         "logo" : "../images/raptors.png" ,
         "wins": 35  ,
         "loss": 37,
-        "colors": "a1-bg-raptors" }
+        "colors": "a1-bg-raptors","likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      }
     ]
 
   },
@@ -38,27 +188,172 @@
         "logo" : "../images/pacers.png" ,
         "wins": 32  ,
         "loss": 40,
-        "colors": "a1-bg-pacers" },
+        "colors": "a1-bg-pacers", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
       {"name" : "Bulls",
         "logo" : "../images/bulls.png" ,
         "wins": 34  ,
         "loss": 37,
-        "colors": "a1-bg-bulls" },
+        "colors": "a1-bg-bulls", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
       {"name" : "Cavs",
         "logo" : "../images/cavs.png" ,
         "wins": 46  ,
         "loss": 28,
-        "colors": "a1-bg-cavs" },
+        "colors": "a1-bg-cavs", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
       {"name" : "Pistons",
         "logo" : "../images/pistons.png" ,
         "wins": 16  ,
         "loss": 57,
-        "colors": "a1-bg-pistons" },
+        "colors": "a1-bg-pistons", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
       {"name" : "Bucks",
         "logo" : "../images/bucks.png" ,
         "wins": 51  ,
         "loss": 20,
-        "colors": "a1-bg-bucks" }
+        "colors": "a1-bg-bucks", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      }
     ]
 
   },
@@ -70,27 +365,172 @@
         "logo" : "../images/heat.png" ,
         "wins": 39  ,
         "loss": 34,
-        "colors": "a1-bg-heat" },
+        "colors": "a1-bg-heat", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
       {"name" : "Magic",
         "logo" : "../images/magic.png" ,
         "wins": 30  ,
         "loss": 43,
-        "colors": "a1-bg-magic" },
+        "colors": "a1-bg-magic", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
       {"name" : "Wizards",
         "logo" : "../images/wizards.png" ,
         "wins": 32  ,
         "loss": 40,
-        "colors": "a1-bg-wizards" },
+        "colors": "a1-bg-wizards", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
       {"name" : "Hawks",
         "logo" : "../images/hawks.png" ,
         "wins": 36  ,
         "loss": 36,
-        "colors": "a1-bg-hawks" },
+        "colors": "a1-bg-hawks", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      },
       {"name" : "Hornets",
         "logo" : "../images/hornets.png" ,
         "wins": 23  ,
         "loss": 50,
-        "colors": "a1-bg-hornets" }
+        "colors": "a1-bg-hornets", "likes" : 1000000000,
+        "follows": 100120901,
+        "players" : [
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          },
+          {
+            "name" : "Jayson Tatum",
+            "photo" : "../../../images/tatum.png",
+            "number" : 0,
+            "position" : "F-G",
+            "height" : "6:8",
+            "weight" : "210"
+          }],
+         "city" : "Boston",
+          "stadium" : "TD Garden"
+      }
     ]
 
   }
