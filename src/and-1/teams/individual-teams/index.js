@@ -1,7 +1,7 @@
 import TeamNav from "./team-nav";
 import Standings from "../../components/standings";
 import NavigationSidebar from "../../components/nav";
-import HomePage from "./team-home";
+import TeamHomePage from "./team-home";
 
 function TeamHome()
     {
@@ -10,7 +10,7 @@ function TeamHome()
             <TeamNav/>
             <div className="row p-0 m-0">
                 <NavigationSidebar/>
-                <HomePage/>
+                <TeamHomePage/>
                 <Standings/>
             </div>
 

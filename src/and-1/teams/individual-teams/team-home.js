@@ -1,7 +1,7 @@
 import {useParams} from "react-router";
 import {get_team} from "../../helper-funcs";
 
-function HomePage()
+function TeamHomePage()
 {
     const { teamName } = useParams();
     const  team = get_team(teamName)
@@ -32,7 +32,7 @@ function HomePage()
                     <tbody>
                     {
                         team.players.map((player,i) =>
-                            <tr>
+                            <tr key={i}>
                                 <th>
                                     <img alt="" className="d-inline a1-player-image" src={player.photo}/>
                                 </th>
@@ -55,4 +55,4 @@ function HomePage()
             </div>
     );
 }
-export default HomePage;
+export default TeamHomePage;

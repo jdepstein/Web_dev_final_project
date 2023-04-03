@@ -1,11 +1,24 @@
 import ForumTitle from "../../components/forum-title";
 import CreatePost from "../../create-post";
-import posts from "../../data/posts.json";
 import ForumItem from "../../forum/forum-item";
 import {useParams} from "react-router";
 
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+
+import {findPostsThunk, findTeamPostsThunk}
+    from "../../thunks/posts-thunks";
+
 function TeamForumPage() {
     const { teamName } = useParams();
+    const {posts, loading} = useSelector(
+        state => state.postData)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(findTeamPostsThunk(teamName))
+    }, [])
+
+
     return (
 
 
@@ -14,7 +27,7 @@ function TeamForumPage() {
                 <CreatePost/>
                 {
                     posts.map((post, i) =>
-                        <ForumItem key={i} post={post}/>
+                        <ForumItem key={post._id} post={post}/>
                     )
                 }
             </div>

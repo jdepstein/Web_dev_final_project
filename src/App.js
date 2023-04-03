@@ -2,7 +2,6 @@ import {BrowserRouter, Form} from "react-router-dom";
 import {Routes, Route} from "react-router";
 import './App.css';
 import Login from "./and-1/login";
-import Profile from "./and-1/profile";
 import Home from "./and-1/home";
 import Stats from "./and-1/stats";
 import Schedule from "./and-1/schedule";
@@ -11,10 +10,19 @@ import TeamRouting from "./and-1/teams/team-routing";
 import ForumRouting from "./and-1/forum/forum-routing";
 import ProfileRouting from "./and-1/profile/profile-routing";
 
+import {configureStore} from '@reduxjs/toolkit';
+import {Provider} from "react-redux";
+import PostsReducer from "./and-1/reducers/posts-reducer";
+
+const store = configureStore(
+    {reducer:
+            {postData: PostsReducer}});
+
 
 function App() {
   return (
         <BrowserRouter>
+            <Provider store={store}>
                 <Routes>
                     <Route path="login" element={<Login/>}/>
                     <Route path="create_account" element={<CreateAccount/>}/>
@@ -26,6 +34,7 @@ function App() {
                     <Route path="stats" element={<Stats/>}/>
                     <Route path="schedule" element={<Schedule/>}/>
                 </Routes>
+            </Provider>
         </BrowserRouter>
 
 
