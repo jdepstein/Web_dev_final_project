@@ -9,9 +9,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {findTeamPostsThunk}
     from "../../thunks/posts-thunks";
 
-import {deletePostThunk} from "../../thunks/posts-thunks";
-
-
 function TeamForumPage() {
     const { teamName } = useParams();
     const {posts, loading} = useSelector(

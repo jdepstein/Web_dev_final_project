@@ -5,6 +5,9 @@ import {get_team} from "../../helper-funcs";
 function EditTeamPage() {
     const { teamName } = useParams();
     const  team = get_team(teamName)
+
+
+
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
             <div className="h3 text-dark a1-font-family fw-bold mt-3 mb-2 ms-2">
