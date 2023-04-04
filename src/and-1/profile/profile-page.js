@@ -1,7 +1,15 @@
 import {Link} from "react-router-dom";
 import CreatePost from "../create-post";
-import posts from "../data/posts.json";
 import ForumSummaryItem from "../forum-summary/forum-summary-item";
+
+
+import {findPostsThunk}
+    from "../thunks/posts-thunks";
+
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+
+
 
 function ProfilePage(profile=
 
@@ -20,7 +28,16 @@ function ProfilePage(profile=
     }
 
 
+
 ) {
+
+    const {posts, loading} = useSelector(
+        state => state.postData)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(findPostsThunk())
+    }, [])
+
     const logged = true
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
@@ -98,6 +115,7 @@ function ProfilePage(profile=
         </div>
 
     );
+
 }
 
 export default ProfilePage;

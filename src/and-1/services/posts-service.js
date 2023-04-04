@@ -33,6 +33,7 @@ export const deletePost = async (pid) => {
 }
 
 export const updatePost = async (post) => {
+    console.log(post)
     const response = await axios
         .put(`${POST_API}/${post._id}`, post);
     return post;

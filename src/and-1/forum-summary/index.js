@@ -1,8 +1,6 @@
 import SearchBar from "../components/search-bar";
 import ForumTitle from "../components/forum-title";
 import ForumSummaryItem from "./forum-summary-item";
-//import posts from "../data/posts.json"
-
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 

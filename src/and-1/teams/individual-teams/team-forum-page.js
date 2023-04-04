@@ -6,8 +6,11 @@ import {useParams} from "react-router";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {findPostsThunk, findTeamPostsThunk}
+import {findTeamPostsThunk}
     from "../../thunks/posts-thunks";
+
+import {deletePostThunk} from "../../thunks/posts-thunks";
+
 
 function TeamForumPage() {
     const { teamName } = useParams();
