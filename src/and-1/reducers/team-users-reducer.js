@@ -36,7 +36,7 @@ const teamUsersSlice = createSlice({
                 state.loading = false
                 state.teamUsers.push(payload)
             },
-
+        /*
         [updateTeamUserThunk.fulfilled]:
             (state, { payload }) => {
                 state.loading = false
@@ -46,6 +46,8 @@ const teamUsersSlice = createSlice({
                     ...payload
                 }
             }
+
+         */
 
     },
     reducers: {}

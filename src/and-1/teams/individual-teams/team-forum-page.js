@@ -15,7 +15,7 @@ function TeamForumPage() {
         state => state.postData)
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(findTeamPostsThunk(teamName))
+        dispatch(findTeamPostsThunk(teamName.toLowerCase()))
     }, [])
 
 

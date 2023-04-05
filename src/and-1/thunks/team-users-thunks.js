@@ -3,21 +3,21 @@ import * as service from "../services/team-users-service"
 
 
 export const findTeamUserThunk = createAsyncThunk(
-    'teams/findTeams', async (team) =>
+    'teams/findTeamUser', async (team) =>
         await service.findTeamUser(team)
 )
 
 
 
 export const createTeamUserThunk = createAsyncThunk(
-    'teams/createTeam',
+    'teams/createTeamUser',
     async (team) => {
         return await service.createTeamUser(team)
     })
 
 export const updateTeamUserThunk =
     createAsyncThunk(
-        'teams/updateTeam',
+        'teams/updateTeamUser',
         async (team) =>
             await service.updateTeamUser(team)
     )

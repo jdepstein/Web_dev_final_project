@@ -1,6 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit"
 import * as service from "../services/teams-service"
-import axios from "axios";
 
 export const findTeamsThunk = createAsyncThunk(
     'teams/findTeams', async () =>
@@ -22,6 +21,8 @@ export const createTeamThunk = createAsyncThunk(
 export const updateTeamThunk =
     createAsyncThunk(
         'teams/updateTeam',
-        async (team) =>
-            await service.updateTeam(team)
+        async (team) => {
+            return await service.updateTeam(team)
+
+        }
     )
