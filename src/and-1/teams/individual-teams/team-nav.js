@@ -8,7 +8,7 @@ import {findIndividualTeamThunk, updateTeamThunk} from "../../thunks/teams-thunk
 
 function TeamNav() {
     const { teamName } = useParams();
-    const logged = false
+    const logged = true
     let {teams, loading} = useSelector(
         state => state.teamData)
     const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function TeamNav() {
                     { logged ?
                         <Link to={"/teams/" + teams.name + "/edit-team"}>
                             <button className="float-end btn rounded-pill btn-primary  btn-lg me-3">
-                                Edit Team
+                                Edit
                             </button>
                         </Link>
                         :
