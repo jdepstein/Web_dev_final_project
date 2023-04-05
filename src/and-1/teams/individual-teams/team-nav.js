@@ -9,61 +9,61 @@ import {findIndividualTeamThunk, updateTeamThunk} from "../../thunks/teams-thunk
 function TeamNav() {
     const { teamName } = useParams();
     const logged = false
-    const {team, loading} = useSelector(
+    let {teams, loading} = useSelector(
         state => state.teamData)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(findIndividualTeamThunk(teamName))
     }, [])
     return (
-        <div className={team.colors + " d-inline-block w-100"}>
+        <div className={teams.colors + " d-inline-block w-100"}>
             <nav className="navbar navbar-expand-sm navbar-light w-100">
-                <img alt="" className="ms-2 navbar-brand a1-team-page-image" src={"../" + team.logo}/>
+                <img alt="" className="ms-2 navbar-brand a1-team-page-image" src={"../" + teams.logo}/>
                     <ul className="navbar-nav w-100">
                         <li className="nav-item">
                             <Link className="ps-2 text-white nav-link"
-                                  to={"/teams/" + (team.name) + "/team-home"}>Team</Link>
+                                  to={"/teams/" + (teams.name) + "/team-home"}>Team</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="ps-2 text-white nav-link" to={
-                                "/teams/" + (team.name) +  "/team-schedule"}>Schedule</Link>
+                                "/teams/" + (teams.name) +  "/team-schedule"}>Schedule</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="ps-2 text-white nav-link" to={
-                                "/teams/" + (team.name) + "/team-forum"}>Team Forum</Link>
+                                "/teams/" + (teams.name) + "/team-forum"}>Team Forum</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="ps-2 text-white nav-link" to="#">Tickets</Link>
                         </li>
                     </ul>
                     { logged ?
-                        <Link to={"/teams/" + team.name.toLowerCase() + "/edit-team"}>
+                        <Link to={"/teams/" + teams.name + "/edit-team"}>
                             <button className="float-end btn rounded-pill btn-primary  btn-lg me-3">
                                 Edit Team
                             </button>
                         </Link>
                         :
                         <>
-                            {team.liked ?
+                            {teams.liked ?
                                 <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2"
                                    onClick={() =>  dispatch(updateTeamThunk({
-                                       ...team, liked: false, likes: team.likes - 1}))}>
+                                       ...teams, liked: false, likes: teams.likes - 1}))}>
                                 </i>
                                 :
                                 <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2 fw-normal"
                                    onClick={() =>  dispatch(updateTeamThunk({
-                                           ...team, liked: true, likes: team.likes + 1}))}>
+                                           ...teams, liked: true, likes: teams.likes + 1}))}>
                                 </i>
                             }
-                            {team.followed ?
+                            {teams.followed ?
                                 <button onClick={() => dispatch(updateTeamThunk({
-                                    ...team, followed: false, follows: team.follows - 1}))}
+                                    ...teams, followed: false, follows: teams.follows - 1}))}
                                         className="nav-item float-end btn rounded-pill btn-primary  btn-lg me-3">
                                     Unfollow
                                 </button>
                                 :
                                 <button onClick={() => dispatch(updateTeamThunk({
-                                    ...team, followed: true, follows: team.follows + 1}))}
+                                    ...teams, followed: true, follows: teams.follows + 1}))}
                                     className="nav-item float-end btn rounded-pill btn-primary  btn-lg me-3">
                                     Follow
                                 </button>

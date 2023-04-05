@@ -13,7 +13,7 @@ import {findTeamUserThunk}
 function TeamHomePage()
 {   //teamUsers
     const { teamName } = useParams();
-    const {team, loading} = useSelector(
+    const {teams, loading} = useSelector(
         state => state.teamData)
     const dispatch = useDispatch();
     useEffect(() => {
@@ -38,8 +38,8 @@ function TeamHomePage()
                     {teamUsers.stadium}
                 </div>
                 <div className="h4 text-dark a1-font-family fw-bold mt-5 text-center border-bottom pb-3 mb-2">
-                    <span className="me-2 text-secondary">Likes:</span> {team.likes}
-                    <span className="me-2 ms-2 text-secondary">Followers: </span> {team.follows}
+                    <span className="me-2 text-secondary">Likes:</span> {teams.likes}
+                    <span className="me-2 ms-2 text-secondary">Followers: </span> {teams.follows}
                 </div>
                 <table className="table table-striped">
                     <thead>

@@ -5,7 +5,7 @@ import {findTeamUserThunk, createTeamUserThunk, updateTeamUserThunk}
 
 
 const initialState = {
-    teamUsers: [],
+    teamUsers: {},
     loading: false
 }
 
@@ -16,7 +16,7 @@ const teamUsersSlice = createSlice({
         [findTeamUserThunk.pending]:
             (state) => {
                 state.loading = true
-                state.teamUsers = []
+                state.teamUsers = {}
             },
 
         [findTeamUserThunk.fulfilled]:
@@ -36,18 +36,15 @@ const teamUsersSlice = createSlice({
                 state.loading = false
                 state.teamUsers.push(payload)
             },
-        /*
+
         [updateTeamUserThunk.fulfilled]:
             (state, { payload }) => {
                 state.loading = false
-                const teamUserNdx = state.teamUsers.findIndex((tu) => tu._id === payload._id)
-                state.teamUsers[teamUserNdx] = {
-                    ...state.teamUsers[teamUserNdx],
+                state.teamUsers = {
+                    ...state.teamUsers,
                     ...payload
                 }
             }
-
-         */
 
     },
     reducers: {}

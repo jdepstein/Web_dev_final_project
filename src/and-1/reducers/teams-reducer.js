@@ -6,7 +6,6 @@ import {createTeamThunk, updateTeamThunk, findTeamsThunk, findIndividualTeamThun
 
 const initialState = {
     teams: [],
-    team: {},
     loading: true
 }
 
@@ -38,7 +37,7 @@ const teamsSlice = createSlice({
         [findIndividualTeamThunk.fulfilled]:
             (state, { payload }) => {
                 state.loading = false
-                state.team = payload[0]
+                state.teams = payload[0]
             },
         [findIndividualTeamThunk.rejected]:
             (state, action) => {
@@ -56,9 +55,8 @@ const teamsSlice = createSlice({
         [updateTeamThunk.fulfilled]:
             (state, { payload }) => {
                 state.loading = false
-                const teamNdx = state.teams.findIndex((t) => t._id === payload._id)
-                state.teams[teamNdx] = {
-                    ...state.teams[teamNdx],
+                state.teams= {
+                    ...state.teams,
                     ...payload
                 }
             }
