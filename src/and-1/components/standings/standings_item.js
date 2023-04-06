@@ -1,5 +1,4 @@
 import {useParams} from "react-router";
-import {get_team} from "../../helper-funcs";
 
 function StandingsItem(teams) {
     const { teamName } = useParams();

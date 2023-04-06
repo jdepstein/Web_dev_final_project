@@ -7,7 +7,7 @@ const LatestResults = (
         {
             results.map((result, i) => {
                         if (i > 5) {
-                            return
+                            return <></>
                         }
                         else
                         return (

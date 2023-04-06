@@ -8,9 +8,11 @@ import {findPostsThunk}
     from "../thunks/posts-thunks";
 
 function ForumSummary() {
-    const {posts, loading} = useSelector(
+    const {posts} = useSelector(
         state => state.postData)
+        
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(findPostsThunk())
     }, [])

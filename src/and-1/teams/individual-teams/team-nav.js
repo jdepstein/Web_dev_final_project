@@ -38,8 +38,8 @@ function TeamNav() {
                     </ul>
                     { logged ?
                         <Link to={"/teams/" + teams.name + "/edit-team"}>
-                            <button className="float-end btn rounded-pill btn-primary  btn-lg me-3">
-                                Edit Team
+                            <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
+                                Edit
                             </button>
                         </Link>
                         :
@@ -58,13 +58,13 @@ function TeamNav() {
                             {teams.followed ?
                                 <button onClick={() => dispatch(updateTeamThunk({
                                     ...teams, followed: false, follows: teams.follows - 1}))}
-                                        className="nav-item float-end btn rounded-pill btn-primary  btn-lg me-3">
+                                        className="nav-item float-end rounded-pill a1-bg-red text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
                                     Unfollow
                                 </button>
                                 :
                                 <button onClick={() => dispatch(updateTeamThunk({
                                     ...teams, followed: true, follows: teams.follows + 1}))}
-                                    className="nav-item float-end btn rounded-pill btn-primary  btn-lg me-3">
+                                    className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
                                     Follow
                                 </button>
                             }
