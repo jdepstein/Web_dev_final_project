@@ -1,0 +1,410 @@
+{
+  "get": "games/",
+  "parameters": {
+    "date": "2023-04-04"
+  },
+  "errors": [],
+  "results": 5,
+  "response": [
+    {
+      "id": 12225,
+      "league": "standard",
+      "season": 2022,
+      "date": {
+        "start": "2023-04-04T23:00:00.000Z",
+        "end": null,
+        "duration": null
+      },
+      "stage": 2,
+      "status": {
+        "clock": null,
+        "halftime": false,
+        "short": 3,
+        "long": "Finished"
+      },
+      "periods": {
+        "current": 4,
+        "total": 4,
+        "endOfPeriod": false
+      },
+      "arena": {
+        "name": null,
+        "city": null,
+        "state": null,
+        "country": null
+      },
+      "teams": {
+        "visitors": {
+          "id": 38,
+          "name": "Toronto Raptors",
+          "nickname": "Raptors",
+          "code": "TOR",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/8/89/Raptors2015.png"
+        },
+        "home": {
+          "id": 5,
+          "name": "Charlotte Hornets",
+          "nickname": "Hornets",
+          "code": "CHA",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/thumb/f/f3/Hornets_de_Charlotte_logo.svg/1200px-Hornets_de_Charlotte_logo.svg.png"
+        }
+      },
+      "scores": {
+        "visitors": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "25",
+            "36",
+            "33",
+            "26"
+          ],
+          "points": 120
+        },
+        "home": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "29",
+            "20",
+            "26",
+            "25"
+          ],
+          "points": 100
+        }
+      },
+      "officials": [],
+      "timesTied": null,
+      "leadChanges": null,
+      "nugget": null
+    },
+    {
+      "id": 12226,
+      "league": "standard",
+      "season": 2022,
+      "date": {
+        "start": "2023-04-04T23:00:00.000Z",
+        "end": null,
+        "duration": null
+      },
+      "stage": 2,
+      "status": {
+        "clock": null,
+        "halftime": false,
+        "short": 3,
+        "long": "Finished"
+      },
+      "periods": {
+        "current": 4,
+        "total": 4,
+        "endOfPeriod": false
+      },
+      "arena": {
+        "name": null,
+        "city": null,
+        "state": null,
+        "country": null
+      },
+      "teams": {
+        "visitors": {
+          "id": 20,
+          "name": "Miami Heat",
+          "nickname": "Heat",
+          "code": "MIA",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/thumb/1/1c/Miami_Heat_-_Logo.svg/1200px-Miami_Heat_-_Logo.svg.png"
+        },
+        "home": {
+          "id": 10,
+          "name": "Detroit Pistons",
+          "nickname": "Pistons",
+          "code": "DET",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Detroit_Pistons_primary_logo_2017.png/150px-Detroit_Pistons_primary_logo_2017.png"
+        }
+      },
+      "scores": {
+        "visitors": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "31",
+            "28",
+            "21",
+            "38"
+          ],
+          "points": 118
+        },
+        "home": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "27",
+            "25",
+            "27",
+            "26"
+          ],
+          "points": 105
+        }
+      },
+      "officials": [],
+      "timesTied": null,
+      "leadChanges": null,
+      "nugget": null
+    },
+    {
+      "id": 12227,
+      "league": "standard",
+      "season": 2022,
+      "date": {
+        "start": "2023-04-04T23:00:00.000Z",
+        "end": null,
+        "duration": null
+      },
+      "stage": 2,
+      "status": {
+        "clock": null,
+        "halftime": false,
+        "short": 3,
+        "long": "Finished"
+      },
+      "periods": {
+        "current": 4,
+        "total": 4,
+        "endOfPeriod": false
+      },
+      "arena": {
+        "name": null,
+        "city": null,
+        "state": null,
+        "country": null
+      },
+      "teams": {
+        "visitors": {
+          "id": 7,
+          "name": "Cleveland Cavaliers",
+          "nickname": "Cavaliers",
+          "code": "CLE",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/thumb/0/06/Cavs_de_Cleveland_logo_2017.png/150px-Cavs_de_Cleveland_logo_2017.png"
+        },
+        "home": {
+          "id": 26,
+          "name": "Orlando Magic",
+          "nickname": "Magic",
+          "code": "ORL",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/b/bd/Orlando_Magic_logo_2010.png"
+        }
+      },
+      "scores": {
+        "visitors": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "23",
+            "35",
+            "35",
+            "24"
+          ],
+          "points": 117
+        },
+        "home": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "29",
+            "30",
+            "32",
+            "22"
+          ],
+          "points": 113
+        }
+      },
+      "officials": [],
+      "timesTied": null,
+      "leadChanges": null,
+      "nugget": null
+    },
+    {
+      "id": 12228,
+      "league": "standard",
+      "season": 2022,
+      "date": {
+        "start": "2023-04-04T23:00:00.000Z",
+        "end": null,
+        "duration": null
+      },
+      "stage": 2,
+      "status": {
+        "clock": null,
+        "halftime": false,
+        "short": 3,
+        "long": "Finished"
+      },
+      "periods": {
+        "current": 4,
+        "total": 4,
+        "endOfPeriod": false
+      },
+      "arena": {
+        "name": null,
+        "city": null,
+        "state": null,
+        "country": null
+      },
+      "teams": {
+        "visitors": {
+          "id": 21,
+          "name": "Milwaukee Bucks",
+          "nickname": "Bucks",
+          "code": "MIL",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png"
+        },
+        "home": {
+          "id": 41,
+          "name": "Washington Wizards",
+          "nickname": "Wizards",
+          "code": "WAS",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/archive/d/d6/20161212034849%21Wizards2015.png"
+        }
+      },
+      "scores": {
+        "visitors": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "32",
+            "43",
+            "39",
+            "26"
+          ],
+          "points": 140
+        },
+        "home": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "29",
+            "33",
+            "35",
+            "31"
+          ],
+          "points": 128
+        }
+      },
+      "officials": [],
+      "timesTied": null,
+      "leadChanges": null,
+      "nugget": null
+    },
+    {
+      "id": 12229,
+      "league": "standard",
+      "season": 2022,
+      "date": {
+        "start": "2023-04-04T23:30:00.000Z",
+        "end": null,
+        "duration": null
+      },
+      "stage": 2,
+      "status": {
+        "clock": null,
+        "halftime": false,
+        "short": 3,
+        "long": "Finished"
+      },
+      "periods": {
+        "current": 4,
+        "total": 4,
+        "endOfPeriod": false
+      },
+      "arena": {
+        "name": null,
+        "city": null,
+        "state": null,
+        "country": null
+      },
+      "teams": {
+        "visitors": {
+          "id": 22,
+          "name": "Minnesota Timberwolves",
+          "nickname": "Timberwolves",
+          "code": "MIN",
+          "logo": "https://upload.wikimedia.org/wikipedia/fr/thumb/d/d9/Timberwolves_du_Minnesota_logo_2017.png/200px-Timberwolves_du_Minnesota_logo_2017.png"
+        },
+        "home": {
+          "id": 4,
+          "name": "Brooklyn Nets",
+          "nickname": "Nets",
+          "code": "BKN",
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brooklyn_Nets_newlogo.svg/130px-Brooklyn_Nets_newlogo.svg.png"
+        }
+      },
+      "scores": {
+        "visitors": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "31",
+            "20",
+            "26",
+            "30"
+          ],
+          "points": 107
+        },
+        "home": {
+          "win": 0,
+          "loss": 0,
+          "series": {
+            "win": 0,
+            "loss": 0
+          },
+          "linescore": [
+            "24",
+            "30",
+            "24",
+            "24"
+          ],
+          "points": 102
+        }
+      },
+      "officials": [],
+      "timesTied": null,
+      "leadChanges": null,
+      "nugget": null
+    }
+  ]
+}
