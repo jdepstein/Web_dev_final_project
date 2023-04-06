@@ -2,20 +2,27 @@ import React from "react";
 import ConferenceTableApiItem from "./api_conference_table_item";
 import data from "../data/west_stats.json";
 
+function sort_by_key(array, key)
+{
+    return array.sort(function(a, b)
+    {
+        var x = parseInt(a[key]); var y = parseInt(b[key]);
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}
 const sort_stuff = () => {
-
     const test = data.response.sort(
-        (t1, t2) =>  parseInt(t1.win.percentage) < parseInt(t2.win.percentage) ? 1
-            : parseInt(t1.win.percentage) > parseInt(t2.win.percentage) ? -1
+        (t1, t2) =>  parseFloat(t1.win.percentage) < parseFloat(t2.win.percentage) ? 1
+            : parseFloat(t1.win.percentage) > parseFloat(t2.win.percentage) ? -1
                 : 0
     )
-    console.log(test)
     return test
 }
 
 const ApiWestConferenceTable = () => {
     // let ids = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
     let team_array = sort_stuff();
+    //console.log(team_array)
     return(
         <table className="table table-striped">
             <thead>
@@ -33,7 +40,7 @@ const ApiWestConferenceTable = () => {
             </thead>
             <tbody>
             {
-                sort_stuff().map((data, i) =>
+                team_array.map((data, i) =>
                     <ConferenceTableApiItem
                         key={i} data= {data}
                     />
