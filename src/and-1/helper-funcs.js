@@ -1,6 +1,10 @@
 import east from "./data/eastern.json";
 import west from "./data/western.json";
 
+function extract_latest_games(json) {
+
+}
+
 function get_team(teamName) {
     let curTeam =
         {
