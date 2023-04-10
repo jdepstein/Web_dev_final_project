@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { findUserThunk, updateUserThunk, deleteUserThunk, createUserThunk } from 
+import { findUserThunk, updateUserThunk, deleteUserThunk, createUserThunk, findAllUsersThunk } from 
     "../thunks/users-thunks"; 
 
 
 const initialState = {
-    user: {},
+    user: [],
     loading: false
 }
 
 const usersSlice = createSlice({
     name: "users",
     initialState,
-    reducers: {},
+    reducers: [],
     extraReducers: {
         [findUserThunk.pending]: (state, action) => {
             state.loading = true
@@ -25,6 +25,18 @@ const usersSlice = createSlice({
             state.loading = false
             state.error = action.error
         },
+        [findAllUsersThunk.pending]: (state, action) => {
+            state.loading = true
+        },
+        [findAllUsersThunk.fulfilled]: (state, { payload }) => {
+            state.loading = false
+            state.user = payload
+        },
+        [findAllUsersThunk.rejected]: (state, action) => {
+            state.loading = false
+            state.error = action.error
+        },
+
         [updateUserThunk.fulfilled]: (state, { payload }) => {
             state.loading = false
             state.user = {

@@ -8,6 +8,12 @@ export const getUser = async (handle) => {
     return response.data;
 }
 
+export const getAllUsers = async () => {
+    const response = await axios.get(USER_API + "all");
+    return response.data;
+}
+
+
 export const updateUser = async (user) => {
     const response = await axios.put(`${USER_API}/${user._id}`, user);
     return user;

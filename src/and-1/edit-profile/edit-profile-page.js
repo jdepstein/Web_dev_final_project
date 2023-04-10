@@ -1,5 +1,9 @@
 import {Link} from "react-router-dom";
 import {all_teams} from "../helper-funcs";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {findTeamsThunk} from "../thunks/teams-thunks";
+
 
 function EditProfilePage(profile=
 
@@ -19,6 +23,17 @@ function EditProfilePage(profile=
 
 
 ) {
+    const {teams, loading} = useSelector(
+        state => state.teamData)
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(findTeamsThunk())
+    }, [])
+
+
+
+
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
             <div className="h3 text-dark a1-font-family fw-bold mt-3 mb-2 ms-2">
@@ -54,7 +69,7 @@ function EditProfilePage(profile=
                     <label className="form-label" htmlFor="FavoriteTeam"> Favorite Team</label>
                     <select  className="form-control w-50 shadow-none mt-3">
                         {
-                            all_teams().map(team =>
+                            teams.map(team =>
                                 {
                                     if (team.name === profile.profile.FavoriteTeam.toLowerCase()) {
                                         return(

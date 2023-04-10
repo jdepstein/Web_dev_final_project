@@ -1,11 +1,12 @@
-import {all_teams, get_team} from "../helper-funcs";
 import {Link} from "react-router-dom";
 
-import React, {useState} from "react";
-import {useDispatch} from "react-redux";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 import {createPostThunk}
     from "../thunks/posts-thunks";
+
+import {findTeamsThunk} from "../thunks/teams-thunks";
 
 
 
@@ -14,6 +15,18 @@ function CreateComponent() {
     let [newPostTitleText, setNewPostText] = useState('');
     let [newPostTitleTag, setNewPostTag] = useState('celtics::a1-bg-celtics');
     const dispatch = useDispatch();
+
+    const {teams, loading} = useSelector(
+        state => state.teamData)
+
+    
+    useEffect(() => {
+        dispatch(findTeamsThunk())
+    }, [])
+
+
+
+
     const newPostHandler = () => {
         const tag_and_color = newPostTitleTag.split("::")
         const newPost = {
@@ -28,6 +41,7 @@ function CreateComponent() {
         setNewPostTitle("");
         setNewPostText("");
         setNewPostTag("");
+        
     }
 
     return (
@@ -44,7 +58,7 @@ function CreateComponent() {
                         <select className="form-control w-25 shadow-none mt-3"
                                 onChange={(event) => setNewPostTag(event.target.value.toLowerCase())}>
                             {
-                                all_teams().map(team =>
+                                teams.map(team =>
                                     <option key={team.name} value={team.name + "::" + team.colors}>
                                         {team.name}
                                     </option>

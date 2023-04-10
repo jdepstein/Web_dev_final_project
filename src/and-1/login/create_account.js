@@ -6,12 +6,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 
 
-import {createUserThunk, findUserThunk }
+import {createUserThunk, findAllUsersThunk }
     from "../thunks/users-thunks";
 
 
 // TODO - setup the different user search/team Search
-// Setup the ability to go to other users profiles and see their information
 
 function CreateAccount() {
     let [newUserEmail, setNewUserEmail] = useState('');
@@ -20,16 +19,14 @@ function CreateAccount() {
     let [newUserFullName, setNewUserFullName] = useState('');
     let [newUserType, setNewUserType] = useState('user');
     const [profile, setProfile] = useState({})
-
-
     const dispatch = useDispatch();
 
-    const callThunk = async () => { 
-        const {payload}  = await dispatch(findUserThunk(newUserUsername))
-        setProfile(payload)
-    }
+    const {user, loading} = useSelector(
+        state => state.UserData)
 
-
+    useEffect(() => {
+        dispatch(findAllUsersThunk())
+    }, [])
 
     const newUserHandler = () => {
         const newUser = {
@@ -39,13 +36,12 @@ function CreateAccount() {
             name: newUserFullName,
             type: newUserType,
         }
-        /*
-        if ( profile === {}) {
-            alert("Username already exists")
+        
+        if (user.find(user => user.handle === newUserUsername) !== undefined) {
+            alert("Username already exists", profile)
         }
-        */
 
-        if(newUserEmail === "" || newUserUsername === "" || newUserPassword === "" || newUserFullName === "" || newUserType === "") {
+        else if(newUserEmail === "" || newUserUsername === "" || newUserPassword === "" || newUserFullName === "" || newUserType === "") {
             alert("Please fill out all fields")
         }
         else {
@@ -55,6 +51,7 @@ function CreateAccount() {
             setNewUserPassword("");
             setNewUserFullName("");
             setNewUserType("");
+            window.location.replace("/home");
         }
     }
 
