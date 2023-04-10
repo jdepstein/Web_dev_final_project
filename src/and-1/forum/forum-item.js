@@ -3,12 +3,6 @@ import {deletePostThunk} from "../thunks/posts-thunks";
 
 import {useDispatch} from "react-redux";
 
-// TODO: Set up search based on user
-// TODO: Set up delete based on user
-// TODO: Set  up profile to only show the users posts
-// TODO: Set up Team Objects (RU NO DELETE)
-// TODO: Set up Team users (CRU) NO DELETE USER
-// TODO: Set up regular users (CRU) NO DELETE USER
 
 function ForumItem(
         post = {
