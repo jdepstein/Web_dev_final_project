@@ -54,7 +54,6 @@ const teamsSlice = createSlice({
 
         [updateTeamThunk.fulfilled]:
             (state, { payload }) => {
-                console.log(payload);
                 state.loading = false
                 state.teams= {
                     ...state.teams,

@@ -8,7 +8,7 @@ import {findIndividualTeamThunk, updateTeamThunk} from "../../thunks/teams-thunk
 
 function TeamNav() {
     const { teamName } = useParams();
-    const logged = false
+    const logged = true
     let {teams, loading} = useSelector(
         state => state.teamData)
     const dispatch = useDispatch();
