@@ -6,7 +6,6 @@ const ApiLatestResults = (
 ) => {
     let game_array = games.response;
 
-    console.log(game_array)
 
     return (
         <ul className="list-group list-group-horizontal border-top border-bottom">

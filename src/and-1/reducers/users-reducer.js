@@ -19,7 +19,7 @@ const usersSlice = createSlice({
         },
         [findUserThunk.fulfilled]: (state, { payload }) => {
             state.loading = false
-            state.user = payload
+            state.user = payload[0]
         },
         [findUserThunk.rejected]: (state, action) => {
             state.loading = false
@@ -27,7 +27,10 @@ const usersSlice = createSlice({
         },
         [updateUserThunk.fulfilled]: (state, { payload }) => {
             state.loading = false
-            state.user = payload
+            state.user = {
+                ...state.user,
+                ...payload
+            }
         },
         [deleteUserThunk.fulfilled]: (state, { payload }) => {
             state.loading = false

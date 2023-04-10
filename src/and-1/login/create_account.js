@@ -10,6 +10,8 @@ import {createUserThunk, findUserThunk }
     from "../thunks/users-thunks";
 
 
+// TODO - setup the different user search/team Search
+// Setup the ability to go to other users profiles and see their information
 
 function CreateAccount() {
     let [newUserEmail, setNewUserEmail] = useState('');
@@ -32,9 +34,9 @@ function CreateAccount() {
     const newUserHandler = () => {
         const newUser = {
             email: newUserEmail,
-            username: newUserUsername,
+            handle: newUserUsername,
             password: newUserPassword,
-            fullName: newUserFullName,
+            name: newUserFullName,
             type: newUserType,
         }
         /*
