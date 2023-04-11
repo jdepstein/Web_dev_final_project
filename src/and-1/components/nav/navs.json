@@ -1,9 +1,9 @@
 [
-  { "icon": "fa fa-basketball-ball",   "link": "home", "text": "" },
-  { "icon": "fa fa-home",         "link": "home", "text": "Home"},
-  { "icon": "fa fa-signal",      "link": "stats", "text": "Stats"},
-  { "icon": "fa fa-calendar-week",     "link": "schedule", "text": "Schedule"},
-  { "icon": "fa fa-users ", "link": "teams", "text": "Teams"},
-  { "icon": "fa fa-comments",     "link": "forum", "text": "Forum"},
-  { "icon": "fa fa-user",         "link": "profile", "text": "Profile"}
-  ]
+    { "icon": "fa fa-basketball-ball",   "link": "home", "text": "" },
+    { "icon": "fa fa-home",         "link": "home", "text": "Home"},
+    { "icon": "fa fa-signal",      "link": "stats", "text": "Stats"},
+    { "icon": "fa fa-calendar-week",     "link": "schedule", "text": "Schedule"},
+    { "icon": "fa fa-users ", "link": "teams", "text": "Teams"},
+    { "icon": "fa fa-comments",     "link": "forum", "text": "Forum"},
+    { "icon": "fa fa-user",         "link": "profile", "text": "Profile"}
+    ]

@@ -1,5 +1,9 @@
 import {Link} from "react-router-dom";
 
+
+//SET UP LOGIN CHECK HERE AND REDIRECT TO HOME IF LOGGED IN
+// SET UP SESSION HERE
+
 function Login() {
     return (
         <div className="a1-login-background w-100">

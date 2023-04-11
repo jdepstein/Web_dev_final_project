@@ -35,6 +35,8 @@ function EditTeamPage() {
         setTeam({...team, stadium: target})
     }
 
+    //TODO SETUP SESSIONS FOR TEAM USERS
+
     return (
         <>
             { loading ? "loading"

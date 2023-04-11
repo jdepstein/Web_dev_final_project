@@ -33,7 +33,7 @@ function ProfilePage() {
     },  [])
 
 
-
+    // TODO SETUP SESSION
     if (user === undefined) {
         user =  {
             name: "Test Person",

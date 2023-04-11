@@ -2,7 +2,10 @@ import {Link} from "react-router-dom";
 
 
 function CreatePost() {
+
+     //TODO SETUP SESSION
     const logged = true;
+    
     return (
             <div className="row m-0 border-bottom mb-3">
                 <div className="mb-3 justify-content-center w-100 col-10 mt-3">

@@ -28,10 +28,16 @@ function ForumSummaryItem(
          dispatch(deletePostThunk(id));
      }
 
+     //TODO SETUP SESSION
+     const logged = false;
+
      return (
         <div className="row border-3 border-top border-bottom p-0 m-0 pt-3 ps-1 pe-1 pb-1">
                 <div className="col-1">
                     {
+                        !logged ?
+                            <i className="h3 text-black fa fa-arrow-up"></i>
+                            :
                         post.liked === null ?
                             <i className="h3 text-black fa fa-arrow-up"onClick={() => dispatch(updatePostThunk({
                                 ...post, liked: true, likeDislike: post.likeDislike + 1}))}></i>
@@ -47,7 +53,10 @@ function ForumSummaryItem(
                     <p className="fw-bold">{post.likeDislike}</p>
                 </div>
                 <div className="col-1">
-                    {
+                    {   
+                        !logged ?
+                            <i className="h3 text-black fa fa-arrow-down"></i>
+                            :
                         post.liked === null ?
                             <i className="h3 text-black fa fa-arrow-down"onClick={() => dispatch(updatePostThunk({
                                 ...post, liked: false, likeDislike: post.likeDislike - 1}))}></i>
@@ -75,8 +84,12 @@ function ForumSummaryItem(
                         {post.share}
                 </div>
                 <div className="col-1">
+                    {!logged ? 
+                        <i className="h4 text-black fa fa-ellipsis-h"></i> 
+                        :
                         <i className="h4 text-black fa fa-ellipsis-h"
                         onClick={() => deletePostHandler(post._id)}></i>
+                    }
                 </div>
         </div>
 

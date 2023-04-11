@@ -7,6 +7,8 @@ import Login from "../login";
 // TODO: Set up team page Edit-page
 
 function ProfileRouting() {
+
+    //SETUP UP SESSION
     const logged = true
     return (
         <Routes>

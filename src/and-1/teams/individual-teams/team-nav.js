@@ -8,7 +8,7 @@ import {findIndividualTeamThunk, updateTeamThunk} from "../../thunks/teams-thunk
 
 function TeamNav() {
     const { teamName } = useParams();
-    const logged = true
+    const logged = false
     let {teams, loading} = useSelector(
         state => state.teamData)
     const dispatch = useDispatch();
@@ -44,29 +44,40 @@ function TeamNav() {
                         </Link>
                         :
                         <>
-                            {teams.liked ?
-                                <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2"
-                                   onClick={() =>  dispatch(updateTeamThunk({
-                                       ...teams, liked: false, likes: teams.likes - 1}))}>
-                                </i>
-                                :
-                                <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2 fw-normal"
-                                   onClick={() =>  dispatch(updateTeamThunk({
-                                           ...teams, liked: true, likes: teams.likes + 1}))}>
-                                </i>
+                            {   
+                                !logged ?
+                                    <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2"></i>
+                                    :
+                                teams.liked ?
+                                    <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2"
+                                    onClick={() =>  dispatch(updateTeamThunk({
+                                        ...teams, liked: false, likes: teams.likes - 1}))}>
+                                    </i>
+                                    :
+                                    <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2 fw-normal"
+                                    onClick={() =>  dispatch(updateTeamThunk({
+                                            ...teams, liked: true, likes: teams.likes + 1}))}>
+                                    </i>
                             }
-                            {teams.followed ?
-                                <button onClick={() => dispatch(updateTeamThunk({
-                                    ...teams, followed: false, follows: teams.follows - 1}))}
-                                        className="nav-item float-end rounded-pill a1-bg-red text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
-                                    Unfollow
-                                </button>
-                                :
-                                <button onClick={() => dispatch(updateTeamThunk({
-                                    ...teams, followed: true, follows: teams.follows + 1}))}
-                                    className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
-                                    Follow
-                                </button>
+                            {
+                                !logged?
+                                    <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
+                                        Follow
+                                    </button>
+                            
+                                    :
+                                teams.followed ?
+                                    <button onClick={() => dispatch(updateTeamThunk({
+                                        ...teams, followed: false, follows: teams.follows - 1}))}
+                                            className="nav-item float-end rounded-pill a1-bg-red text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
+                                        Unfollow
+                                    </button>
+                                    :
+                                    <button onClick={() => dispatch(updateTeamThunk({
+                                        ...teams, followed: true, follows: teams.follows + 1}))}
+                                        className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
+                                        Follow
+                                    </button>
                             }
                         </>
                     }

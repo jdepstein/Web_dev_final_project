@@ -10,8 +10,6 @@ import {createUserThunk, findAllUsersThunk }
     from "../thunks/users-thunks";
 
 
-// TODO - setup the different user search/team Search
-
 function CreateAccount() {
     let [newUserEmail, setNewUserEmail] = useState('');
     let [newUserUsername, setNewUserUsername] = useState('');

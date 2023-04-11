@@ -21,12 +21,17 @@ function ForumItem(
             userHandle: "String",
             _id: "642b3464feea95a346a7fd8e",
     })
-    {
+    {    
     const dispatch = useDispatch()
     post = post.post
     const deletePostHandler = (id) => {
         dispatch(deletePostThunk(id));
         }
+
+     //TODO SETUP SESSION
+    const logged = false
+
+
     return (
         <div className="mb-1">
             <div className="border-3 h5 text-center border-bottom pb-2 pt-3">
@@ -47,7 +52,10 @@ function ForumItem(
             <div className="row border-top border-3 p-0 m-0 pt-2">
                 <div className="col-2 p-0"></div>
                 <div className="col-1 p-0">
-                    {
+                    {   
+                        !logged ?
+                            <i className="h3 text-black fa fa-arrow-up"></i>
+                        :
                         post.liked === null ?
                             <i className="h3 text-black fa fa-arrow-up"onClick={() => dispatch(updatePostThunk({
                                 ...post, liked: true, likeDislike: post.likeDislike + 1}))}></i>
@@ -64,6 +72,9 @@ function ForumItem(
                 </div>
                 <div className="col-1 p-0">
                     {
+                        !logged ?
+                            <i className="h3 text-black fa fa-arrow-down"></i>
+                        :
                         post.liked === null ?
                             <i className="h3 text-black fa fa-arrow-down"onClick={() => dispatch(updatePostThunk({
                                 ...post, liked: false, likeDislike: post.likeDislike - 1}))}></i>
@@ -84,8 +95,13 @@ function ForumItem(
                     {post.share}
                 </div>
                 <div className="col-1 p-0">
-                    <i className="h4 text-black fa fa-ellipsis-h p-0"
-                       onClick={() => deletePostHandler(post._id)}></i>
+                    {
+                        !logged ?
+                            <i className="h4 text-black fa fa-ellipsis-h p-0"></i>
+                        :
+                            <i className="h4 text-black fa fa-ellipsis-h p-0"
+                                onClick={() => deletePostHandler(post._id)}></i>
+                    }
                 </div>
                 <div className="col-2 p-0"></div>
             </div>

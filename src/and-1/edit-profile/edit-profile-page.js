@@ -4,24 +4,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {findTeamsThunk} from "../thunks/teams-thunks";
 
 
-function EditProfilePage(profile=
-
-         {
-             Name: "Test Person",
-             handle: "test",
-             profilePicture: "../images/profile1.jpeg",
-             bio: " This is a practice bio there is nothing of note to say here this is just a space filler I am writing out to test to see how this ends up looking.",
-             location: "Boston, MA",
-             dateOfBirth: "1998-01-08",
-             dateJoined: "May 2015",
-             FavoriteTeam: "heat",
-             followingCount: 340,
-             followersCount: 223,
-             banner : "../images/background2.png"
-         }
+function EditProfilePage()
 
 
-) {
+
+ {
     const {teams, loading} = useSelector(
         state => state.teamData)
 
@@ -30,6 +17,21 @@ function EditProfilePage(profile=
         dispatch(findTeamsThunk())
     }, [])
 
+    //TODO SETUP SESSION
+    const profile =          
+    {
+        Name: "Test Person",
+        handle: "test",
+        profilePicture: "../images/profile1.jpeg",
+        bio: " This is a practice bio there is nothing of note to say here this is just a space filler I am writing out to test to see how this ends up looking.",
+        location: "Boston, MA",
+        dateOfBirth: "1998-01-08",
+        dateJoined: "May 2015",
+        FavoriteTeam: "heat",
+        followingCount: 340,
+        followersCount: 223,
+        banner : "../images/background2.png"
+    }
 
 
 
