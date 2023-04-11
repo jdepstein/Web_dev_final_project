@@ -5,7 +5,6 @@ const USER_POST_API = `${API_BASE}/user-posts`;
 const TEAM_POST_API = `${API_BASE}/team-posts`;
 
 
-
 export const createPost = async (post) => {
     const response = await axios.post(POST_API, post)
     return response.data;
@@ -22,6 +21,8 @@ export const findTeamPosts = async (tag) => {
 }
 
 export const findUserPosts = async (handle) => {
+    console.log(handle);
+    console.log(`${USER_POST_API}/${handle}`)
     const response = await axios.get(`${USER_POST_API}/${handle}`);
     return response.data;
 }

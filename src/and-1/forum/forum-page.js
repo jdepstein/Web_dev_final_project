@@ -6,16 +6,26 @@ import ForumItem from "./forum-item";
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {findPostsThunk}
+import {findPostsThunk, findTeamPostsThunk, findUserPostsThunk}
     from "../thunks/posts-thunks";
+import { useParams } from "react-router";
 
 
 function ForumPage() {
+    const { topic } = useParams();
     const {posts, loading} = useSelector(
         state => state.postData)
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(findPostsThunk())
+        if (topic === undefined) {
+            dispatch(findPostsThunk())
+        }
+        else if (topic[0] === '@') {
+            dispatch(findUserPostsThunk(topic.substring(1)))
+        } 
+        else {
+            dispatch(findTeamPostsThunk(topic.toLocaleLowerCase())) 
+            }
     }, [])
 
     return (

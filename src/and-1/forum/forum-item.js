@@ -1,5 +1,6 @@
 import {updatePostThunk} from "../thunks/posts-thunks";
 import {deletePostThunk} from "../thunks/posts-thunks";
+import {Link} from "react-router-dom";
 
 import {useDispatch} from "react-redux";
 
@@ -33,7 +34,7 @@ function ForumItem(
             </div>
             <div className="row border-3 p-0 m-0">
                 <div className="col-2 col-xl-1 p-0 m-0 text-center">
-                        <img alt="" src={post.profilePic} className="a1-profile-pic ms-4"/>
+                       <Link to={`/profile/`+post.userHandle}> <img alt="" src={post.profilePic} className="a1-profile-pic ms-4"/> </Link>
                 </div>
                 <div className="col-10 col-xl-11">
                     <div>{post.post_content}</div>

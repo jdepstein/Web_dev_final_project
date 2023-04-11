@@ -3,7 +3,7 @@ import CreatePost from "../create-post";
 import ForumSummaryItem from "../forum-summary/forum-summary-item";
 
 
-import {findPostsThunk}
+import {findPostsThunk, findUserPostsThunk}
     from "../thunks/posts-thunks";
 
 import {findUserThunk, updateUserThunk} from "../thunks/users-thunks"; 
@@ -19,9 +19,6 @@ function ProfilePage() {
     const {posts, loading} = useSelector(
         state => state.postData)
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(findPostsThunk())
-    }, [])
 
     let isCurrent = false
     const {handle} = useParams();
@@ -32,8 +29,12 @@ function ProfilePage() {
     )
     useEffect(() => {
         dispatch(findUserThunk(handle))
+        dispatch(findUserPostsThunk(handle))
     },  [])
-    if (user == {}) {
+
+
+
+    if (user === undefined) {
         user =  {
             name: "Test Person",
             handle: "test",
@@ -74,7 +75,7 @@ function ProfilePage() {
 
                         <Link to="/profile/edit-profile">
                             <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2">
-                                "Edit Profile"
+                                Edit Profile
                             </button>
                         </Link>
                 

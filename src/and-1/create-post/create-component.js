@@ -34,8 +34,8 @@ function CreateComponent() {
             post_content: newPostTitleText,
             tag: tag_and_color[0],
             tagColor: tag_and_color[1],
-            profilePic: "../../images/profile6.jpeg",
-            userHandle: "@NbaWatcher234",
+            profilePic: "../images/profile3.jpeg",
+            userHandle: "GiannasFan",
         }
         dispatch(createPostThunk(newPost));
         setNewPostTitle("");

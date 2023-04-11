@@ -13,7 +13,9 @@ export const findTeamPostsThunk = createAsyncThunk(
 
 export const findUserPostsThunk = createAsyncThunk(
     'posts/findPosts', async (user) =>
-        await service.findUserPosts(user)
+    {
+        return await service.findUserPosts(user)
+    }
 )
 
 

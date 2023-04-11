@@ -1,7 +1,6 @@
 import Standings from "../components/standings";
 import TeamSearch from "./teamsearch";
 import NavigationSidebar from "../components/nav";
-import LatestResults from "../components/latest-results";
 import ApiLatestResults from "../components/latest-results/api-index";
 
 
