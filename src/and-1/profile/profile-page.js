@@ -3,7 +3,7 @@ import CreatePost from "../create-post";
 import ForumSummaryItem from "../forum-summary/forum-summary-item";
 
 
-import {findPostsThunk, findUserPostsThunk}
+import {findUserPostsThunk}
     from "../thunks/posts-thunks";
 
 import {findUserThunk, updateUserThunk} from "../thunks/users-thunks"; 
@@ -24,31 +24,19 @@ function ProfilePage() {
     const {handle} = useParams();
     
     let logged = true;
-    let {user} = useSelector( 
+    let {user, currentUser} = useSelector( 
         state => state.UserData
     )
     useEffect(() => {
         dispatch(findUserThunk(handle))
         dispatch(findUserPostsThunk(handle))
     },  [])
+    if (handle === currentUser.handle){
+        isCurrent = true
+    }
 
-
-    // TODO SETUP SESSION
-    if (user === undefined) {
-        user =  {
-            name: "Test Person",
-            handle: "test",
-            profilePic: "../images/profile1.jpeg",
-            bio: " This is a practice bio there is nothing of note to say here this is just a space filler I am writing out to test to see how this ends up looking.",
-            location: "Boston, MA",
-            dateOfBirth: "1998-01-08",
-            dateJoined: "May 2015",
-            FavoriteTeam: "Celtics",
-            following: 340,
-            followers: 223,
-            followed : false,
-            banner : "/images/background2.jpeg"
-        }
+    if (handle === undefined) {
+        user =  currentUser
         isCurrent = true
     }
 
@@ -125,11 +113,11 @@ function ProfilePage() {
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
                         <i className="fa fa-birthday-cake me-2"></i>
-                        {user.dateOfBirth}
+                        user.dateOfBirth.$date
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
                         <i className="fa fa-calendar me-2"></i>
-                        {user.dateJoined}
+                        user.dateJoined.$date
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
                         <i className="bi bi-geo-alt-fill me-2"></i>

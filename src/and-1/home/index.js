@@ -2,8 +2,8 @@ import NavigationSidebar from "../components/nav";
 import Standings from "../components/standings";
 import ApiLatestResults from "../components/latest-results/api-index";
 import ForumSummary from "../forum-summary";
-
 function Home() {
+
     return (
         <>
             <ApiLatestResults/>

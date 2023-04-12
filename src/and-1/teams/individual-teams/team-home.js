@@ -6,8 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {findIndividualTeamThunk}
     from "../../thunks/teams-thunks";
 
-import {findTeamUserThunk}
-    from "../../thunks/team-users-thunks";
+import {findUserThunk} from "../../thunks/users-thunks";
 
 
 function TeamHomePage()
@@ -20,22 +19,23 @@ function TeamHomePage()
         dispatch(findIndividualTeamThunk(teamName))
     }, [])
 
-    const {teamUsers, loading2} = useSelector(
-        state => state.teamUserData);
-    useEffect(() => {
-        dispatch(findTeamUserThunk(teamName))
-    }, [])
+    let {user} = useSelector( 
+        state => state.UserData)
+        useEffect(() => {
+            dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
+        },  [])
+
     return (
             <div
                 className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
                 <div className="h2 text-dark a1-font-family fw-bold mt-5 text-center">
-                   {teamUsers.name}
+                   {user.handle}
                 </div>
                 <div className="h3 text-dark a1-font-family fw-bold text-center">
-                    {teamUsers.city}
+                    {user.location}
                 </div>
                 <div className="h5 text-dark a1-font-family fw-bold text-center">
-                    {teamUsers.stadium}
+                    {user.stadium}
                 </div>
                 <div className="h4 text-dark a1-font-family fw-bold mt-5 text-center border-bottom pb-3 mb-2">
                     <span className="me-2 text-secondary">Likes:</span> {teams.likes}

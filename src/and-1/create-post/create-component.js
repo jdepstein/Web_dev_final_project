@@ -24,7 +24,9 @@ function CreateComponent() {
         dispatch(findTeamsThunk())
     }, [])
 
-
+    const {currentUser} = useSelector( 
+        state => state.UserData
+    )
 
 
     const newPostHandler = () => {
@@ -34,8 +36,8 @@ function CreateComponent() {
             post_content: newPostTitleText,
             tag: tag_and_color[0],
             tagColor: tag_and_color[1],
-            profilePic: "../images/profile3.jpeg",
-            userHandle: "GiannasFan",
+            profilePic: currentUser.profilePic,
+            userHandle: currentUser.handle,
         }
         dispatch(createPostThunk(newPost));
         setNewPostTitle("");

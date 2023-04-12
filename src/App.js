@@ -14,7 +14,6 @@ import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
 import PostsReducer from "./and-1/reducers/posts-reducer";
 import TeamsReducer from "./and-1/reducers/teams-reducer";
-import TeamUsersReducer from "./and-1/reducers/team-users-reducer";
 import usersReducer from "./and-1/reducers/users-reducer";
 
 
@@ -23,7 +22,6 @@ const store = configureStore(
             {
                 postData: PostsReducer,
                 teamData: TeamsReducer,
-                teamUserData: TeamUsersReducer,
                 UserData: usersReducer
             }});
 

@@ -1,5 +1,6 @@
 import {useLocation} from "react-router";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 function SidebarItem(
     {
@@ -10,8 +11,8 @@ function SidebarItem(
         }
     })  {
 
-    //TODO SETUP SESSION
-    const logged = false; 
+    const {currentUser} = useSelector( 
+        state => state.UserData)
     
     
     const {pathname} = useLocation();
@@ -23,7 +24,7 @@ function SidebarItem(
     }
     return (
             <>
-                {!logged && lowercase_text === 'profile' ?
+                {!currentUser && lowercase_text === 'profile' ?
                     <Link onClick={window.location.reload} to={"/login"} className="wd-no-underline">
                         <i  className=
                             {`float-start me-2 pt-1 ${nav.icon}

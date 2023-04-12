@@ -1,10 +1,30 @@
 import {Link} from "react-router-dom";
+import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginThunk} from "../thunks/users-thunks";
 
 
 //SET UP LOGIN CHECK HERE AND REDIRECT TO HOME IF LOGGED IN
 // SET UP SESSION HERE
 
 function Login() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const handleLogin = async () => {
+        try {
+          await dispatch(loginThunk({ username, password }));
+          alert("Login successful!")
+          navigate("/");
+        } catch (e) {
+          alert(e);
+        }
+       };
+      
+
+
     return (
         <div className="a1-login-background w-100">
             <div className="center">
@@ -16,7 +36,8 @@ function Login() {
                                    htmlFor="username">Username</label>
                             <div className="me-2 ms-2">
                                 <input className="me-3 rounded-pill form-control" id="username"
-                                       placeholder="Enter username"/>
+                                       placeholder="Enter username"
+                                       onChange={(event) => setUsername(event.target.value)}/>
                             </div>
                         </div>
 
@@ -25,13 +46,16 @@ function Login() {
                                    htmlFor="password">Password</label>
                             <div className="me-2 ms-2">
                                 <input type="password" className="me-3 rounded-pill form-control" id="password"
-                                       placeholder="Enter password"/>
+                                       placeholder="Enter password"
+                                       onChange={(event) => setPassword(event.target.value)}/>
                             </div>
                         </div>
 
-
                         <div className="form-group mb-3 d-flex justify-content-center">
-                            <Link to="/home"><button className="btn rounded-pill btn-primary me-3"> Login</button></Link>
+                            <button className="btn rounded-pill btn-primary me-3"
+                                onClick={handleLogin}> 
+                                Login
+                            </button>
                             <Link to="/create_account"><button className="btn rounded-pill btn-primary ms-3"> Create Account</button></Link>
                         </div>
 

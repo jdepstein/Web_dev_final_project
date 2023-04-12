@@ -1,7 +1,6 @@
 import NavigationSidebar from "../components/nav";
 import Standings from "../components/standings";
 import ProfilePage from "./profile-page";
-import profile from "../data/profile.json"
 import ApiLatestResults from "../components/latest-results/api-index";
 
 function Profile() {
@@ -10,7 +9,7 @@ function Profile() {
             <ApiLatestResults/>
             <div className="row p-0 m-0">
                 <NavigationSidebar/>
-                <ProfilePage profile={profile}/>
+                <ProfilePage/>
                 <Standings/>
             </div>
        </>

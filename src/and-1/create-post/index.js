@@ -1,15 +1,17 @@
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 
 function CreatePost() {
 
-     //TODO SETUP SESSION
-    const logged = true;
+    const {currentUser} = useSelector( 
+        state => state.UserData
+    )
     
     return (
             <div className="row m-0 border-bottom mb-3">
                 <div className="mb-3 justify-content-center w-100 col-10 mt-3">
-                    {logged  ?
+                    {currentUser  ?
                         <Link to="/forum/create-post" className="text-decoration-none">
                             <div className="ms-3 rounded border wd-bg-off-white ">
                                 <div className="input-group">

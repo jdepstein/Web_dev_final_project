@@ -21,8 +21,6 @@ export const findTeamPosts = async (tag) => {
 }
 
 export const findUserPosts = async (handle) => {
-    console.log(handle);
-    console.log(`${USER_POST_API}/${handle}`)
     const response = await axios.get(`${USER_POST_API}/${handle}`);
     return response.data;
 }
