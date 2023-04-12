@@ -30,10 +30,13 @@ function TeamHomePage()
     )
 
     let isCurrent = false
-    if (teamName === currentUser.handle){
-        user = currentUser
-        isCurrent = true
+    if (currentUser ==! null){
+        
+        if (teamName === currentUser.handle){
+            isCurrent = true
+        }
     }
+ 
 
     return (
             <div

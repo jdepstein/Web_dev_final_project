@@ -23,7 +23,6 @@ function ProfilePage() {
     let isCurrent = false
     const {handle} = useParams();
     
-    let logged = true;
     let {user, currentUser} = useSelector( 
         state => state.UserData
     )
@@ -31,14 +30,17 @@ function ProfilePage() {
         dispatch(findUserThunk(handle))
         dispatch(findUserPostsThunk(handle))
     },  [])
-    if (handle === currentUser.handle){
-        isCurrent = true
-    }
+    if (currentUser !== null) {
 
-    if (handle === undefined) {
-        user =  currentUser
+        if (handle === currentUser.handle){
         isCurrent = true
-    }
+     }
+
+        if (handle === undefined) {
+            user =  currentUser
+            isCurrent = true
+        }
+    }   
 
 
 
@@ -68,7 +70,13 @@ function ProfilePage() {
                         </Link>
                 
                     :   <>
-                            {user.followed  && logged ?
+                            {!currentUser ?
+                                <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2">
+                                    Follow
+                                </button>
+
+                                :
+                            user.followed  ?
                                 <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2"
                                     
                                     onClick={() => dispatch(updateUserThunk( 

@@ -20,8 +20,11 @@ function TeamNav() {
     )
     
     let isCurrent = false
-    if (teamName === currentUser.handle){
-        isCurrent = true
+    if (currentUser ==! null){
+        
+        if (teamName === currentUser.handle){
+            isCurrent = true
+        }
     }
  
 
