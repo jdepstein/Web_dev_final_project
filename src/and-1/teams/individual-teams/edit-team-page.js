@@ -19,24 +19,25 @@ function EditTeamPage() {
 
     const [team, setTeam] = useState({})
     const callThunk = async () => {
-        const {payload} = await dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
+        const {payload} = await dispatch(findUserThunk(teamName[0].toUpperCase() + teamName.substring(1)))
         setTeam(payload[0])
     }
     useEffect(() => {
         callThunk()
     }, [])
 
-
+    const {currentUser} = useSelector( 
+        state => state.UserData
+    )
+    const [profile, setProfile] = useState(currentUser)
 
     const updateTeamLocation = (target) => {
-        setTeam({...team, city: target})
+        setProfile({...profile, location: target.value})
     }
 
     const updateTeamStadium = (target) => {
-        setTeam({...team, stadium: target})
+        setProfile({...profile, stadium: target.value})
     }
-
-    //TODO SETUP SESSIONS FOR TEAM USERS
 
     return (
         <>
@@ -54,8 +55,7 @@ function EditTeamPage() {
                             <img alt="" className="opacity-50 ms-2 pt-1 pb-1 float-start a1-team-page-image" src={"../" + teams.logo}/>
                             <Link className="text-decoration-none" to={"/teams/" + teamName}>
                                 <button className="opacity-100 nav-item float-end rounded-pill a1-bg-blue shadow-none  fw-bold text-white btn-lg me-3 mt-4 ps-3 pe-3 pt-2 pb-2"
-                                onClick={() => dispatch(updateUserThunk({
-                                    ...team}))}>
+                                    onClick={() => dispatch(updateUserThunk(profile))} >
                                 Save
                             </button></Link>
                             <Link className="text-decoration-none" to={"/teams/" + teamName}><button className="opacity-100  nav-item float-end rounded-pill a1-bg-red shadow-none fw-bold text-white btn-lg me-3 mt-4 ps-3 pe-3 pt-2 pb-2">

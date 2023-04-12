@@ -18,7 +18,6 @@ function TeamForumPage() {
         dispatch(findTeamPostsThunk(teamName.toLowerCase()))
     }, [])
 
-
     return (
 
 

@@ -3,6 +3,7 @@ import {deletePostThunk} from "../thunks/posts-thunks";
 import {Link} from "react-router-dom";
 
 import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 
 
 function ForumItem(
@@ -28,9 +29,9 @@ function ForumItem(
         dispatch(deletePostThunk(id));
         }
 
-     //TODO SETUP SESSION
-    const logged = false
-
+    const {currentUser} = useSelector( 
+        state => state.UserData
+    )
 
     return (
         <div className="mb-1">
@@ -53,7 +54,7 @@ function ForumItem(
                 <div className="col-2 p-0"></div>
                 <div className="col-1 p-0">
                     {   
-                        !logged ?
+                        !currentUser ?
                             <i className="h3 text-black fa fa-arrow-up"></i>
                         :
                         post.liked === null ?
@@ -72,7 +73,7 @@ function ForumItem(
                 </div>
                 <div className="col-1 p-0">
                     {
-                        !logged ?
+                        !currentUser ?
                             <i className="h3 text-black fa fa-arrow-down"></i>
                         :
                         post.liked === null ?
@@ -96,7 +97,7 @@ function ForumItem(
                 </div>
                 <div className="col-1 p-0">
                     {
-                        !logged ?
+                        !currentUser || currentUser.handle !== post.userHandle ?
                             <i className="h4 text-black fa fa-ellipsis-h p-0"></i>
                         :
                             <i className="h4 text-black fa fa-ellipsis-h p-0"

@@ -8,13 +8,24 @@ import {findIndividualTeamThunk, updateTeamThunk} from "../../thunks/teams-thunk
 
 function TeamNav() {
     const { teamName } = useParams();
-    const logged = false
     let {teams, loading} = useSelector(
         state => state.teamData)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(findIndividualTeamThunk(teamName))
     }, [])
+
+    const {currentUser} = useSelector( 
+        state => state.UserData
+    )
+    
+    let isCurrent = false
+    if (teamName === currentUser.handle){
+        isCurrent = true
+    }
+ 
+
+
     return (
         <div className={teams.colors + " d-inline-block w-100"}>
             <nav className="navbar navbar-expand-sm navbar-light w-100">
@@ -36,7 +47,7 @@ function TeamNav() {
                             <Link className="ps-2 text-white nav-link" to="#">Tickets</Link>
                         </li>
                     </ul>
-                    { logged ?
+                    { isCurrent ?
                         <Link to={"/teams/" + teams.name + "/edit-team"}>
                             <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
                                 Edit
@@ -45,7 +56,7 @@ function TeamNav() {
                         :
                         <>
                             {   
-                                !logged ?
+                                !currentUser ?
                                     <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2"></i>
                                     :
                                 teams.liked ?
@@ -60,7 +71,7 @@ function TeamNav() {
                                     </i>
                             }
                             {
-                                !logged?
+                                !currentUser?
                                     <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
                                         Follow
                                     </button>

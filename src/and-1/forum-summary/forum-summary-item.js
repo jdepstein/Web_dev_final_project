@@ -1,5 +1,6 @@
 import {updatePostThunk} from "../thunks/posts-thunks";
 import {deletePostThunk} from "../thunks/posts-thunks";
+import {useSelector} from "react-redux";
 
 import {useDispatch} from "react-redux";
 
@@ -28,14 +29,15 @@ function ForumSummaryItem(
          dispatch(deletePostThunk(id));
      }
 
-     //TODO SETUP SESSION
-     const logged = false;
+     const {currentUser} = useSelector( 
+        state => state.UserData
+    )
 
      return (
         <div className="row border-3 border-top border-bottom p-0 m-0 pt-3 ps-1 pe-1 pb-1">
                 <div className="col-1">
                     {
-                        !logged ?
+                        !currentUser ?
                             <i className="h3 text-black fa fa-arrow-up"></i>
                             :
                         post.liked === null ?
@@ -54,7 +56,7 @@ function ForumSummaryItem(
                 </div>
                 <div className="col-1">
                     {   
-                        !logged ?
+                        !currentUser ?
                             <i className="h3 text-black fa fa-arrow-down"></i>
                             :
                         post.liked === null ?
@@ -84,9 +86,10 @@ function ForumSummaryItem(
                         {post.share}
                 </div>
                 <div className="col-1">
-                    {!logged ? 
+                    {!currentUser || currentUser.handle !== post.userHandle ? 
                         <i className="h4 text-black fa fa-ellipsis-h"></i> 
                         :
+                        
                         <i className="h4 text-black fa fa-ellipsis-h"
                         onClick={() => deletePostHandler(post._id)}></i>
                     }

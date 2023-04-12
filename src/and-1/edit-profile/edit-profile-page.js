@@ -16,7 +16,6 @@ function EditProfilePage()
         dispatch(findTeamsThunk())
     }, [])
 
-    //TODO SETUP SESSION
     const {currentUser} = useSelector( 
         state => state.UserData
     )
@@ -92,7 +91,7 @@ function EditProfilePage()
                     ></textarea>
                     <label className="form-label" htmlFor="FavoriteTeam"> Favorite Team</label>
                     <select  className="form-control w-50 shadow-none mt-3"
-                        onChange={(e) => updateUserBio(e.target.value)}
+                        onChange={(e) => updateUserTag(e.target.value)}
                         >
                         {
                             teams.map(team =>

@@ -16,12 +16,16 @@ const initialState = {
         "bio": "",
         "dateJoined" :  "2023-04-10T15:54:51.006Z",
         "dateOfBirth" :  "2023-04-10T15:54:51.006Z",
-        "location": "",
+        "location": "Boston, MA",
         "following": 10,
         "followers": 1000,
         "followed": false,
-        "handle": "test123",
+        "handle": "celtics",
         "banner": "../images/background2.jpeg",
+        "stadium": "TD Garden",
+        "role": {
+            "type": "team"
+          },
         "__v": 0
       },
     loading: false

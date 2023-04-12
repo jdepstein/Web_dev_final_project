@@ -16,7 +16,7 @@ function ProfileRouting() {
             {currentUser ?
                 <Route index element={<Profile/>}/>
                 :
-            <Route index element={<Login/>}/>
+                <Route index element={<Login/>}/>
             }
             <Route path={"/:handle"} element={<Profile/>}/>
             {currentUser ?

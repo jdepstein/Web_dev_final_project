@@ -25,6 +25,16 @@ function TeamHomePage()
             dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
         },  [])
 
+    const {currentUser} = useSelector( 
+        state => state.UserData
+    )
+
+    let isCurrent = false
+    if (teamName === currentUser.handle){
+        user = currentUser
+        isCurrent = true
+    }
+
     return (
             <div
                 className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
