@@ -7,8 +7,10 @@ export const findTeamsThunk = createAsyncThunk(
 )
 
 export const findIndividualTeamThunk = createAsyncThunk(
-    'team/findTeams', async (team) =>
-    await service.findIndividualTeam(team)
+    'team/findTeams', async (team) => {
+        console.log("team")
+        return await service.findIndividualTeam(team)
+    }
 )
 
 

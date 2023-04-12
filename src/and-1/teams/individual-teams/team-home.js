@@ -1,6 +1,8 @@
 import {useParams} from "react-router";
+import axios from 'axios';
 
 import React, {useEffect} from "react";
+import { useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import {findIndividualTeamThunk}
@@ -10,7 +12,7 @@ import {findUserThunk} from "../../thunks/users-thunks";
 
 
 function TeamHomePage()
-{   //teamUsers
+{
     const { teamName } = useParams();
     const {teams, loading} = useSelector(
         state => state.teamData)
@@ -19,11 +21,55 @@ function TeamHomePage()
         dispatch(findIndividualTeamThunk(teamName))
     }, [])
 
-    let {user} = useSelector( 
+    let {user} = useSelector(
         state => state.UserData)
-        useEffect(() => {
-            dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
-        },  [])
+    useEffect(() => {
+        dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
+    },  [])
+
+    const {currentUser} = useSelector(
+        state => state.UserData
+    )
+
+    let isCurrent = false
+    if (currentUser ==! null){
+
+        if (teamName === currentUser.handle){
+            isCurrent = true
+        }
+    }
+    const team_id = teams.tid + ''
+    console.log(team_id);
+    const API_KEY = '1998d212e4mshad0ae3aca89905dp189a73jsnb9864ccfb4fe'
+    const [response, setResponse] = useState(null);
+
+    const fetchRoster = async () => {
+        try {
+            const res = await axios.get(
+                `https://api-nba-v1.p.rapidapi.com/players`,
+                {
+                    headers: {
+                        'x-rapidapi-host': 'api-nba-v1.p.rapidapi.com',
+                        'x-rapidapi-key': API_KEY
+                    },
+                    params: {team: team_id, season: '2022'}
+                }
+            );
+            setResponse(res.data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        // Trigger the API Call
+        fetchRoster();
+    }, []);
+
+    console.log(response.response);
+
+
+
 
     return (
             <div
@@ -41,56 +87,26 @@ function TeamHomePage()
                     <span className="me-2 text-secondary">Likes:</span> {teams.likes}
                     <span className="me-2 ms-2 text-secondary">Followers: </span> {teams.follows}
                 </div>
-                <table className="table table-striped">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th scope="col">Player</th>
-                        <th scope="col">#</th>
-                        <th scope="col">Pos</th>
-                        <th scope="col">Height</th>
-                        <th scope="col">Weight</th>
-                        <th scope={"col"}>Likes</th>
-                    </tr>
-                    </thead>
-                    <tbody>
                     {
-                        [].map((player, i) =>
-                            <tr key={i}>
-                                <th>
-                                    <img alt="" className="d-inline a1-player-image" src={player.photo}/>
-                                </th>
-                                <td>
-                                    {player.name}
-                                </td>
-                                <td>{player.number}</td>
-                                <td>{player.position}</td>
-                                <td>{player.height}</td>
-                                <td>{player.weight}</td>
-                                <td>
-                                    <i className="fa fa-heart text-dark me-1 fw-normal">
-                                    </i>
-                                    0
-                                </td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-                <div className="w-75 text-center">
-                    <div className="row border p-0 m-0">
-                        <img alt="" src="../../images/jaylen.png" className="a1-image_100 col-3" />
-                        <div className="card-body-right col-9">
-                            <p className="card-title h5 mb-3">Jaylen Brown #6</p>
-                            <div className="mb-4">
-                                <span className=" me-3 border rounded p-2">Height: 6:3</span>
-                                <span className="border rounded p-2">Weight: 210</span>
-                            </div>
-                                <div>
-                                    <span className="border rounded p-2">Position: SG/G</span>
+                        response.response.map((player,i ) =>
+                                <div className="w-75 text-center mt-3">
+                                    <div className="row border p-0 m-0">
+                                        <img alt="" src="../../images/jaylen.png" className="a1-image_100 col-3"/>
+                                        <div className="card-body-right col-9">
+                                            <p className="card-title h5 mb-3">{player.firstname} {player.lastname} : {player.leagues.standard.jersey}</p>
+                                            <div className="mb-4">
+                                                <span className=" me-3 border rounded p-2">Height: {player.height.feets} : {player.height.inches}</span>
+                                                <span className="border rounded p-2">Weight: {player.weight.pounds}</span>
+                                            </div>
+                                            <div>
+                                                <span className="border rounded p-2">Position: {player.leagues.standard.pos}</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                    </div>
-                </div>
+
+                        )
+                    }
 
             </div>
     );

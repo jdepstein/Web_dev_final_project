@@ -18,6 +18,8 @@ export const findTeams = async () => {
 
 export const findIndividualTeam = async (team) => {
     const response = await axios.get(`${SINGLE_TEAM_API}/${team.charAt(0).toUpperCase() + team.slice(1)}`);
+    console.log(team)
+    console.log(response)
     return response.data;
 }
 
