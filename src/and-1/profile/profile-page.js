@@ -1,12 +1,13 @@
 import {Link} from "react-router-dom";
 import CreatePost from "../create-post";
 import ForumSummaryItem from "../forum-summary/forum-summary-item";
+import { useNavigate } from "react-router-dom";
 
 
 import {findUserPostsThunk}
     from "../thunks/posts-thunks";
 
-import {findUserThunk, updateUserThunk} from "../thunks/users-thunks"; 
+import {findUserThunk, updateUserThunk, profileThunk} from "../thunks/users-thunks"; 
 
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
@@ -15,10 +16,14 @@ import {useParams} from "react-router-dom";
 
 
 function ProfilePage() {
+    
 
     const {posts} = useSelector(
         state => state.postData)
     const dispatch = useDispatch();
+        useEffect(() => {
+          dispatch(profileThunk());
+        }, []);
 
     let isCurrent = false
     const {handle} = useParams();
@@ -36,17 +41,32 @@ function ProfilePage() {
         }
 
     },  [])
+
+    const navigate = useNavigate();
+    
+    if (user !== null) {
+        if (user.role === "team"){
+            navigate( "/teams/" + user.handle)
+        }
+    }
+
     if (currentUser !== null) {
+
+        if (currentUser.role === "team"){
+            navigate( "/teams/" + currentUser.handle)
+        }
 
         if (handle === currentUser.handle){
         isCurrent = true
-     }
+        }
 
         if (handle === undefined) {
             user =  currentUser
             isCurrent = true
         }
-    }  
+    } 
+    
+    
     
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -63,8 +83,6 @@ function ProfilePage() {
     }
     
 
-
-    console.log(currentUser)
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
             <div className="justify-content-center h3 text-dark a1-font-family fw-bold mt-2 mb-0 ms-2">
@@ -83,20 +101,17 @@ function ProfilePage() {
                     {isCurrent ?
 
                         <Link to="/profile/edit-profile">
-                            <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2">
+                            <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0">
                                 Edit Profile
                             </button>
                         </Link>
                 
                     :   <>
                             {!currentUser ?
-                                <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2">
-                                    Follow
-                                </button>
-
+                                <div className="mb-5"></div>
                                 :
                             user.followed  ?
-                                <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2"
+                                <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0"
                                     
                                     onClick={() => dispatch(updateUserThunk( 
                                         {   ...user,
@@ -107,7 +122,7 @@ function ProfilePage() {
                                     Unfollow
                                 </button>
                                 :
-                                <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2"
+                                <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0"
                                     onClick={() => dispatch(updateUserThunk(
                                         {   ...user,
                                             followed : true,

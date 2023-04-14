@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {findIndividualTeamThunk} from "../../thunks/teams-thunks";
 import { findUserThunk, updateUserThunk } from "../../thunks/users-thunks";
+import { useNavigate } from "react-router-dom";
 
 
 function EditTeamPage() {
@@ -14,16 +15,6 @@ function EditTeamPage() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(findIndividualTeamThunk(teamName))
-    }, [])
-
-
-    const [team, setTeam] = useState({})
-    const callThunk = async () => {
-        const {payload} = await dispatch(findUserThunk(teamName[0].toUpperCase() + teamName.substring(1)))
-        setTeam(payload[0])
-    }
-    useEffect(() => {
-        callThunk()
     }, [])
 
     const {currentUser} = useSelector( 
@@ -38,6 +29,25 @@ function EditTeamPage() {
     const updateTeamStadium = (target) => {
         setProfile({...profile, stadium: target.value})
     }
+
+    const navigate = useNavigate();
+    if (currentUser === null ){
+        navigate("/login")
+    }
+
+    if (currentUser !== null) {
+
+        if (currentUser.role === "user"){
+            navigate("/profile")
+        }
+
+        else if ((currentUser.handle).toLowerCase() !== teamName){
+            navigate("/teams/" + teamName)
+        }
+    }  
+
+
+
 
     return (
         <>
@@ -54,22 +64,22 @@ function EditTeamPage() {
                         <div className={teams.colors + " d-inline-block w-100"}>
                             <img alt="" className="opacity-50 ms-2 pt-1 pb-1 float-start a1-team-page-image" src={"../" + teams.logo}/>
                             <Link className="text-decoration-none" to={"/teams/" + teamName}>
-                                <button className="opacity-100 nav-item float-end rounded-pill a1-bg-blue shadow-none  fw-bold text-white btn-lg me-3 mt-4 ps-3 pe-3 pt-2 pb-2"
+                                <button className="opacity-100 nav-item float-end rounded-pill a1-bg-blue shadow-none  fw-bold text-white btn-lg me-3 mt-4 ps-3 pe-3 pt-2 pb-2 border-0"
                                     onClick={() => dispatch(updateUserThunk(profile))} >
                                 Save
                             </button></Link>
-                            <Link className="text-decoration-none" to={"/teams/" + teamName}><button className="opacity-100  nav-item float-end rounded-pill a1-bg-red shadow-none fw-bold text-white btn-lg me-3 mt-4 ps-3 pe-3 pt-2 pb-2">
+                            <Link className="text-decoration-none" to={"/teams/" + teamName}><button className="opacity-100  nav-item float-end rounded-pill a1-bg-red shadow-none fw-bold text-white btn-lg me-3 mt-4 ps-3 pe-3 pt-2 pb-2 border-0">
                                 Cancel
                             </button></Link>
                         </div>
                         <div className="ms-3">
         
                             <label className="form-label" htmlFor="location"> Location</label>
-                            <input id="location" className="form-control w-50 mb-4" value={team.city}
+                            <input id="location" className="form-control w-50 mb-4" value={profile.location}
                                 onChange={(e) => updateTeamLocation(e.target.value)}></input>
 
                             <label className="form-label" htmlFor="stadium"> Stadium</label>
-                            <input id="stadium" className="form-control w-50 mb-4" value={team.stadium}
+                            <input id="stadium" className="form-control w-50 mb-4" value={profile.stadium}
                                 onChange={(e) => updateTeamStadium(e.target.value)}></input>
                         </div>
                     </div>

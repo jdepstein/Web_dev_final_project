@@ -3,6 +3,7 @@ import {deletePostThunk} from "../thunks/posts-thunks";
 import {useSelector} from "react-redux";
 
 import {useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
 
 function ForumSummaryItem(
     post =
@@ -32,13 +33,12 @@ function ForumSummaryItem(
      const {currentUser} = useSelector( 
         state => state.UserData
     )
-
      return (
         <div className="row border-3 border-top border-bottom p-0 m-0 pt-3 ps-1 pe-1 pb-1">
                 <div className="col-1">
                     {
                         !currentUser ?
-                            <i className="h3 text-black fa fa-arrow-up"></i>
+                            <>Likes: </>
                             :
                         post.liked === null ?
                             <i className="h3 text-black fa fa-arrow-up"onClick={() => dispatch(updatePostThunk({
@@ -57,7 +57,7 @@ function ForumSummaryItem(
                 <div className="col-1">
                     {   
                         !currentUser ?
-                            <i className="h3 text-black fa fa-arrow-down"></i>
+                            <></>
                             :
                         post.liked === null ?
                             <i className="h3 text-black fa fa-arrow-down"onClick={() => dispatch(updatePostThunk({
@@ -73,7 +73,11 @@ function ForumSummaryItem(
                 <div className="col-6 text-dark">
                     <div className="mb-2">
                         <div className="flex-wrap">{post.title}</div>
-                        <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span>
+                        {post.tag !== "general" ?
+                            <Link className="text-decoration-none" to={`/teams/${post.tag}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span></Link>
+                         :
+                            <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span>
+                        }                   
                     </div>
                     <div className="mb-1">Posted: {post.userHandle} {post.timestamp}</div>
                 </div>

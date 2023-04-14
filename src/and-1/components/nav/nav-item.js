@@ -32,39 +32,7 @@ function SidebarItem(
 
     return (
             <>
-                {!currentUser && lowercase_text === 'profile' ?
-                    <Link onClick={window.location.reload} to={"/login"} className="wd-no-underline">
-                        <i  className=
-                            {`float-start me-2 pt-1 ${nav.icon}
-                                ${active === lowercase_text ? 'a1-text-red':'text-dark'}
-                                `}>
-                        </i>
-                        <p className=
-                            {`${nav.text ? 'd-none d-xl-block ' : 'd-none'} 
-                                        ${active === lowercase_text ? 'a1-text-red':'text-dark'}
-                                    float-start p-0 m-0`}>
-                            {nav.text}
-                        </p>
-                    </Link>
-                    :
-                currentUser && lowercase_text === 'profile' && currentUser.role === "team" ?
-                    <> 
-                        <Link onClick={window.location.reload} to={"/teams/" + currentUser.handle} className="wd-no-underline">
-                            <i  className=
-                                {`float-start me-2 pt-1 ${nav.icon}
-                                    ${active === lowercase_text ? 'a1-text-red':'text-dark'}
-                                    `}>
-                            </i>
-                            <p className=
-                                {`${nav.text ? 'd-none d-xl-block ' : 'd-none'} 
-                                            ${active === lowercase_text ? 'a1-text-red':'text-dark'}
-                                        float-start p-0 m-0`}>
-                                {nav.text}
-                            </p>
-                        </Link>
-                    </>
-                    :
-                currentUser && lowercase_text === 'logout' ?
+                {currentUser && lowercase_text === 'logout' ?
 
                     <>    
                         <button type="button" className="wd-no-underline m-0 a1-bg-red border-0 rounded-pill ps-3 pe-3 pt-2 pb-2"

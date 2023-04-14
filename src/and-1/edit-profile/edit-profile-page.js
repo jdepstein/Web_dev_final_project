@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {findTeamsThunk} from "../thunks/teams-thunks";
 import {updateUserThunk} from "../thunks/users-thunks";
+import { useNavigate } from "react-router-dom";
+
 
 
 function EditProfilePage()
@@ -12,13 +14,17 @@ function EditProfilePage()
         state => state.teamData)
 
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(findTeamsThunk())
-    }, [])
 
     const {currentUser} = useSelector( 
         state => state.UserData
     )
+
+
+    useEffect(() => {
+        dispatch(findTeamsThunk())
+
+    }, [])
+
 
     const [profile, setProfile] = useState(currentUser)
 
@@ -26,6 +32,8 @@ function EditProfilePage()
     const updateUserName = (target) => {
        setProfile({...profile,  name: target})
     }
+
+
 
     const updateUserLocation = (target) => {
         setProfile({...profile, "location": target})
@@ -43,6 +51,20 @@ function EditProfilePage()
         setProfile({...profile, "dateOfBirth": target})
     }
 
+    const navigate = useNavigate();
+
+    if (profile === null ){
+        navigate("/login")
+    }
+
+    if (currentUser !== null) {
+
+        if (currentUser.role === "team"){
+            navigate("/teams/" + currentUser.handle)
+        }
+    }  
+
+
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
             <div className="h3 text-dark a1-font-family fw-bold mt-3 mb-2 ms-2">
@@ -58,7 +80,7 @@ function EditProfilePage()
                 </div>
                 <div className="col-7 mt-2">
                     <Link to="/profile">
-                        <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2"
+                        <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0"
                                 onClick={() => dispatch(updateUserThunk(profile))}
                             >
                             Save

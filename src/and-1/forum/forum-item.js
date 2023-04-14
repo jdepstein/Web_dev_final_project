@@ -48,14 +48,18 @@ function ForumItem(
             </div>
             <div className="mb-1 text-center fw-bold mt-2 mb-2">
                 Posted: {post.userHandle} {post.timestamp + " "}
-                <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span>
+                {post.tag !== "general" ?
+                    <Link className="text-decoration-none" to={`/teams/${post.tag}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span></Link>
+                    :
+                    <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span>
+                }
             </div>
             <div className="row border-top border-3 p-0 m-0 pt-2">
                 <div className="col-2 p-0"></div>
                 <div className="col-1 p-0">
                     {   
                         !currentUser ?
-                            <i className="h3 text-black fa fa-arrow-up"></i>
+                            <> Likes: </>
                         :
                         post.liked === null ?
                             <i className="h3 text-black fa fa-arrow-up"onClick={() => dispatch(updatePostThunk({
@@ -74,7 +78,7 @@ function ForumItem(
                 <div className="col-1 p-0">
                     {
                         !currentUser ?
-                            <i className="h3 text-black fa fa-arrow-down"></i>
+                            <>  </>
                         :
                         post.liked === null ?
                             <i className="h3 text-black fa fa-arrow-down"onClick={() => dispatch(updatePostThunk({

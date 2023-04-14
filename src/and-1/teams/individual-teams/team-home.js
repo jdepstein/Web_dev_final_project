@@ -21,6 +21,7 @@ function TeamHomePage()
 
     let {user} = useSelector( 
         state => state.UserData)
+
         useEffect(() => {
             dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
         },  [])

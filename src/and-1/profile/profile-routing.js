@@ -8,22 +8,12 @@ import {useSelector} from "react-redux";
 // TODO: Set up team page Edit-page
 
 function ProfileRouting() {
-
-    const {currentUser} = useSelector( 
-        state => state.UserData)
     return (
+
         <Routes>
-            {currentUser ?
-                <Route index element={<Profile/>}/>
-                :
-                <Route index element={<Login/>}/>
-            }
+            <Route index element={<Profile/>}/>
             <Route path={"/:handle"} element={<Profile/>}/>
-            {currentUser ?
-                <Route path="/edit-profile" element={<EditProfile/>}/>
-                :
-                <Route path="/edit-profile" element={<Login/>}/>
-            }
+            <Route path="/edit-profile" element={<EditProfile/>}/>
         </Routes>
 
     );

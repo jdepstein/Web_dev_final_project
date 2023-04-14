@@ -2,29 +2,29 @@ import {useParams} from "react-router";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-
 import {findIndividualTeamThunk, updateTeamThunk} from "../../thunks/teams-thunks";
 
 
 function TeamNav() {
     const { teamName } = useParams();
-    let {teams, loading} = useSelector(
-        state => state.teamData)
+    let {teams, loading} = useSelector(state => state.teamData)
+    const {user, currentUser} = useSelector( state => state.UserData)
+
     const dispatch = useDispatch();
+
+
     useEffect(() => {
         dispatch(findIndividualTeamThunk(teamName))
     }, [])
 
-    const {currentUser} = useSelector( 
-        state => state.UserData
-    )
     
     let isCurrent = false
     if (currentUser !== null){
-        if (teamName === currentUser.handle){
+        if (teamName === currentUser.handle || teamName === currentUser.handle.toLowerCase()){
             isCurrent = true
         }
     }
+
  
 
 
@@ -50,7 +50,7 @@ function TeamNav() {
                         </li>
                     </ul>
                     { isCurrent ?
-                        <Link to={"/teams/" + teams.name + "/edit-team"}>
+                        <Link to={"/teams/" + teamName + "/edit-team"}>
                             <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3 border-0">
                                 Edit
                             </button>
@@ -59,7 +59,7 @@ function TeamNav() {
                         <>
                             {   
                                 !currentUser ?
-                                    <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2"></i>
+                                    <></>
                                     :
                                 teams.liked ?
                                     <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2"
@@ -74,21 +74,19 @@ function TeamNav() {
                             }
                             {
                                 !currentUser?
-                                    <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
-                                        Follow
-                                    </button>
+                                    <></>
                             
                                     :
                                 teams.followed ?
                                     <button onClick={() => dispatch(updateTeamThunk({
                                         ...teams, followed: false, follows: teams.follows - 1}))}
-                                            className="nav-item float-end rounded-pill a1-bg-red text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
+                                            className="nav-item float-end rounded-pill a1-bg-red text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3  border-0">
                                         Unfollow
                                     </button>
                                     :
                                     <button onClick={() => dispatch(updateTeamThunk({
                                         ...teams, followed: true, follows: teams.follows + 1}))}
-                                        className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
+                                        className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3 border-0">
                                         Follow
                                     </button>
                             }

@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import {createPostThunk}
     from "../thunks/posts-thunks";
@@ -45,6 +46,11 @@ function CreateComponent() {
         setNewPostTag("");
         
     }
+
+    const navigate = useNavigate();
+    if (!currentUser){
+        navigate("/login")
+    }  
 
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 wd-bg-off-white border-start border-end align-content-center ps-2 pe-2">
