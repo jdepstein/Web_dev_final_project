@@ -8,30 +8,20 @@ import {useSelector} from "react-redux";
 
 function ForumItem(
         post = {
-             comments : 0,
-             likeDislike : 0,
-             liked: null,
-             post_content: "String",
-             post_type: "String",
-             profilePic : "String",
-             share: 0,
-             tag: "String",
-             tagColor: "String",
-             timestamp: new Date(),
-            title: "String",
-            userHandle: "String",
-            _id: "642b3464feea95a346a7fd8e",
-    })
-    {    
+             comments : 0, likeDislike : 0, liked: null, post_content: "String", post_type: "String",
+             profilePic : "String", share: 0,  tag: "String", tagColor: "String", timestamp: new Date(),
+             title: "String", userHandle: "String", _id: "642b3464feea95a346a7fd8e", }){    
+
     const dispatch = useDispatch()
+    const {currentUser} = useSelector( state => state.UserData)
     post = post.post
+
+
     const deletePostHandler = (id) => {
         dispatch(deletePostThunk(id));
-        }
+     }
 
-    const {currentUser} = useSelector( 
-        state => state.UserData
-    )
+    
 
     return (
         <div className="mb-1">
@@ -40,7 +30,7 @@ function ForumItem(
             </div>
             <div className="row border-3 p-0 m-0">
                 <div className="col-2 col-xl-1 p-0 m-0 text-center">
-                       <Link to={`/profile/`+post.userHandle}> <img alt="" src={post.profilePic} className="a1-profile-pic ms-4"/> </Link>
+                       <Link to={`/profile/`+ post.userHandle}> <img alt="" src={post.profilePic} className="a1-profile-pic ms-4"/> </Link>
                 </div>
                 <div className="col-10 col-xl-11">
                     <div>{post.post_content}</div>

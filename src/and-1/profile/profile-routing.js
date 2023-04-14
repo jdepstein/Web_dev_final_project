@@ -4,16 +4,27 @@ import EditProfile from "../edit-profile";
 import Login from "../login";
 import {useSelector} from "react-redux";
 
-// TODO: Route to non-current user profiles need to use the links to do so
-// TODO: Set up team page Edit-page
 
 function ProfileRouting() {
+    const {currentUser} = useSelector(state => state.UserData)
     return (
-
-        <Routes>
-            <Route index element={<Profile/>}/>
+        
+        <Routes> 
+            
             <Route path={"/:handle"} element={<Profile/>}/>
-            <Route path="/edit-profile" element={<EditProfile/>}/>
+
+            {!currentUser ?
+                <>
+                    <Route index element={<Login/>}/>
+                    <Route path="/edit-profile" element={<Login/>}/>
+                </>
+
+            :
+                <>
+                    <Route index element={<Profile/>}/>
+                    <Route path="/edit-profile" element={<EditProfile/>}/>
+                </>
+            }
         </Routes>
 
     );

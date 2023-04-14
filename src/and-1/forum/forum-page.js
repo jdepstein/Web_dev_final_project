@@ -12,10 +12,12 @@ import { useParams } from "react-router";
 
 
 function ForumPage() {
+
     const { topic } = useParams();
-    const {posts, loading} = useSelector(
-        state => state.postData)
+    const {posts, loading} = useSelector(state => state.postData)
     const dispatch = useDispatch();
+
+
     useEffect(() => {
         if (topic === undefined) {
             dispatch(findPostsThunk())
@@ -27,18 +29,21 @@ function ForumPage() {
             dispatch(findTeamPostsThunk(topic.toLocaleLowerCase())) 
             }
     }, [])
-
     return (
-        <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
-            <SearchBar/>
-            <ForumTitle/>
-            <CreatePost/>
-            {
-                posts.map((post, i) =>
-                    <ForumItem key={i} post={post}/>
-                )
+        <>
+            {!loading &&
+                <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
+                    <SearchBar/>
+                    <ForumTitle/>
+                    <CreatePost/>
+                    {
+                        posts.map((post, i) =>
+                            <ForumItem key={i} post={post}/>
+                        )
+                    }
+                </div>
             }
-        </div>
+        </>
 
     );
 }

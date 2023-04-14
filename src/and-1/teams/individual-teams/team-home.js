@@ -10,35 +10,22 @@ import {findUserThunk} from "../../thunks/users-thunks";
 
 
 function TeamHomePage()
-{   //teamUsers
-    const { teamName } = useParams();
-    const {teams, loading} = useSelector(
-        state => state.teamData)
+{   
     const dispatch = useDispatch();
+    const { teamName } = useParams();
+    const {teams} = useSelector(state => state.teamData)
+    const {user} = useSelector(state => state.UserData)
+    
+
     useEffect(() => {
         dispatch(findIndividualTeamThunk(teamName))
+        dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
     }, [])
 
-    let {user} = useSelector( 
-        state => state.UserData)
-
-        useEffect(() => {
-            dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
-        },  [])
-
-    const {currentUser} = useSelector( 
-        state => state.UserData
-    )
-
-    let isCurrent = false
-    if (currentUser !== null){
-        if (teamName === currentUser.handle){
-            isCurrent = true
-        }
-    }
- 
 
     return (
+        <>
+        {user && teams &&
             <div
                 className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
                 <div className="h2 text-dark a1-font-family fw-bold mt-5 text-center">
@@ -106,6 +93,8 @@ function TeamHomePage()
                 </div>
 
             </div>
+        }
+        </>
     );
 }
 export default TeamHomePage;

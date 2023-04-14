@@ -10,10 +10,9 @@ import {findTeamPostsThunk}
     from "../../thunks/posts-thunks";
 
 function TeamForumPage() {
-    const { teamName } = useParams();
-    const {posts, loading} = useSelector(
-        state => state.postData)
     const dispatch = useDispatch();
+    const { teamName } = useParams();
+    const {posts} = useSelector(state => state.postData)
     useEffect(() => {
         dispatch(findTeamPostsThunk(teamName.toLowerCase()))
     }, [])
@@ -23,7 +22,7 @@ function TeamForumPage() {
 
             <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
                 <ForumTitle/>
-                <CreatePost/>
+                <CreatePost fromTeam={teamName}/>
                 {
                     posts.map((post, i) =>
                         <ForumItem key={post._id} post={post}/>

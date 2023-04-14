@@ -2,29 +2,51 @@ import {Link} from "react-router-dom";
 
 
 import React, {useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import {useDispatch} from "react-redux";
 
 
-import {createUserThunk, findAllUsersThunk }
+import {createUserThunk }
     from "../thunks/users-thunks";
+
+import {useNavigate} from "react-router-dom";
+import { createTeamThunk } from "../thunks/teams-thunks";
 
 
 function CreateAccount() {
+    const navigate = useNavigate();
     let [newUserEmail, setNewUserEmail] = useState('');
     let [newUserUsername, setNewUserUsername] = useState('');
     let [newUserPassword, setNewUserPassword] = useState('');
+    let [newUserPasswordConfirm, setNewUserPasswordConfirm] = useState('');
     let [newUserFullName, setNewUserFullName] = useState('');
     let [newUserType, setNewUserType] = useState('user');
-    const [profile, setProfile] = useState({})
     const dispatch = useDispatch();
+    
 
-    const {user, loading} = useSelector(
-        state => state.UserData)
+    const handleCreate = async (newUser) => {
+        try {
+            if (newUser.role === "team"){
+                console.log("Creating Team")
+                await dispatch(createTeamThunk({"name" : newUser.handle}));
+            }
+            const logged = await dispatch(createUserThunk(newUser));
+            if (logged.error) {
+                throw new Error("User Creation Failed");
+            }
+            setNewUserEmail("");
+            setNewUserUsername("");
+            setNewUserPassword("");
+            setNewUserFullName("");
+            setNewUserType("");
+            navigate("/home")
+        } catch (e) {
+            console.log(e);
+            alert("UserName  Already Exisits ");
+        }
+    };
 
-    useEffect(() => {
-        dispatch(findAllUsersThunk())
-    }, [])
+  
+
 
     const newUserHandler = () => {
         const newUser = {
@@ -32,24 +54,18 @@ function CreateAccount() {
             handle: newUserUsername,
             password: newUserPassword,
             name: newUserFullName,
-            type: newUserType,
+            role: newUserType,
         }
         
-        if (user.find(user => user.handle === newUserUsername) !== undefined) {
-            alert("Username already exists", profile)
-        }
-
-        else if(newUserEmail === "" || newUserUsername === "" || newUserPassword === "" || newUserFullName === "" || newUserType === "") {
+        if(newUserEmail === "" || newUserUsername === "" || newUserPassword === "" || newUserFullName === "" || newUserType === "" || newUserPasswordConfirm === "") {
             alert("Please fill out all fields")
         }
+        else if (newUserPassword != newUserPasswordConfirm) {
+            alert("Passwords do not match")
+        }
+
         else {
-            dispatch(createUserThunk(newUser));
-            setNewUserEmail("");
-            setNewUserUsername("");
-            setNewUserPassword("");
-            setNewUserFullName("");
-            setNewUserType("");
-            window.location.replace("/login");
+            handleCreate(newUser);
         }
     }
 
@@ -108,6 +124,19 @@ function CreateAccount() {
 
                         <div className="form-group mb-3">
                             <label className="fw-bold ms-2 a1-font-family h5 text-center mt-2 text-white"
+                                      htmlFor="password_confirm">Confirm Password</label>
+                            <div className="me-2 ms-2"> 
+                                <input type="password" className="me-3 rounded-pill form-control text-dark" id="password_confirm"
+                                        placeholder="Confirm password"
+                                        onChange={(event) => setNewUserPasswordConfirm(event.target.value)} 
+                                        /> 
+                            </div>
+                        </div>
+
+
+
+                        <div className="form-group mb-3">
+                            <label className="fw-bold ms-2 a1-font-family h5 text-center mt-2 text-white"
                                     htmlFor="user_type">Select Profile Type</label>
                             <div className="me-2 ms-2">
                                 <select id="user_type" className="me-3 rounded-pill form-control text-dark w-50"
@@ -120,7 +149,7 @@ function CreateAccount() {
 
                         <div className="form-group mb-3 d-flex justify-content-center">
                             <Link to="/login"><button className="btn rounded-pill btn-primary me-3"> Cancel</button></Link>
-                            <button className="btn rounded-pill btn-primary ms-3"
+                            <button type="button" className="btn rounded-pill btn-primary ms-3"
                                 onClick={() => newUserHandler()} > 
                                 Create Account
                                 </button>

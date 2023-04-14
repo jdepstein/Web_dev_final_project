@@ -3,41 +3,34 @@ import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {findIndividualTeamThunk} from "../../thunks/teams-thunks";
-import { findUserThunk, updateUserThunk } from "../../thunks/users-thunks";
+import {updateUserThunk } from "../../thunks/users-thunks";
 import { useNavigate } from "react-router-dom";
 
 
 function EditTeamPage() {
-    const { teamName } = useParams();
-
-    const {teams, loading} = useSelector(
-        state => state.teamData)
     const dispatch = useDispatch();
+
+    const { teamName } = useParams();
+    const navigate = useNavigate();
+    const {teams} = useSelector(state => state.teamData)
+    const {currentUser} = useSelector(state => state.UserData)
+    const [profile, setProfile] = useState(currentUser)
+
     useEffect(() => {
         dispatch(findIndividualTeamThunk(teamName))
     }, [])
+    
 
-    const {currentUser} = useSelector( 
-        state => state.UserData
-    )
-    const [profile, setProfile] = useState(currentUser)
+    const updateTeamLocation = (target) => {setProfile({...profile, "location": target})}
+    const updateTeamStadium = (target) => {setProfile({...profile, "stadium": target})}
 
-    const updateTeamLocation = (target) => {
-        setProfile({...profile, location: target.value})
-    }
-
-    const updateTeamStadium = (target) => {
-        setProfile({...profile, stadium: target.value})
-    }
-
-    const navigate = useNavigate();
+   
     if (currentUser === null ){
         navigate("/login")
     }
+    else if (currentUser !== null) {
 
-    if (currentUser !== null) {
-
-        if (currentUser.role === "user"){
+        if (currentUser.role === "user" || currentUser.role === "admin"){
             navigate("/profile")
         }
 
@@ -47,12 +40,9 @@ function EditTeamPage() {
     }  
 
 
-
-
     return (
         <>
-            { loading ? "loading"
-                :
+            { teams && currentUser &&
                 <>
                     <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
                         <div className="h3 text-dark a1-font-family fw-bold mt-3 mb-2 ms-2">

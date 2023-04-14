@@ -12,6 +12,7 @@ import {findUserThunk, updateUserThunk, profileThunk} from "../thunks/users-thun
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {useParams} from "react-router-dom";
+import {useState} from "react";
 
 
 
@@ -20,34 +21,37 @@ function ProfilePage() {
 
     const {handle} = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [isCurrent, setIsCurrent] = useState(false)
+    let {user, currentUser} = useSelector(state => state.UserData)
+    const {posts} = useSelector(state => state.postData)
+
+    useEffect(() => {
+        dispatch(findUserThunk(handle))
+        if (handle === undefined) 
+            dispatch(findUserPostsThunk(currentUser.handle))
+        else
+            dispatch(findUserPostsThunk(handle))
+    
+    }, [])
+
+    if (handle === undefined){
+        user = currentUser
+        if (isCurrent === false)
+            setIsCurrent(true)
+    }
+    if(currentUser !== null) {
+        if (currentUser.role === "team"){
+            navigate("/teams/" + currentUser.handle)
+        }
+
+        if (handle === currentUser.handle){
+            if (isCurrent === false)
+                setIsCurrent(true)
+        }
+    }
 
  
-
-    let {user, currentUser} = useSelector( 
-        state => state.UserData)
-
-        useEffect(() => {
-            dispatch(findUserThunk(handle))
-        },  [])
-
-
-
-    let isCurrent = false
-    if (currentUser !== null){
-        if (handle === currentUser.handle){
-            isCurrent = true
-            user = currentUser
-        }
-
-        if (handle === null) {
-            isCurrent = true
-        }
-        user = currentUser
-    }
-        
-    
-    
-    
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
     ];  
@@ -62,7 +66,6 @@ function ProfilePage() {
         return output
     }
     
-
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
             {
@@ -135,8 +138,17 @@ function ProfilePage() {
                         {user.handle}
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
-                        <i className="fa fa-basketball-ball me-2"></i>
-                        {user.favoriteTeam}
+                        {user.favoriteTeam && user.favoriteTeam !== "None" ?
+                            <Link className="text-decoration-none text-dark" to={"/teams/"+user.favoriteTeam}>
+                                <i className="fa fa-basketball-ball me-2 text-dark"></i>
+                                {user.favoriteTeam}
+                            </Link>
+                            :
+                            <>
+                                <i className="fa fa-basketball-ball me-2"></i>
+                                {user.favoriteTeam}
+                            </>
+                        }
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
                         <i className="fa fa-birthday-cake me-2"></i>
@@ -174,7 +186,7 @@ function ProfilePage() {
             </div>
             {isCurrent && <CreatePost/>}
             {
-                [].map((post, i) =>
+                posts.map((post, i) =>
                     <ForumSummaryItem key={i} post={post}/>
                 )
             }

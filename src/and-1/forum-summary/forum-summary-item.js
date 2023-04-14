@@ -8,31 +8,18 @@ import {Link} from "react-router-dom";
 function ForumSummaryItem(
     post =
         {
-            comments : 0,
-            likeDislike : 0,
-            liked: null,
-            post_content: "String",
-            post_type: "String",
-            profilePic : "String",
-            share: 0,
-            tag: "String",
-            tagColor: "String",
-            timestamp: new Date(),
-            title: "String",
-            userHandle: "String",
-            _id: "642b3464feea95a346a7fd8e",
-        }
-)
- {
+            comments : 0, likeDislike : 0,liked: null, post_content: "String", post_type: "String",
+            profilePic : "String", share: 0, tag: "String", tagColor: "String",
+            timestamp: new Date(), title: "String", userHandle: "String", _id: "642b3464feea95a346a7fd8e",
+        }){
      const dispatch = useDispatch()
+     const {currentUser} = useSelector( state => state.UserData )
      post = post.post
+
      const deletePostHandler = (id) => {
          dispatch(deletePostThunk(id));
      }
 
-     const {currentUser} = useSelector( 
-        state => state.UserData
-    )
      return (
         <div className="row border-3 border-top border-bottom p-0 m-0 pt-3 ps-1 pe-1 pb-1">
                 <div className="col-1">

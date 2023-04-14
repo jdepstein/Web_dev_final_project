@@ -5,9 +5,6 @@ import { useDispatch } from "react-redux";
 import { loginThunk, logoutThunk} from "../thunks/users-thunks";
 
 
-//SET UP LOGIN CHECK HERE AND REDIRECT TO HOME IF LOGGED IN
-// SET UP SESSION HERE
-
 function Login() {
     const [handle, setHandle] = useState("");
     const [password, setPassword] = useState("");
@@ -15,12 +12,12 @@ function Login() {
     const dispatch = useDispatch();
 
     const handleLogin = async () => {
-        try {
             const logged = await dispatch(loginThunk({ handle, password }));
-            navigate('/')
-        } catch (e) {
-            alert("Login failed");
-        }
+            if (logged.error) {
+                alert("Login failed");
+            } else {
+                navigate("/");
+            }
        };
       
 
