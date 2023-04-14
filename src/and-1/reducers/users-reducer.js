@@ -21,7 +21,7 @@ const usersSlice = createSlice({
         },
         [findUserThunk.fulfilled]: (state, { payload }) => {
             state.loading = false
-            state.user = payload[0]
+            state.user = payload
         },
         [findUserThunk.rejected]: (state, action) => {
             state.loading = false
@@ -57,16 +57,20 @@ const usersSlice = createSlice({
         },
 
         [loginThunk.fulfilled]: (state, { payload }) => {
-            state.loading = false
             state.currentUser = payload
+        },
+
+        [loginThunk.rejected]: (state, action) => {
+            state.loading = false
+            state.error = action.error
         },
 
         [logoutThunk.fulfilled]: (state) => {
             state.currentUser = null;
-          },
+        },
 
         [profileThunk.fulfilled]: (state, { payload }) => {
-        state.currentUser = payload;
+            state.currentUser = payload;
         }
        
 

@@ -2,24 +2,24 @@ import {Link} from "react-router-dom";
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginThunk} from "../thunks/users-thunks";
+import { loginThunk, logoutThunk} from "../thunks/users-thunks";
 
 
 //SET UP LOGIN CHECK HERE AND REDIRECT TO HOME IF LOGGED IN
 // SET UP SESSION HERE
 
 function Login() {
-    const [username, setUsername] = useState("");
+    const [handle, setHandle] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
     const handleLogin = async () => {
         try {
-          await dispatch(loginThunk({ username, password }));
-          alert("Login successful!")
-          navigate("/");
+            const logged = await dispatch(loginThunk({ handle, password }));
+            navigate('/')
         } catch (e) {
-          alert(e);
+            alert("Login failed");
         }
        };
       
@@ -37,7 +37,7 @@ function Login() {
                             <div className="me-2 ms-2">
                                 <input className="me-3 rounded-pill form-control" id="username"
                                        placeholder="Enter username"
-                                       onChange={(event) => setUsername(event.target.value)}/>
+                                       onChange={(event) => setHandle(event.target.value)}/>
                             </div>
                         </div>
 
@@ -53,6 +53,7 @@ function Login() {
 
                         <div className="form-group mb-3 d-flex justify-content-center">
                             <button className="btn rounded-pill btn-primary me-3"
+                                type="button"
                                 onClick={handleLogin}> 
                                 Login
                             </button>

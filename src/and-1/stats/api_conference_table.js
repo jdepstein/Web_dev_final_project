@@ -14,7 +14,6 @@ const ApiConferenceTable = () => {
    // let ids = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
     let team_array =     sort_stuff();
     //sort_stuff();
-    //console.log(team_array);
     return(
         <table className="table table-striped">
             <thead>

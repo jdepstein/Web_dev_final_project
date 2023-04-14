@@ -30,8 +30,7 @@ function TeamHomePage()
     )
 
     let isCurrent = false
-    if (currentUser ==! null){
-        
+    if (currentUser !== null){
         if (teamName === currentUser.handle){
             isCurrent = true
         }

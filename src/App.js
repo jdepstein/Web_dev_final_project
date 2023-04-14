@@ -15,6 +15,7 @@ import {Provider} from "react-redux";
 import PostsReducer from "./and-1/reducers/posts-reducer";
 import TeamsReducer from "./and-1/reducers/teams-reducer";
 import usersReducer from "./and-1/reducers/users-reducer";
+import LoadProfile from "./and-1/components/load-profile";
 
 
 const store = configureStore(
@@ -28,21 +29,25 @@ const store = configureStore(
 
 function App() {
   return (
+
         <BrowserRouter>
             <Provider store={store}>
-                <Routes>
-                    <Route path="login" element={<Login/>}/>
-                    <Route path="create_account" element={<CreateAccount/>}/>
-                    <Route path="forum/*" element={<ForumRouting/>}/>
-                    <Route path="profile/*" element={<ProfileRouting/>}/>
-                    <Route index element={<Home/>}/>
-                    <Route path="home" element={<Home/>}/>
-                    <Route path="teams/*" element={<TeamRouting/>}/>
-                    <Route path="stats" element={<Stats/>}/>
-                    <Route path="schedule" element={<Schedule/>}/>
-                </Routes>
+                <LoadProfile>
+                    <Routes>
+                        <Route path="login" element={<Login/>}/>
+                        <Route path="create_account" element={<CreateAccount/>}/>
+                        <Route path="forum/*" element={<ForumRouting/>}/>
+                        <Route path="profile/*" element={<ProfileRouting/>}/>
+                        <Route index element={<Home/>}/>
+                        <Route path="home" element={<Home/>}/>
+                        <Route path="teams/*" element={<TeamRouting/>}/>
+                        <Route path="stats" element={<Stats/>}/>
+                        <Route path="schedule" element={<Schedule/>}/>
+                    </Routes>
+                </LoadProfile>
             </Provider>
         </BrowserRouter>
+
 
 
 

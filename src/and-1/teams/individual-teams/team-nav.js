@@ -20,8 +20,7 @@ function TeamNav() {
     )
     
     let isCurrent = false
-    if (currentUser ==! null){
-        
+    if (currentUser !== null){
         if (teamName === currentUser.handle){
             isCurrent = true
         }
@@ -52,7 +51,7 @@ function TeamNav() {
                     </ul>
                     { isCurrent ?
                         <Link to={"/teams/" + teams.name + "/edit-team"}>
-                            <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3">
+                            <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3 border-0">
                                 Edit
                             </button>
                         </Link>

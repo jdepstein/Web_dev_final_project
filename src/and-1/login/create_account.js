@@ -49,7 +49,7 @@ function CreateAccount() {
             setNewUserPassword("");
             setNewUserFullName("");
             setNewUserType("");
-            window.location.replace("/home");
+            window.location.replace("/login");
         }
     }
 
@@ -124,7 +124,7 @@ function CreateAccount() {
                                 onClick={() => newUserHandler()} > 
                                 Create Account
                                 </button>
-                        </div>
+                            </div>
 
                     </form>
                     <form>

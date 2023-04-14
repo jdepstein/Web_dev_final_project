@@ -5,7 +5,8 @@ import * as service from "../services/users-service"
 
 export const findUserThunk = createAsyncThunk(
     "users/findUser", async (handle) => {
-        return await service.getUser(handle)
+        const user =  await service.getUser(handle)
+        return user
     }
 )
 

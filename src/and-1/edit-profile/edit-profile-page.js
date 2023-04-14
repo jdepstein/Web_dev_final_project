@@ -24,23 +24,23 @@ function EditProfilePage()
 
     
     const updateUserName = (target) => {
-       setProfile({...profile, name: target.value})
+       setProfile({...profile,  name: target})
     }
 
     const updateUserLocation = (target) => {
-        setProfile({...profile, location: target.value})
+        setProfile({...profile, "location": target})
     }
 
     const updateUserBio = (target) => {
-        setProfile({...profile, bio: target.value})
+        setProfile({...profile, "bio": target})
     }
 
     const updateUserTag = (target) => {
-        setProfile({...profile, tag: target.value})
+        setProfile({...profile, "favoriteTeam": target})
     }
 
     const updateUserDateOfBirth = (target) => {
-        setProfile({...profile, dateOfBirth: target.value})
+        setProfile({...profile, "dateOfBirth": target})
     }
 
     return (

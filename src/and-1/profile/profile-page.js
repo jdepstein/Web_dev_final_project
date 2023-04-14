@@ -16,7 +16,7 @@ import {useParams} from "react-router-dom";
 
 function ProfilePage() {
 
-    const {posts, loading} = useSelector(
+    const {posts} = useSelector(
         state => state.postData)
     const dispatch = useDispatch();
 
@@ -28,7 +28,13 @@ function ProfilePage() {
     )
     useEffect(() => {
         dispatch(findUserThunk(handle))
-        dispatch(findUserPostsThunk(handle))
+        if (currentUser !== null) {
+            dispatch(findUserPostsThunk(currentUser.handle))
+        }
+        else {
+            dispatch(findUserPostsThunk(handle))
+        }
+
     },  [])
     if (currentUser !== null) {
 
@@ -40,12 +46,25 @@ function ProfilePage() {
             user =  currentUser
             isCurrent = true
         }
-    }   
+    }  
+    
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];  
 
+    const getDatePretty = (date) => {
+        const newDate = new Date(date)
+        const month = monthNames[newDate.getMonth() + 1]
+        const day = newDate.getUTCDate();
+        const year = newDate.getUTCFullYear();
+        const output = month + ": " + day  + ', ' + year
 
-
+        return output
+    }
     
 
+
+    console.log(currentUser)
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
             <div className="justify-content-center h3 text-dark a1-font-family fw-bold mt-2 mb-0 ms-2">
@@ -117,15 +136,15 @@ function ProfilePage() {
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
                         <i className="fa fa-basketball-ball me-2"></i>
-                        {user.FavoriteTeam}
+                        {user.favoriteTeam}
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
                         <i className="fa fa-birthday-cake me-2"></i>
-                        user.dateOfBirth.$date
+                        {getDatePretty(user.dateOfBirth)}
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
                         <i className="fa fa-calendar me-2"></i>
-                        user.dateJoined.$date
+                        {getDatePretty(user.dateJoined)}
                     </div>
                     <div className="a1-font-16px text-dark a1-font-family mt-1">
                         <i className="bi bi-geo-alt-fill me-2"></i>
