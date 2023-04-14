@@ -70,6 +70,7 @@ const usersSlice = createSlice({
         },
 
         [profileThunk.fulfilled]: (state, { payload }) => {
+            console.log("loading profile with", payload)
             state.currentUser = payload;
         }
        

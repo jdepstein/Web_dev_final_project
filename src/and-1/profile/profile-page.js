@@ -18,53 +18,33 @@ import {useParams} from "react-router-dom";
 function ProfilePage() {
     
 
-    const {posts} = useSelector(
-        state => state.postData)
+    const {handle} = useParams();
     const dispatch = useDispatch();
+
+ 
+
+    let {user, currentUser} = useSelector( 
+        state => state.UserData)
+
         useEffect(() => {
-          dispatch(profileThunk());
-        }, []);
+            dispatch(findUserThunk(handle))
+        },  [])
+
+
 
     let isCurrent = false
-    const {handle} = useParams();
-    
-    let {user, currentUser} = useSelector( 
-        state => state.UserData
-    )
-    useEffect(() => {
-        dispatch(findUserThunk(handle))
-        if (currentUser !== null) {
-            dispatch(findUserPostsThunk(currentUser.handle))
-        }
-        else {
-            dispatch(findUserPostsThunk(handle))
-        }
-
-    },  [])
-
-    const navigate = useNavigate();
-    
-    if (user !== null) {
-        if (user.role === "team"){
-            navigate( "/teams/" + user.handle)
-        }
-    }
-
-    if (currentUser !== null) {
-
-        if (currentUser.role === "team"){
-            navigate( "/teams/" + currentUser.handle)
-        }
-
+    if (currentUser !== null){
         if (handle === currentUser.handle){
-        isCurrent = true
+            isCurrent = true
+            user = currentUser
         }
 
-        if (handle === undefined) {
-            user =  currentUser
+        if (handle === null) {
             isCurrent = true
         }
-    } 
+        user = currentUser
+    }
+        
     
     
     
@@ -85,6 +65,10 @@ function ProfilePage() {
 
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
+            {
+                user !== null &&
+                <>
+                
             <div className="justify-content-center h3 text-dark a1-font-family fw-bold mt-2 mb-0 ms-2">
                 {user.name}
             </div>
@@ -99,6 +83,7 @@ function ProfilePage() {
                 </div>
                 <div className="col-7 mt-2">
                     {isCurrent ?
+
 
                         <Link to="/profile/edit-profile">
                             <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0">
@@ -189,10 +174,11 @@ function ProfilePage() {
             </div>
             {isCurrent && <CreatePost/>}
             {
-                posts.map((post, i) =>
+                [].map((post, i) =>
                     <ForumSummaryItem key={i} post={post}/>
                 )
             }
+            </>}
 
         </div>
 

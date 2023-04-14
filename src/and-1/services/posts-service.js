@@ -4,35 +4,40 @@ const POST_API = `${API_BASE}/posts`;
 const USER_POST_API = `${API_BASE}/user-posts`;
 const TEAM_POST_API = `${API_BASE}/team-posts`;
 
+const api = axios.create({
+    withCredentials: true,
+  });
+
+
 
 export const createPost = async (post) => {
-    const response = await axios.post(POST_API, post)
+    const response = await api.post(POST_API, post)
     return response.data;
 }
 
 export const findPosts = async () => {
-    const response = await axios.get(POST_API);
+    const response = await api.get(POST_API);
     return response.data;
 }
 
 export const findTeamPosts = async (tag) => {
-    const response = await axios.get(`${TEAM_POST_API}/${tag}`);
+    const response = await api.get(`${TEAM_POST_API}/${tag}`);
     return response.data;
 }
 
 export const findUserPosts = async (handle) => {
-    const response = await axios.get(`${USER_POST_API}/${handle}`);
+    const response = await api.get(`${USER_POST_API}/${handle}`);
     return response.data;
 }
 
 export const deletePost = async (pid) => {
-    const response = await axios
+    const response = await api
         .delete(`${POST_API}/${pid}`)
     return response.data
 }
 
 export const updatePost = async (post) => {
-    const response = await axios
+    const response = await api
         .put(`${POST_API}/${post._id}`, post);
     return post;
 }
