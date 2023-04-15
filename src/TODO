@@ -1,19 +1,10 @@
 
 * Show the users posts or something when logged in 
 	
-Following idea profile! NEED TO DO THIS WHILE watch class video 
-	- something about seeing the physical followers
-	- Update Follower count on team page and user page based on length of returned list 
-	- need new collection for this scheme wise 
-	- user to user Relationships
-	- show the physical followers and following
-	- on the profile page links to the user if clicked 	
-	
 
-
-
+************
 OBJECTS:
-	Followers user to user
+
 	had another attribute that will relate to a player object 
 	iff it was created on a player page 
 	
@@ -21,7 +12,7 @@ OBJECTS:
 		Can be liked by users based off of info gained from API 	
 		Will have a custom page tog et more info but can be seen on team page 					
 		or special query page as well 
-
+		
 	
 	
    
