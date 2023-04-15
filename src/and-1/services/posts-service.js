@@ -41,3 +41,16 @@ export const updatePost = async (post) => {
         .put(`${POST_API}/${post._id}`, post);
     return post;
 }
+
+export const deleteAllUsersPosts = async (handle) => {
+   const response = await api
+        .delete(`${USER_POST_API}/${handle}`)
+    return response.data 
+}
+
+export const deleteAllTeamsPosts = async (tag) => {
+    console.log(`${TEAM_POST_API}/${tag}`)
+    const response = await api
+        .delete(`${TEAM_POST_API}/${tag}`)
+    return response.data
+}

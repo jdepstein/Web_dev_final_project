@@ -6,5 +6,7 @@
     { "icon": "fa fa-users ", "link": "teams", "text": "Teams"},
     { "icon": "fa fa-comments",     "link": "forum", "text": "Forum"},
     { "icon": "fa fa-user",         "link": "profile", "text": "Profile"},
-    { "icon": "fa fa-user",         "link": "#", "text": "Logout"}
+    { "icon": "fa fa-lock",         "link": "admin", "text": "Admin"},
+    { "icon": "fa fa-sign-out-alt", "link": "logout", "text": "Logout"}
+
     ]

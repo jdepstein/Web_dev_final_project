@@ -26,3 +26,13 @@ export const updateTeamThunk =
 
         }
     )
+
+export const deleteTeamThunk =
+    createAsyncThunk(
+        'teams/deleteTeam',
+        async (name) => {
+            return await service.deleteTeam(name)
+
+        }
+    )
+

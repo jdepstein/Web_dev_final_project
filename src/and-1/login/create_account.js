@@ -26,7 +26,6 @@ function CreateAccount() {
     const handleCreate = async (newUser) => {
         try {
             if (newUser.role === "team"){
-                console.log("Creating Team")
                 await dispatch(createTeamThunk({"name" : newUser.handle}));
             }
             const logged = await dispatch(createUserThunk(newUser));
@@ -40,7 +39,6 @@ function CreateAccount() {
             setNewUserType("");
             navigate("/home")
         } catch (e) {
-            console.log(e);
             alert("UserName  Already Exisits ");
         }
     };

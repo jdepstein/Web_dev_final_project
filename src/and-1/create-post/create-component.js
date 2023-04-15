@@ -14,14 +14,13 @@ import {findTeamsThunk} from "../thunks/teams-thunks";
 function CreateComponent(from_team = "None") {
     let [newPostTitle, setNewPostTitle] = useState('');
     let [newPostTitleText, setNewPostText] = useState('');
-    let [newPostTitleTag, setNewPostTag] = useState('celtics::a1-bg-celtics');
+    let [newPostTitleTag, setNewPostTag] = useState('general::a1-bg-red');
     let [isteam, setIsteam] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const {teams} = useSelector(state => state.teamData)
     const {currentUser} = useSelector( state => state.UserData)
-    
     
     useEffect(() => {
         let ignore = false;
@@ -31,13 +30,15 @@ function CreateComponent(from_team = "None") {
                     navigate("/login")
                 } 
                 if (currentUser){
+                    console.log("current user: ", currentUser.role)
                     if (currentUser.role === "team"){
                         setIsteam(true)}
-                    }
+                    
                     else if (currentUser.role === "admin"){
                         alert("admins cannot make posts")
                         navigate("/forum")
-                    }           
+                    }   
+                }        
             }
         });
         return () => {
@@ -61,7 +62,6 @@ function CreateComponent(from_team = "None") {
         
     }
 
-
     return (
         <>
             { currentUser !== null && !teams.name && teams &&
@@ -79,7 +79,7 @@ function CreateComponent(from_team = "None") {
         
                                     <select className="form-control w-25 shadow-none mt-3"
                                             onChange={(event) => setNewPostTag(event.target.value.toLowerCase())}>
-                                        {!isteam && from_team ==="None" && <option defaultValue  value="general::a1-bg-red">
+                                        {<option defaultValue  value="general::a1-bg-red">
                                             general
                                         </option>}
                                         {

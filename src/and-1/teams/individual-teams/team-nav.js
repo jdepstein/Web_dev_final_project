@@ -51,7 +51,7 @@ function TeamNav() {
                             </li>
                         </ul>
                         { isCurrent ?
-                            <Link to={"/teams/" + teamName + "/edit-team"}>
+                            <Link to={"edit-team"}>
                                 <button className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3 border-0">
                                     Edit
                                 </button>

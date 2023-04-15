@@ -46,10 +46,6 @@ const usersSlice = createSlice({
                 ...payload
             }
         },
-        [deleteUserThunk.fulfilled]: (state, { payload }) => {
-            state.loading = false
-            state.user = payload
-        },
 
         [createUserThunk.fulfilled]: (state, { payload }) => {
             state.loading = false
@@ -71,8 +67,13 @@ const usersSlice = createSlice({
 
         [profileThunk.fulfilled]: (state, { payload }) => {
             state.currentUser = payload;
-        }
-       
+        },
+
+        [deleteUserThunk.fulfilled]:
+            (state, { payload }) => {
+                state.loading = false
+                state.user = state.user.filter(user => user._id !== payload._id)
+        }    
 
     }   
 })

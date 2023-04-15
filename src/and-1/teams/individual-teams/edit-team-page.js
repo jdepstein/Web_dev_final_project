@@ -23,18 +23,14 @@ function EditTeamPage() {
 
     const updateTeamLocation = (target) => {setProfile({...profile, "location": target})}
     const updateTeamStadium = (target) => {setProfile({...profile, "stadium": target})}
-
-   
-    if (currentUser === null ){
-        navigate("/login")
-    }
-    else if (currentUser !== null) {
+    
+    if (currentUser !== null) {
 
         if (currentUser.role === "user" || currentUser.role === "admin"){
             navigate("/profile")
         }
 
-        else if ((currentUser.handle).toLowerCase() !== teamName){
+        else if ((currentUser.handle).toLowerCase() !== teamName.toLowerCase()){
             navigate("/teams/" + teamName)
         }
     }  

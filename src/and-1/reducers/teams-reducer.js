@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import {createTeamThunk, updateTeamThunk, findTeamsThunk, findIndividualTeamThunk}
+import {createTeamThunk, updateTeamThunk, findTeamsThunk, findIndividualTeamThunk, deleteTeamThunk}
     from "../thunks/teams-thunks";
 
 
@@ -59,8 +59,13 @@ const teamsSlice = createSlice({
                     ...state.teams,
                     ...payload
                 }
+            },
+        
+        [deleteTeamThunk.fulfilled]:   
+            (state, { payload }) => {
+                state.loading = false
+                state.teams = state.teams.filter(team => team._id !== payload._id)
             }
-
     },
     reducers: {}
 });

@@ -9,7 +9,7 @@ const NavigationSidebar = (
                     {
                         navs.map((nav, i) => {
                             return(
-                                <li key={i} className="list-group-item mt-3 border-0 rounded-pill">
+                                <li key={i} className={`list-group-item mt-3 border-0 rounded-pill ${nav.text === "Logout" && "p-0"}`}>
                                     <SidebarItem nav={nav}/>
                                 </li>
                             );

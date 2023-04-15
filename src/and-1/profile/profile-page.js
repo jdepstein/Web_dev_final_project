@@ -99,7 +99,7 @@ function ProfilePage() {
                                 <div className="mb-5"></div>
                                 :
                             user.followed  ?
-                                <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0"
+                                <button className="a1-bg-red rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0"
                                     
                                     onClick={() => dispatch(updateUserThunk( 
                                         {   ...user,

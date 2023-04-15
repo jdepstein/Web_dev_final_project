@@ -51,7 +51,7 @@ function SidebarItem(
 
                     :
                 
-                    lowercase_text !== 'logout' ?
+                    lowercase_text !== 'logout' && lowercase_text !== 'admin' ?
 
                     <>    
                         <Link onClick={window.location.reload} to={"/" + nav.link} className="wd-no-underline">
@@ -69,7 +69,22 @@ function SidebarItem(
                         </Link>
                     </>
                     :
-                    <></>
+                    lowercase_text === 'admin' && currentUser && currentUser.role === 'admin' &&
+                        <>    
+                            <Link onClick={window.location.reload} to={"/" + nav.link} className="wd-no-underline">
+                                <i  className=
+                                    {`float-start me-2 pt-1 ${nav.icon}
+                                        ${active === lowercase_text ? 'a1-text-red':'text-dark'}
+                                        `}>
+                                </i>
+                                <p className=
+                                    {`${nav.text ? 'd-none d-xl-block ' : 'd-none'} 
+                                                ${active === lowercase_text ? 'a1-text-red':'text-dark'}
+                                            float-start p-0 m-0`}>
+                                    {nav.text}
+                                </p>
+                            </Link>
+                        </>
                 }
             </>
    

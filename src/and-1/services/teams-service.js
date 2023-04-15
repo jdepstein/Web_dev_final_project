@@ -31,3 +31,10 @@ export const updateTeam = async (team) => {
         .put(`${TEAM_API}/${team._id}`, team);
     return team;
 }
+
+export const deleteTeam = async (name) => {
+    const response = await api
+       .delete(`${TEAM_API}/${name}`);
+    return response.data
+}
+

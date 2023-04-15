@@ -38,3 +38,22 @@ export const updatePostThunk =
         async (post) =>
             await service.updatePost(post)
     )
+
+export const deleteAllUsersPostsThunk = createAsyncThunk(
+    'posts/deleteAllUsersPosts',
+    async (handle) => {
+        await service.deleteAllUsersPosts(handle)
+        return handle
+    }
+
+)
+
+export const deleteAllTeamsPostsThunk = createAsyncThunk(
+    'posts/deleteAllTeamsPosts',
+    async (tag) => {
+        await service.deleteAllTeamsPosts(tag)
+        return tag
+    }
+)
+
+

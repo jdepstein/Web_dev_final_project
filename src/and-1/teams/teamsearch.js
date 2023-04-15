@@ -13,17 +13,14 @@ function TeamSearch() {
     const dispatch = useDispatch();
     useEffect(() => {dispatch(findTeamsThunk())  
     }, [])
-    let numberOf  = Math.floor(teams.length / 5)
     let remainer = teams.length % 5
     let numbers = [];
     for (let i = 0; i < teams.length -1; i += 5){
         numbers.push(i)
     }
-    console.log(numbers)
     if (remainer > 0){
         numbers.push(teams.length - remainer)
     }
-    console.log(numbers)
 
     return (
         <>

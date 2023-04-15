@@ -1,0 +1,43 @@
+
+* Show the users posts or something when logged in 
+	
+Following idea profile! NEED TO DO THIS WHILE watch class video 
+	- something about seeing the physical followers
+	- Update Follower count on team page and user page based on length of returned list 
+	- need new collection for this scheme wise 
+	- user to user Relationships
+	- show the physical followers and following
+	- on the profile page links to the user if clicked 	
+	
+
+
+   - teams page is team feature (delete posts related to team) only make posts 		about their team aka they can delete posts that are not theirs 
+   - Users are the only one who can make a post about anyone -> DONE!
+
+
+
+
+OBJECTS:
+	TEAM Objects can be liked are created when new team is created  user side
+	Team Objects can be liked not keep any true count 
+	Followers user to user
+
+	Posts:
+		Can be made by teams and users
+		 can be liked by anyone 
+		can only have any tag if user
+		can only have team tag if team
+		cannot make if admin
+		had another attribute that will relate to a player object 
+		iff it was created on a player page 
+	
+	Players
+		Can be liked by users based off of info gained from API 	
+		Will have a custom page tog et more info but can be seen on team page 					or special query page as well 
+
+	
+	
+   
+
+
+

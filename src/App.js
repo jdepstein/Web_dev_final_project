@@ -9,6 +9,7 @@ import CreateAccount from "./and-1/login/create_account";
 import TeamRouting from "./and-1/teams/team-routing";
 import ForumRouting from "./and-1/forum/forum-routing";
 import ProfileRouting from "./and-1/profile/profile-routing";
+import AdminPage from "./and-1/admin-page";
 
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
@@ -43,6 +44,7 @@ function App() {
                         <Route path="teams/*" element={<TeamRouting/>}/>
                         <Route path="stats" element={<Stats/>}/>
                         <Route path="schedule" element={<Schedule/>}/>
+                        <Route path="admin" element= {<AdminPage/>} />
                     </Routes>
                 </LoadProfile>
             </Provider>

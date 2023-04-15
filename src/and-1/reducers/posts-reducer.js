@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import {updatePostThunk, deletePostThunk, createPostThunk, findPostsThunk, findTeamPostsThunk, findUserPostsThunk}
+import {updatePostThunk, deletePostThunk, createPostThunk, findPostsThunk, findTeamPostsThunk, findUserPostsThunk, deleteAllUsersPostsThunk, deleteAllTeamsPostsThunk}
     from "../thunks/posts-thunks";
 
 
@@ -83,7 +83,22 @@ const postsSlice = createSlice({
                     ...state.posts[postNdx],
                     ...payload
                 }
+            },
+
+        [deleteAllUsersPostsThunk.fulfilled]:
+            (state, { payload }) => {
+                state.loading = false
+                state.posts = state.posts
+                    .filter(t => t.handle !== payload.handle)
             }
+        ,
+        [deleteAllTeamsPostsThunk.fulfilled]:
+            (state, { payload }) => {
+                state.loading = false
+                state.posts = state.posts
+                    .filter(t => t.tag !== payload.tag)
+            }   
+        
 
     },
     reducers: {}

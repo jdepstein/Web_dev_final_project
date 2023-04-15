@@ -16,8 +16,8 @@ function TeamForumPage() {
     useEffect(() => {
         dispatch(findTeamPostsThunk(teamName.toLowerCase()))
     }, [])
-
     return (
+
 
 
             <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
