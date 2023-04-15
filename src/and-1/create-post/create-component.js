@@ -30,7 +30,6 @@ function CreateComponent(from_team = "None") {
                     navigate("/login")
                 } 
                 if (currentUser){
-                    console.log("current user: ", currentUser.role)
                     if (currentUser.role === "team"){
                         setIsteam(true)}
                     

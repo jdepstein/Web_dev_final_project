@@ -1,8 +1,7 @@
 import axios from 'axios';
 const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
 const POST_API = `${API_BASE}/posts`;
-const USER_POST_API = `${API_BASE}/user-posts`;
-const TEAM_POST_API = `${API_BASE}/team-posts`;
+
 
 const api = axios.create({
     withCredentials: true,
@@ -21,12 +20,12 @@ export const findPosts = async () => {
 }
 
 export const findTeamPosts = async (tag) => {
-    const response = await api.get(`${TEAM_POST_API}/${tag}`);
+    const response = await api.get(`${POST_API}/team/${tag}`);
     return response.data;
 }
 
 export const findUserPosts = async (handle) => {
-    const response = await api.get(`${USER_POST_API}/${handle}`);
+    const response = await api.get(`${POST_API}/user/${handle}`);
     return response.data;
 }
 
@@ -44,13 +43,12 @@ export const updatePost = async (post) => {
 
 export const deleteAllUsersPosts = async (handle) => {
    const response = await api
-        .delete(`${USER_POST_API}/${handle}`)
+        .delete(`${POST_API}/user/${handle}`)
     return response.data 
 }
 
 export const deleteAllTeamsPosts = async (tag) => {
-    console.log(`${TEAM_POST_API}/${tag}`)
     const response = await api
-        .delete(`${TEAM_POST_API}/${tag}`)
+        .delete(`${POST_API}/team/${tag}`)
     return response.data
 }

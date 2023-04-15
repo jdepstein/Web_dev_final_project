@@ -77,12 +77,12 @@ function ForumSummaryItem(
                         {post.share}
                 </div>
                 <div className="col-1">
-                    {!currentUser || currentUser.handle !== post.userHandle ? 
-                        <i className="h4 text-black fa fa-ellipsis-h"></i> 
+                    {!currentUser || currentUser.handle === post.userHandle || post.tag.toLowerCase() === currentUser.handle.toLowerCase() ? 
+                           <i className="h4 text-black fa fa-ellipsis-h"
+                           onClick={() => deletePostHandler(post._id)}></i>
                         :
                         
-                        <i className="h4 text-black fa fa-ellipsis-h"
-                        onClick={() => deletePostHandler(post._id)}></i>
+                        <i className="h4 text-black fa fa-ellipsis-h"></i> 
                     }
                 </div>
         </div>

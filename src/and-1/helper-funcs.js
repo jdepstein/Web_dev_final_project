@@ -1,9 +1,6 @@
 import east from "./data/eastern.json";
 import west from "./data/western.json";
 
-function extract_latest_games(json) {
-
-}
 
 function get_team(teamName) {
     let curTeam =
@@ -33,15 +30,4 @@ function get_team(teamName) {
 }
 
 
-function all_teams() {
-    let allTeam = []
-    east.forEach(item => {
-        allTeam = allTeam.concat(item.teams)
-    })
-    west.forEach(item => {
-        allTeam = allTeam.concat(item.teams)
-    })
-    return allTeam
-}
-
-export {get_team, all_teams};
+export {get_team};
