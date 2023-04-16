@@ -1,6 +1,4 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
-import {useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {deleteUserThunk } from '../thunks/users-thunks'
 import {deleteTeamThunk} from '../thunks/teams-thunks'
@@ -42,6 +40,7 @@ function AdminPageItem (user =
         }
         dispatch(deleteUserThunk(passed_user._id))
         dispatch(deleteAllUsersPostsThunk(passed_user.handle))
+        window.location.reload()
     }
 
 

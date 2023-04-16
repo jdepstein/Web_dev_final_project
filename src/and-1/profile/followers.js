@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getFollowers, getFollowing } from '../services/follow-service';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link} from 'react-router-dom';
+import { useSelector,  } from 'react-redux';
 import { followUser, unfollowUser } from '../services/follow-service';
+
 
 function isfollowing(followers, user) {
     for (let i = 0; i < followers.length; i++) {
@@ -19,7 +20,6 @@ function Followers(passeduser){
     const [followers, setFollowers] = useState([]);
     const [following, setFollowing] = useState([]);
     const [isCurrent, setIsCurrent] = useState(false)
-    const {posts} = useSelector(state => state.postData)
 
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];  
     let {user, currentUser} = useSelector(state => state.UserData)
@@ -38,7 +38,7 @@ function Followers(passeduser){
         fetchFollowers();
         fetchFollowing();
     }
-    , [])
+    , [user])
 
     const getDatePretty = (date) => {
         const newDate = new Date(date)
@@ -51,11 +51,13 @@ function Followers(passeduser){
     }
 
     const follow = async () => {
-        const response = await followUser(user._id);
+        await followUser(user._id);
+        window.location.reload()
     }
 
     const unfollow = async () => {
-        const response = await unfollowUser(user._id);
+        await unfollowUser(user._id);
+        window.location.reload()
     }
 
 
@@ -65,7 +67,6 @@ function Followers(passeduser){
                 setIsCurrent(true)
         }
     }
-
 
 
     return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getFollowers, getFollowing } from '../../services/follow-service';
+import { getFollowers } from '../../services/follow-service';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { followUser, unfollowUser } from '../../services/follow-service';
@@ -41,11 +41,13 @@ function FollowTeamNav(passeduser){
 
 
     const follow = async () => {
-        const response = await followUser(user._id);
+        await followUser(user._id);
+        window.location.reload()
     }
 
     const unfollow = async () => {
-        const response = await unfollowUser(user._id);
+        await unfollowUser(user._id);
+        window.location.reload()
     }
 
     if(currentUser !== null) {

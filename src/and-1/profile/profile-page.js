@@ -35,22 +35,29 @@ function ProfilePage() {
         else
             dispatch(findUserPostsThunk(handle))
     
-    }, [])
+    }, [handle])
 
     if (handle === undefined){
         user = currentUser
         if (isCurrent === false)
             setIsCurrent(true)
     }
-    if(currentUser !== null) {
-        if (currentUser.role === "team"){
-            navigate("/teams/" + currentUser.handle)
+    if (user !== undefined){
+        if (user.role === "team"){
+            navigate("/teams/" + user.handle)
         }
+    }
 
+    if(currentUser !== null && isCurrent === false) {
         if (handle === currentUser.handle){
             if (isCurrent === false)
                 setIsCurrent(true)
         }
+        else if  (currentUser.role === "team" && isCurrent === true){
+            navigate("/teams/" + currentUser.handle)
+        }
+
+     
     }
 
     return (

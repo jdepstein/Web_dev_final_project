@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getFollowers, getFollowing } from '../../services/follow-service';
+import { getFollowers } from '../../services/follow-service';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { followUser, unfollowUser } from '../../services/follow-service';
 
 
 
@@ -28,7 +26,7 @@ function FollowersTeam(passeduser){
                     {
                     followers.map((follow,i) => {
                         return (
-                            <Link key={i} className='text-decoration-none me-5 ms-5 ps-5 pe-5' to={"/profile/"+follow.follower.handle}>
+                            <Link onClick={window.Location.reload} key={i} className='text-decoration-none me-5 ms-5 ps-5 pe-5' to={"/profile/"+follow.follower.handle}>
                                 <li className="list-group-item ms-5 me-5 " key={i}>
                                     {follow.follower.handle}
                                 </li>
