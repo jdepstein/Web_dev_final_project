@@ -1,7 +1,7 @@
 
 ISSUES :	
 	* reload for login on anamous reload for the nav between user relaod for the delete of a user somehow
-
+	* Link on Team page to profile does not work!
 
 *************
 	* Show the users posts or something when logged in 
@@ -9,10 +9,6 @@ OBJECTS:
 	Players
 		* CREATE NODE Serever side of Playe Object
 		* Add in ability of a post having a player Id 
-		* Search for posts on a certain player Id
-		* Add a think on posts/summary that will link it back to the player page
-		* Create search area and what it will look like once loaded 
-		* Create a Player page 
 		* Create services for this only needed on this page so no need for reducers or thunks!	
 *************		
 	
