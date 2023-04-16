@@ -10,6 +10,7 @@ import {findUserThunk} from "../../thunks/users-thunks";
 
 
 import FollowersTeam from "./followersdata";
+import PlayerComponent from "../../components/playerComponent";
 
 
 function TeamHomePage()
@@ -24,6 +25,17 @@ function TeamHomePage()
         dispatch(findIndividualTeamThunk(teamName))
         dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
     }, [])
+
+    let results = [1,2,3,4,5,6]
+    let remainer = results.length % 2
+    let numbers = [];
+    for (let i = 0; i < results.length -1; i += 2){
+        numbers.push(i)
+    }
+    if (remainer > 0){
+        numbers.push(results.length - remainer)
+    }
+    console.log(numbers)
 
 
     return (
@@ -46,57 +58,30 @@ function TeamHomePage()
                         <span className="me-2 text-secondary">Likes:</span> {teams.likes}
                         <FollowersTeam passeduser={user}/>
                     </div>
-                    <table className="table table-striped">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th scope="col">Player</th>
-                            <th scope="col">#</th>
-                            <th scope="col">Pos</th>
-                            <th scope="col">Height</th>
-                            <th scope="col">Weight</th>
-                            <th scope={"col"}>Likes</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <div>
                         {
-                            [].map((player, i) =>
-                                <tr key={i}>
-                                    <th>
-                                        <img alt="" className="d-inline a1-player-image" src={player.photo}/>
-                                    </th>
-                                    <td>
-                                        {player.name}
-                                    </td>
-                                    <td>{player.number}</td>
-                                    <td>{player.position}</td>
-                                    <td>{player.height}</td>
-                                    <td>{player.weight}</td>
-                                    <td>
-                                        <i className="fa fa-heart text-dark me-1 fw-normal">
-                                        </i>
-                                        0
-                                    </td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
-                    <div className="w-75 text-center">
-                        <div className="row border p-0 m-0">
-                            <img alt="" src="../../images/jaylen.png" className="a1-image_100 col-3" />
-                            <div className="card-body-right col-9">
-                                <p className="card-title h5 mb-3">Jaylen Brown #6</p>
-                                <div className="mb-4">
-                                    <span className=" me-3 border rounded p-2">Height: 6:3</span>
-                                    <span className="border rounded p-2">Weight: 210</span>
-                                </div>
-                                    <div>
-                                        <span className="border rounded p-2">Position: SG/G</span>
-                                    </div>
-                                </div>
-                        </div>
+                        numbers.map(i =>
+                            {
+                                if (results[i+1] !== undefined) {
+                                    return (
+                                        <div className="row p-0 m-0 ms-1 me-1">
+                                            <PlayerComponent player={results[i]}/>
+                                                <div className="col-2"></div>
+                                            <PlayerComponent player={results[i+1]}/>
+                                        </div>
+                                    )
+                                }
+                                else{
+                                    return (
+                                        <>
+                                            <PlayerComponent player={results[i]}/>
+                                        </>
+                                    )
+                                }
+                            }
+                        )
+                        }
                     </div>
-
                 </div>
                 }
             </>

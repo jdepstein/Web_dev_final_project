@@ -1,6 +1,6 @@
 import axios from "axios";
-//const FOLLOW_URL = "http://localhost:4000/api/follows";
-const FOLLOW_URL = "https://final-project-node-server.onrender.com/api/follows"
+const FOLLOW_URL = "http://localhost:4000/api/follows";
+//const FOLLOW_URL = "https://final-project-node-server.onrender.com/api/follows"
 
 const api = axios.create({
     withCredentials: true,

@@ -17,7 +17,6 @@ function ForumSummary() {
     return (
 
             <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
-                <SearchBar/>
                 <ForumTitle/>
                 {
                     posts.map((post, i) =>

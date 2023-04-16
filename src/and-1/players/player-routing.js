@@ -7,7 +7,8 @@ function PlayerRouting() {
     return (
             <Routes>
                 <Route index element={<Players/>}/>
-                <Route path={"/:pid"} element={<PlayerPage/>}/>
+                <Route path={"/:search"} element={<Players/>}/>
+                <Route path={"player/:pid"} element={<PlayerPage/>}/>
             </Routes>
 
         );
