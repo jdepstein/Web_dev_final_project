@@ -2,80 +2,88 @@ import {Link} from "react-router-dom";
 import CreatePost from "../create-post";
 import ForumSummaryItem from "../forum-summary/forum-summary-item";
 import { useNavigate } from "react-router-dom";
-import Followers from "./followers";
 
 
 import {findUserPostsThunk}
     from "../thunks/posts-thunks";
 
-import {findUserThunk} from "../thunks/users-thunks"; 
 
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {useParams} from "react-router-dom";
 import {useState} from "react";
-import { followUser, unfollowUser} from "../services/follow-service";
-
+import { getFollowers, getFollowing } from "../services/follow-service";
+import ProfileStats from "./profile-stats";
+import Followers from "./followers";
 
 
 function ProfilePage() {
-    
 
-    const {handle} = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [isCurrent, setIsCurrent] = useState(false)
+    const [followers, setFollowers] = useState([]);
+    const [following, setFollowing] = useState([]);
     const {posts} = useSelector(state => state.postData)
-    let {user, currentUser} = useSelector(state => state.UserData)
+    const {currentUser} = useSelector(state => state.UserData)
 
     useEffect(() => {
-        dispatch(findUserThunk(handle))
-        if (handle === undefined) 
+        if (currentUser !== null){
             dispatch(findUserPostsThunk(currentUser.handle))
-        else
-            dispatch(findUserPostsThunk(handle))
+            fetchFollowers();
+            fetchFollowing();
+        }
+        
+    }, [currentUser])
+
+    if (currentUser === null) {
+        navigate("/login")
+    }
+    else if(currentUser !== null && currentUser.role === "team") {
+        navigate("/teams/" + currentUser.handle)
+    }
+  
+
+    const fetchFollowers = async () => {
+        const response = await getFollowers(currentUser._id);
+        setFollowers(response);
+    }
+
+    const fetchFollowing = async () => {
+        const response = await getFollowing(currentUser._id);
+        setFollowing(response);
+    }
     
-    }, [handle])
-
-    if (handle === undefined){
-        user = currentUser
-        if (isCurrent === false)
-            setIsCurrent(true)
-    }
-    if (user !== undefined){
-        if (user.role === "team"){
-            navigate("/teams/" + user.handle)
-        }
-    }
-
-    if(currentUser !== null && isCurrent === false) {
-        if (handle === currentUser.handle){
-            if (isCurrent === false)
-                setIsCurrent(true)
-        }
-        else if  (currentUser.role === "team" && isCurrent === true){
-            navigate("/teams/" + currentUser.handle)
-        }
-
-     
-    }
+  
 
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
-            {user !== undefined ?
+            {currentUser !== null ?
                 <>
-                    {user._id !== undefined && 
+                    {currentUser._id !== undefined && 
                     <>   
                         <div className="justify-content-center h3 text-dark a1-font-family fw-bold mt-2 mb-0 ms-2">
-                            {user.name}
+                            {currentUser.name}
                         </div>
                         <div className="justify-content-center a1-font-16px text-dark a1-font-family m-0 p-0 ms-2">
                             <i className="fa fa-at"></i>
-                            {user.handle}
+                            {currentUser.handle}
                         </div>
-                        <img alt="" src={user.banner} className="a1-banner w-100"/>
-                        <Followers passeduser={user}/>
-                        {isCurrent && <CreatePost/>}
+                        <img alt="" src={currentUser.banner} className="a1-banner w-100"/>
+
+                        <div className="row position-relative mb-5">
+                            <div className="col-5">
+                                <img alt="" src={currentUser.profilePic} className="a1-image_146_round a1-pos-profile position-absolute border border-5 border-white m-0 p-0"/>
+                            </div>
+                            <div className="col-7 mt-2">
+                                <Link to="/profile/edit-profile">
+                                    <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0">
+                                        Edit Profile
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                        <ProfileStats data={{"user" : currentUser, "followers" : followers, "following" :following}}/>
+                        <Followers data = {{"followers" : followers, "following" :following}}/>
+                        <CreatePost/>
                         {
                             posts.map((post, i) =>
                                 <ForumSummaryItem key={i} post={post}/>
@@ -83,11 +91,11 @@ function ProfilePage() {
                         }
                      </>
                     }
-                </>
-                :
-                <></>
-            }
-        </div>
+                    </>
+                    :
+                    <></>
+                }
+            </div>
     );
 
 }

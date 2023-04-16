@@ -30,4 +30,26 @@ function get_team(teamName) {
 }
 
 
-export {get_team};
+
+function isfollowing(followers, user) {
+    for (let i = 0; i < followers.length; i++) {
+        if (followers[i].follower._id === user._id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];  
+const getDatePretty = (date) => {
+    const newDate = new Date(date)
+    const month = monthNames[newDate.getMonth() + 1]
+    const day = newDate.getUTCDate();
+    const year = newDate.getUTCFullYear();
+    const output = month + ": " + day  + ', ' + year
+
+    return output
+}
+
+
+export {get_team, isfollowing, getDatePretty};
