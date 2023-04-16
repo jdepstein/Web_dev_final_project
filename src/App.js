@@ -3,7 +3,7 @@ import {Routes, Route} from "react-router";
 import './App.css';
 import Login from "./and-1/login";
 import Home from "./and-1/home";
-import Stats from "./and-1/stats";
+import Stats from "./and-1/standings";
 import Schedule from "./and-1/schedule";
 import CreateAccount from "./and-1/login/create_account";
 import TeamRouting from "./and-1/teams/team-routing";
@@ -17,6 +17,8 @@ import PostsReducer from "./and-1/reducers/posts-reducer";
 import TeamsReducer from "./and-1/reducers/teams-reducer";
 import usersReducer from "./and-1/reducers/users-reducer";
 import LoadProfile from "./and-1/components/load-profile";
+import PlayerRouting from "./and-1/players/player-routing";
+
 
 
 const store = configureStore(
@@ -42,9 +44,10 @@ function App() {
                         <Route index element={<Home/>}/>
                         <Route path="home" element={<Home/>}/>
                         <Route path="teams/*" element={<TeamRouting/>}/>
-                        <Route path="stats" element={<Stats/>}/>
+                        <Route path="standings" element={<Stats/>}/>
                         <Route path="schedule" element={<Schedule/>}/>
                         <Route path="admin" element= {<AdminPage/>} />
+                        <Route path="players/*" element={<PlayerRouting/>}/>
                     </Routes>
                 </LoadProfile>
             </Provider>

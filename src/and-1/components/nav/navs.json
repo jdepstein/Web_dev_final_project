@@ -1,7 +1,8 @@
 [
     { "icon": "fa fa-basketball-ball",   "link": "home", "text": "" },
     { "icon": "fa fa-home",         "link": "home", "text": "Home"},
-    { "icon": "fa fa-signal",      "link": "stats", "text": "Stats"},
+    { "icon": "fa fa-list",      "link": "standings", "text": "Standings"},
+    { "icon": "fa fa-signal",      "link": "players", "text": "Players"},
     { "icon": "fa fa-calendar-week",     "link": "schedule", "text": "Schedule"},
     { "icon": "fa fa-users ", "link": "teams", "text": "Teams"},
     { "icon": "fa fa-comments",     "link": "forum", "text": "Forum"},

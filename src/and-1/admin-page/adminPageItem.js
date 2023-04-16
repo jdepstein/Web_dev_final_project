@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux'
 import {deleteUserThunk } from '../thunks/users-thunks'
 import {deleteTeamThunk} from '../thunks/teams-thunks'
 import {deleteAllTeamsPostsThunk, deleteAllUsersPostsThunk} from '../thunks/posts-thunks'
+import { deleteFollower, deleteFollowing } from '../services/follow-service'
 
 
 function AdminPageItem (user = 
@@ -35,12 +36,13 @@ function AdminPageItem (user =
     const deleteUserHandler = (passed_user) =>
     {
         if (passed_user.role === "team") {
-            dispatch(deleteTeamThunk(passed_user.handle[0].toUpperCase() + passed_user.handle.substring(1)))
-            dispatch(deleteAllTeamsPostsThunk(user.handle.toLowerCase()))
-        }
+             dispatch(deleteTeamThunk(passed_user.handle[0].toUpperCase() + passed_user.handle.substring(1)))
+             dispatch(deleteAllTeamsPostsThunk(user.handle.toLowerCase()))
+         }
         dispatch(deleteUserThunk(passed_user._id))
         dispatch(deleteAllUsersPostsThunk(passed_user.handle))
-        window.location.reload()
+        deleteFollower(passed_user._id)
+        deleteFollowing(passed_user._id)
     }
 
 

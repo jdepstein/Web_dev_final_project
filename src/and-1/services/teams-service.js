@@ -1,7 +1,9 @@
 import axios from 'axios';
-const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
+//const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:4000/api";
+const API_BASE = "https://final-project-node-server.onrender.com/api"
 const TEAM_API = `${API_BASE}/teams`;
 const SINGLE_TEAM_API = `${API_BASE}/team`;
+
 
 const api = axios.create({
     withCredentials: true,
