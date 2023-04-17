@@ -62,7 +62,6 @@ function TeamHomePage()
         numbers.push(results.length - remainer)
     }
 
-    console.log("user: ", user)
     return (
         <>
         {user !== undefined && teams !== undefined ?

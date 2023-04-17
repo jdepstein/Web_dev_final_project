@@ -36,7 +36,6 @@ function PlayerComponent (
         } )
 
 {
-    console.log(player)
     return (
         <Link to={"/players/player/"+player.player.id} className="text-center mt-3 col-5 text-decoration-none text-dark">
             <div className="row border p-0 m-0 w-100 pb-3">
