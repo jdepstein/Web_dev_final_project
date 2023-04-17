@@ -26,7 +26,8 @@ function TeamHomePage()
         dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
     }, [])
 
-    let results = [1,2,3,4,5,6]
+    const container = []
+    const results =  container.filter((player) => player.leagues.standard != null)
     let remainer = results.length % 2
     let numbers = [];
     for (let i = 0; i < results.length -1; i += 2){

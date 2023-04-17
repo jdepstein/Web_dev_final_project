@@ -39,7 +39,7 @@ const PlayerSearch = () =>
         e.preventDefault()
         setFinalPoint(searchValue)
     }
-    let results = [1,2,3,4,5,6]
+    const results =  container.filter((player) => player.leagues.standard != null)
     let remainer = results.length % 2
     let numbers = [];
     for (let i = 0; i < results.length -1; i += 2){
@@ -48,8 +48,7 @@ const PlayerSearch = () =>
     if (remainer > 0){
         numbers.push(results.length - remainer)
     }
-    console.log(finalPoint)
-    console.log(container)
+
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
             <div className="text-center h3 mt-3 mb-1  wd-font-family-arial text-dark fw-bold">Search For Players!</div>
@@ -78,21 +77,57 @@ const PlayerSearch = () =>
             </div>
 
             <div>
-                {
-                container.map((player) => {
-                    return (
-                        <div>
-                            {player.leagues.standard &&
-                                <PlayerComponent player = {player}/>
-                            }
-
-                        </div>
-
-                    )
-                })}
+            {
+                numbers.map(i =>
+                    {
+                        if (results[i+1] !== undefined) {
+                            return (
+                                <div className="row p-0 m-0 ms-1 me-1">
+                                    <PlayerComponent player={results[i]}/>
+                                        <div className="col-2"></div>
+                                    <PlayerComponent player={results[i+1]}/>
+                                </div>
+                            )
+                        }
+                        else{
+                            return (
+                                <>
+                                    <PlayerComponent player={results[i]}/>
+                                </>
+                            )
+                        }
+                    }
+                )
+                }
 
             </div>
         </div>
     );
 };
 export default PlayerSearch
+
+/*
+{
+                numbers.map(i =>
+                    {
+                        if (results[i+1] !== undefined) {
+                            return (
+                                <div className="row p-0 m-0 ms-1 me-1">
+                                    <PlayerComponent player={results[i]}/>
+                                        <div className="col-2"></div>
+                                    <PlayerComponent player={results[i+1]}/>
+                                </div>
+                            )
+                        }
+                        else{
+                            return (
+                                <>
+                                    <PlayerComponent player={results[i]}/>
+                                </>
+                            )
+                        }
+                    }
+                )
+                }
+
+*/
