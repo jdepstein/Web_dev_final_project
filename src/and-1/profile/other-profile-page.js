@@ -32,23 +32,29 @@ function OtherProfilePage() {
     const [isCurrent, setIsCurrent] = useState(false);
 
     useEffect(() => {
-
-        dispatch(findUserThunk(handle))
-        fetchFollowers();
-        fetchFollowing();
-    }, [user])
+        let ignore = false;
+        dispatch(findUserThunk(handle)).then(() => {
+            fetchFollowers();
+            fetchFollowing();
+            if (!ignore) {
+                if (user !== undefined){
+                    if( user !== []) {
+                        if (user.role === "team"){
+                            navigate("/teams/" + user.handle)
+                        }
+                    }
+                }
+            }
+        });
+        return () => {
+          ignore = true;
+        }
+    }, [user.handle])
 
     useEffect(() => {
         dispatch(findUserPostsThunk(handle))
     }, [])
 
-    if (user !== undefined){
-        if( user !== []) {
-            if (user.role === "team"){
-                navigate("/teams/" + user.handle)
-            }
-        }
-    }
 
     if(currentUser !== null) {
         if (handle === currentUser.handle){

@@ -24,7 +24,6 @@ function ProfilePage() {
     const [following, setFollowing] = useState([]);
     const {posts} = useSelector(state => state.postData)
     const {currentUser} = useSelector(state => state.UserData)
-
     useEffect(() => {
         if (currentUser !== null){
             dispatch(findUserPostsThunk(currentUser.handle))

@@ -17,7 +17,6 @@ const PlayerSearch = () =>
     if (remainer > 0){
         numbers.push(results.length - remainer)
     }
-    console.log(numbers)
 
     return (
         <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">

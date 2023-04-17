@@ -30,7 +30,7 @@ function ForumItem(
             </div>
             <div className="row border-3 p-0 m-0">
                 <div className="col-2 col-xl-1 p-0 m-0 text-center">
-                       <Link to={`/profile/`+ post.userHandle}> <img alt="" src={post.profilePic} className="a1-profile-pic ms-4"/> </Link>
+                       <Link to={`/profile/`+ post.userHandle}> <img alt="" src={"../"+post.profilePic} className="a1-profile-pic ms-4"/> </Link>
                 </div>
                 <div className="col-10 col-xl-11">
                     <div>{post.post_content}</div>

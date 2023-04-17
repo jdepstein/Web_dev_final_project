@@ -35,7 +35,6 @@ function TeamHomePage()
     if (remainer > 0){
         numbers.push(results.length - remainer)
     }
-    console.log(numbers)
 
 
     return (
@@ -64,7 +63,7 @@ function TeamHomePage()
                             {
                                 if (results[i+1] !== undefined) {
                                     return (
-                                        <div className="row p-0 m-0 ms-1 me-1">
+                                        <div key={i} className="row p-0 m-0 ms-1 me-1">
                                             <PlayerComponent player={results[i]}/>
                                                 <div className="col-2"></div>
                                             <PlayerComponent player={results[i+1]}/>
@@ -74,7 +73,7 @@ function TeamHomePage()
                                 else{
                                     return (
                                         <>
-                                            <PlayerComponent player={results[i]}/>
+                                            <PlayerComponent key={i} player={results[i]}/>
                                         </>
                                     )
                                 }

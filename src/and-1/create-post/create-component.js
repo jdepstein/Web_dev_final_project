@@ -11,7 +11,7 @@ import {findTeamsThunk} from "../thunks/teams-thunks";
 
 
 
-function CreateComponent(from_team = "None") {
+function CreateComponent( data = {from_team : "None", player : "1"}) {
     let [newPostTitle, setNewPostTitle] = useState('');
     let [newPostTitleText, setNewPostText] = useState('');
     let [newPostTitleTag, setNewPostTag] = useState('general::a1-bg-red');
@@ -53,6 +53,8 @@ function CreateComponent(from_team = "None") {
             tagColor: tag_and_color[1],
             profilePic: currentUser.profilePic,
             userHandle: currentUser.handle,
+
+
         }
         dispatch(createPostThunk(newPost));
         setNewPostTitle("");
@@ -90,7 +92,7 @@ function CreateComponent(from_team = "None") {
                                                             </option>)
 
                                                 }
-                                                else if (from_team !== "None" && team.name === from_team){
+                                                else if (data.data.from_team !== "None" && team.name === data.data.from_team){
                                                     return (<option key={team.name} value={team.name + "::" + team.colors}>
                                                                 {team.name}
                                                             </option>)

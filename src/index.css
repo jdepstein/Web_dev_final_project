@@ -146,6 +146,10 @@
   color: #253A73;
 }
 
+.a1-bg-red-light {
+  background-color: #DF4D5A;
+}
+
 .a1-bg-red {
   background-color: #B42532;
 }
@@ -358,6 +362,20 @@
 .a1-image_100{
   width: 100px;
   height: 100px;
+}
+
+.a1-image_player{
+  width: 120px;
+  height: 120px;
+}
+
+.a1-player-page-image {
+  width: 45px;
+  height: 45px;
+}
+
+.a1-align-text {
+  padding-top: 60px
 }
 
 
