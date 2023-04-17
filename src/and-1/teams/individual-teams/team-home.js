@@ -1,6 +1,6 @@
 import {useParams} from "react-router";
 
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {findIndividualTeamThunk}
@@ -19,14 +19,39 @@ function TeamHomePage()
     const { teamName } = useParams();
     const {teams} = useSelector(state => state.teamData)
     const {user} = useSelector(state => state.UserData)
-    
+    const [container, setContainer] = useState([])
 
+
+    const team_id = teams.tid
     useEffect(() => {
         dispatch(findIndividualTeamThunk(teamName))
         dispatch(findUserThunk( teamName[0].toUpperCase() + teamName.substring(1)))
     }, [])
 
-    const container = []
+    useEffect(() => {
+        fetchRoster()
+    }, [team_id])
+
+    const fetchRoster = () => {
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'ffe553bafcmsh09081a7421177b6p1e80fajsn7bcaea95a37d',
+                'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+            }
+        };
+
+        fetch(`https://api-nba-v1.p.rapidapi.com/players?team=${team_id}&season=2022`, options)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                setContainer(data.response)
+            })
+            .catch(err => console.error(err));
+    }
+
     const results =  container.filter((player) => player.leagues.standard != null)
     let remainer = results.length % 2
     let numbers = [];
@@ -37,11 +62,12 @@ function TeamHomePage()
         numbers.push(results.length - remainer)
     }
 
-
+    console.log("user: ", user)
     return (
         <>
         {user !== undefined && teams !== undefined ?
             <>
+
             {user._id !== undefined && teams._id !== undefined &&
                 <div
                     className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
