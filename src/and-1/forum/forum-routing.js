@@ -11,7 +11,7 @@ function ForumRouting() {
             <Routes>
                 <Route index element={<Forum/>}/>
                 <Route path={"/:topic"} element={<ForumSearch/>}/>
-                <Route path={"/create-post"} element={<CreatePostPage/>}/>
+                <Route path={"/create-post/:from_team/:pid"} element={<CreatePostPage/>}/>
             </Routes>
 
 

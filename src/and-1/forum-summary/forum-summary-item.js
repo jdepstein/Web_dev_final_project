@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
+import { getDatePretty } from "../helper-funcs";
 
 function ForumSummaryItem(
     post =
@@ -66,7 +67,7 @@ function ForumSummaryItem(
                             <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span>
                         }                   
                     </div>
-                    <div className="mb-1">Posted: {post.userHandle} {post.timestamp}</div>
+                    <div className="mb-1">Posted: {post.userHandle} {getDatePretty(post.timestamp)}</div>
                 </div>
                 <div className="col-1">
                         <i className="h5 fw-normal text-black fa fa-comment me-1"></i>

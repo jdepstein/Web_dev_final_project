@@ -34,12 +34,14 @@ const PlayerSearch = () =>
             })
             .catch(err => console.error(err));
     }
-
     const submitHandler = e => {
         e.preventDefault()
         setFinalPoint(searchValue)
     }
-    const results =  container.filter((player) => player.leagues.standard != null)
+    let results = []
+    if (container !== undefined) {
+        results =  container.filter((player) => player.leagues.standard != null)
+    }
     let remainer = results.length % 2
     let numbers = [];
     for (let i = 0; i < results.length -1; i += 2){
@@ -105,29 +107,3 @@ const PlayerSearch = () =>
     );
 };
 export default PlayerSearch
-
-/*
-{
-                numbers.map(i =>
-                    {
-                        if (results[i+1] !== undefined) {
-                            return (
-                                <div className="row p-0 m-0 ms-1 me-1">
-                                    <PlayerComponent player={results[i]}/>
-                                        <div className="col-2"></div>
-                                    <PlayerComponent player={results[i+1]}/>
-                                </div>
-                            )
-                        }
-                        else{
-                            return (
-                                <>
-                                    <PlayerComponent player={results[i]}/>
-                                </>
-                            )
-                        }
-                    }
-                )
-                }
-
-*/

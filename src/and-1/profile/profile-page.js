@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import CreatePost from "../create-post";
 import ForumSummaryItem from "../forum-summary/forum-summary-item";
 import { useNavigate } from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 
 import {findUserPostsThunk}
@@ -24,6 +25,7 @@ function ProfilePage() {
     const [following, setFollowing] = useState([]);
     const {posts} = useSelector(state => state.postData)
     const {currentUser} = useSelector(state => state.UserData)
+    const {pathname} = useLocation()
     useEffect(() => {
         if (currentUser !== null){
             dispatch(findUserPostsThunk(currentUser.handle))

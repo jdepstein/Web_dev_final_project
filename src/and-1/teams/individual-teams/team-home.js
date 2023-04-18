@@ -50,9 +50,13 @@ function TeamHomePage()
                 setContainer(data.response)
             })
             .catch(err => console.error(err));
-    }
+    
+        }
 
-    const results =  container.filter((player) => player.leagues.standard != null)
+    let results = []
+    if (container !== undefined) {
+        results =  container.filter((player) => player.leagues.standard != null)
+    }
     let remainer = results.length % 2
     let numbers = [];
     for (let i = 0; i < results.length -1; i += 2){

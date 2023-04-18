@@ -1,10 +1,16 @@
 import {Link} from "react-router-dom";
 
-function CreatePost() {
+function CreatePost(data) {
+    if (!data.data) {
+        data = {from_team : "None", pid: "-1"}
+    }
+    else {
+        data = data.data
+    }
     return (
             <div className="row m-0 border-bottom mb-3">
                 <div className="mb-3 justify-content-center w-100 col-10 mt-3">
-                        <Link to="/forum/create-post" className="text-decoration-none">
+                        <Link to={"/forum/create-post/"+data.from_team+"/"+data.player} className="text-decoration-none">
                             <div className="ms-3 rounded border wd-bg-off-white ">
                                 <div className="input-group">
                                     <span className="bg-transparent border-0 input-group-text" id="basic-addon2">

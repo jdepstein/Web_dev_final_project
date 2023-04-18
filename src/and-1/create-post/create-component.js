@@ -8,10 +8,12 @@ import {createPostThunk}
     from "../thunks/posts-thunks";
 
 import {findTeamsThunk} from "../thunks/teams-thunks";
+import {useParams} from "react-router-dom";
 
 
+function CreateComponent() {
 
-function CreateComponent( data = {from_team : "None", player : "1"}) {
+    const {from_team, pid} = useParams();
     let [newPostTitle, setNewPostTitle] = useState('');
     let [newPostTitleText, setNewPostText] = useState('');
     let [newPostTitleTag, setNewPostTag] = useState('general::a1-bg-red');
@@ -45,6 +47,9 @@ function CreateComponent( data = {from_team : "None", player : "1"}) {
         };
     }, [])
     const newPostHandler = () => {
+
+
+
         const tag_and_color = newPostTitleTag.split("::")
         const newPost = {
             title: newPostTitle,
@@ -53,8 +58,7 @@ function CreateComponent( data = {from_team : "None", player : "1"}) {
             tagColor: tag_and_color[1],
             profilePic: currentUser.profilePic,
             userHandle: currentUser.handle,
-
-
+            player : pid
         }
         dispatch(createPostThunk(newPost));
         setNewPostTitle("");
@@ -92,12 +96,12 @@ function CreateComponent( data = {from_team : "None", player : "1"}) {
                                                             </option>)
 
                                                 }
-                                                else if (data.data.from_team !== "None" && team.name === data.data.from_team){
+                                                else if (from_team !== "None" && team.name.toLowerCase() === from_team){
                                                     return (<option key={team.name} value={team.name + "::" + team.colors}>
                                                                 {team.name}
                                                             </option>)
                                                 }
-                                                else if (!isteam){
+                                                else if (!isteam && from_team === "None"){
                                                     return (<option key={team.name} value={team.name + "::" + team.colors}>
                                                                 {team.name}
                                                             </option>)

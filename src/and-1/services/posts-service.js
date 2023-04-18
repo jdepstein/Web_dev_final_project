@@ -31,6 +31,11 @@ export const findUserPosts = async (handle) => {
     return response.data;
 }
 
+export const findPlayerPosts = async (pid) => {
+    const response = await api.get(`${POST_API}/player/${pid}`);
+    return response.data;
+}
+
 export const deletePost = async (pid) => {
     const response = await api
         .delete(`${POST_API}/${pid}`)
