@@ -62,10 +62,15 @@ function ForumSummaryItem(
                     <div className="mb-2">
                         <div className="flex-wrap">{post.title}</div>
                         {post.tag !== "general" ?
-                            <Link className="text-decoration-none" to={`/teams/${post.tag}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span></Link>
+                            <Link className="text-decoration-none" to={`/teams/${post.tag}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 me-1 " + post.tagColor}>{post.tag}</span></Link>
                          :
                             <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span>
-                        }                   
+                        }   
+                        {post.player ? 
+                            <Link className="text-decoration-none" to={`/players/player/${post.player}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.player}</span></Link>
+                            :
+                            <></> 
+                        }                
                     </div>
                     <div className="mb-1">Posted: {post.userHandle} {getDatePretty(post.timestamp)}</div>
                 </div>

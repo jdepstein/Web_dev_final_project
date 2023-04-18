@@ -61,7 +61,7 @@ function EditProfilePage()
                         <img alt="" src={profile.profilePicture} className="opacity-50 a1-image_146_round a1-pos-profile position-absolute border border-5 border-white m-0 p-0"/>
                     </div>
                     <div className="col-7 mt-2">
-                        <Link to="/profile">
+                        <Link onClick={window.location.reload} to="/profile">
                             <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0"
                                     onClick={() => dispatch(updateUserThunk(profile))}
                                 >

@@ -3,7 +3,7 @@ import CreatePost from "../create-post";
 import ForumSummaryItem from "../forum-summary/forum-summary-item";
 import { useNavigate } from "react-router-dom";
 import {useLocation} from "react-router-dom";
-
+import {useParams} from "react-router-dom";
 
 import {findUserPostsThunk}
     from "../thunks/posts-thunks";
@@ -18,7 +18,7 @@ import Followers from "./followers";
 
 
 function ProfilePage() {
-
+    const {handle} = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [followers, setFollowers] = useState([]);
@@ -35,7 +35,7 @@ function ProfilePage() {
         
     }, [currentUser])
 
-    if (currentUser === null) {
+    if (!currentUser) {
         navigate("/login")
     }
     else if(currentUser !== null && currentUser.role === "team") {

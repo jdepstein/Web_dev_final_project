@@ -49,7 +49,7 @@ function OtherProfilePage() {
         return () => {
           ignore = true;
         }
-    }, [user.handle])
+    }, [handle, user.handle])
 
     useEffect(() => {
         dispatch(findUserPostsThunk(handle))

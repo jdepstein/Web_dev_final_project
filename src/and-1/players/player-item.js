@@ -68,7 +68,6 @@ function PlayerItem() {
     }
 
 
-
   const liked = async () => {
       if (currentUser !== undefined && currentUser._id !== undefined){ 
         let team = "general"
@@ -76,12 +75,14 @@ function PlayerItem() {
             team = playerStats[0].team.name
         }
         if (player === "player" || player === null){
-            await createPlayer({"name" : personalInfo[0].firstname + " " + personalInfo[0].lastame, "pid" : pid, "team" : team,
-                    "position": personalInfo[0].leagues.standard.pos, "number" : personalInfo[0].leagues.standard.jersey,
+            await createPlayer({"name" : personalInfo[0].firstname + " " + personalInfo[0].lastname, "pid" : pid, "team" : team,
+                    "position": personalInfo[0].leagues.standard.pos, "number" : personalInfo[0].leagues.standard.jersey ? personalInfo[0].leagues.standard.jersey : 0 ,
                      "liked": true, likes: 1 });
+            window.location.reload()
         }
         else {
             await likePlayer(pid);
+            window.location.reload()
             }
       }
    }
@@ -89,6 +90,7 @@ function PlayerItem() {
    const unliked = async () => {
       if (currentUser !== undefined && currentUser._id !== undefined){ 
          await unlikePlayer(player.pid);
+            window.location.reload()
       }
    }
    const fetchPlayer = async () => {
@@ -122,9 +124,6 @@ function PlayerItem() {
             bl = Math.round((bl / playerStats.length) * 100) / 100
         }
     }
-
-    console.log(personalInfo)
-    console.log(playerStats)
     return (
         <>
         {personalInfo && playerStats &&
