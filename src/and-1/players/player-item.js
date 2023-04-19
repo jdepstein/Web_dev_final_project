@@ -12,8 +12,9 @@ import {getLikedBy, likePlayer, unlikePlayer} from "../services/playerLike-servi
 
 
 function isLiked(likes, user) {
-    if (likes === null)
+    if (likes === null || likes === [] || user === null || user === undefined)
         return false;
+    
     for (let i = 0; i < likes.length; i++) {
         if (likes[i].liker._id === user._id) {
             return true;
@@ -239,7 +240,7 @@ function PlayerItem() {
                             <ForumItem post={post}/>
                         )
                     }
-                    <h5 className='text-dark text-bold a1-font-family text-center'>Liked By</h5>
+                    <h5 className='text-dark text-bold a1-font-family text-center mt-2'>Liked By</h5>
                     <ul className="list-group mt-2 me-2 ms-2">
                     {
                         likes.map((like,i) => {
