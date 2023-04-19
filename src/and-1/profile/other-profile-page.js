@@ -15,6 +15,8 @@ import ForumSummaryItem from "../forum-summary/forum-summary-item";
 import ProfilePage from "./profile-page";
 import ProfileStats from "./profile-stats";
 import Followers from "./followers";
+import { getLikedPlayers } from "../services/playerLike-service";
+import Likes from './likes';
 
 
 
@@ -30,12 +32,15 @@ function OtherProfilePage() {
     const [followers, setFollowers] = useState([]);
     const [following, setFollowing] = useState([]);
     const [isCurrent, setIsCurrent] = useState(false);
+    const [likedPlayers, setLikedPlayers] = useState([]);
+
 
     useEffect(() => {
         let ignore = false;
         dispatch(findUserThunk(handle)).then(() => {
             fetchFollowers();
             fetchFollowing();
+            fetchLikes();
             if (!ignore) {
                 if (user !== undefined){
                     if( user !== []) {
@@ -90,6 +95,13 @@ function OtherProfilePage() {
             window.location.reload()
         }
     }
+
+    const fetchLikes = async () => {
+        if (user !== undefined && user._id !== undefined){ 
+            const response = await getLikedPlayers(user._id);
+            setLikedPlayers(response);
+        }
+    }
     return (
         <>
             {isCurrent ? 
@@ -129,6 +141,7 @@ function OtherProfilePage() {
                                 </div>
                                 <ProfileStats data={{"user" : user, "followers" : followers, "following" :following}}/>
                                 <Followers data = {{"followers" : followers, "following" :following}}/>
+                                <Likes likes = {likedPlayers}/>
                                 {isCurrent && <CreatePost/>}
                                 {
                                     posts.map((post, i) =>

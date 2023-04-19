@@ -2,8 +2,8 @@ import {Link} from "react-router-dom";
 import CreatePost from "../create-post";
 import ForumSummaryItem from "../forum-summary/forum-summary-item";
 import { useNavigate } from "react-router-dom";
-import {useLocation} from "react-router-dom";
-import {useParams} from "react-router-dom";
+import Followers from "./followers";
+import Likes from "./likes";
 
 import {findUserPostsThunk}
     from "../thunks/posts-thunks";
@@ -14,23 +14,24 @@ import {useEffect} from "react";
 import {useState} from "react";
 import { getFollowers, getFollowing } from "../services/follow-service";
 import ProfileStats from "./profile-stats";
-import Followers from "./followers";
+import { getLikedPlayers } from "../services/playerLike-service";
 
 
 function ProfilePage() {
-    const {handle} = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [followers, setFollowers] = useState([]);
     const [following, setFollowing] = useState([]);
+    const [likedPlayers, setLikedPlayers] = useState([]);
     const {posts} = useSelector(state => state.postData)
     const {currentUser} = useSelector(state => state.UserData)
-    const {pathname} = useLocation()
     useEffect(() => {
         if (currentUser !== null){
             dispatch(findUserPostsThunk(currentUser.handle))
             fetchFollowers();
             fetchFollowing();
+            fetchLikes();
+
         }
         
     }, [currentUser])
@@ -41,7 +42,6 @@ function ProfilePage() {
     else if(currentUser !== null && currentUser.role === "team") {
         navigate("/teams/" + currentUser.handle)
     }
-  
 
     const fetchFollowers = async () => {
         const response = await getFollowers(currentUser._id);
@@ -51,6 +51,11 @@ function ProfilePage() {
     const fetchFollowing = async () => {
         const response = await getFollowing(currentUser._id);
         setFollowing(response);
+    }
+
+    const fetchLikes = async () => {
+        const response = await getLikedPlayers(currentUser._id);
+        setLikedPlayers(response);
     }
     
   
@@ -83,7 +88,8 @@ function ProfilePage() {
                             </div>
                         </div>
                         <ProfileStats data={{"user" : currentUser, "followers" : followers, "following" :following}}/>
-                        <Followers data = {{"followers" : followers, "following" :following}}/>
+                        <Followers data = {{"followers" : followers, "following" : following}}/>
+                        <Likes likes={likedPlayers}/>
                         <CreatePost/>
                         {
                             posts.map((post, i) =>

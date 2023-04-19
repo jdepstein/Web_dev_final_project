@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import CreatePost from '../create-post';
-
-import { useDispatch } from 'react-redux';
+import {Link} from "react-router-dom";
 import { useEffect } from 'react';
 import ForumItem from '../forum/forum-item';
 import {useParams} from "react-router";
@@ -32,7 +31,6 @@ function PlayerItem() {
     const [player, setPlayer] = useState('')
     const [posts, setPosts] = useState([])
     const [likes, setLikes] = useState([]);
-
 
     useEffect(() => {
         fetchMe()
@@ -241,7 +239,21 @@ function PlayerItem() {
                             <ForumItem post={post}/>
                         )
                     }
-                </div>
+                    <h5 className='text-dark text-bold a1-font-family text-center'>Liked By</h5>
+                    <ul className="list-group mt-2 me-2 ms-2">
+                    {
+                        likes.map((like,i) => {
+                            return ( 
+                                <Link key={i} className='text-decoration-none' to={"/profile/"+like.liker.handle}>
+                                    <li className="list-group-item m-0">
+                                        {like.liker.handle}
+                                    </li>
+                                </Link>
+                                )
+                            })
+                    }
+                    </ul>     
+                    </div>
             }
         </>
         }

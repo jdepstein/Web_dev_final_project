@@ -15,7 +15,6 @@ const ApiConferenceTable = (conference) => {
     //let team_array =     sort_stuff();
     const [container, setContainer] = useState([])
     //sort_stuff();
-    console.log(conference);
 
     useEffect(() => {
         fetchStandings()
@@ -38,8 +37,7 @@ const ApiConferenceTable = (conference) => {
             })
             .catch(err => console.error(err));
     }
-    console.log(container)
-    console.log(typeof (container))
+
     let result = sort_stuff(container);
 
     return(
