@@ -4,6 +4,7 @@ import {deleteUserThunk } from '../thunks/users-thunks'
 import {deleteTeamThunk} from '../thunks/teams-thunks'
 import {deleteAllTeamsPostsThunk, deleteAllUsersPostsThunk} from '../thunks/posts-thunks'
 import { deleteFollower, deleteFollowing } from '../services/follow-service'
+import { deleteLikedPlayer } from '../services/playerLike-service'
 
 
 function AdminPageItem (user = 
@@ -43,6 +44,7 @@ function AdminPageItem (user =
         dispatch(deleteAllUsersPostsThunk(passed_user.handle))
         deleteFollower(passed_user._id)
         deleteFollowing(passed_user._id)
+        deleteLikedPlayer(passed_user._id)
     }
 
 
