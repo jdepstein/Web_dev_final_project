@@ -1,14 +1,7 @@
 
 ISSUES :	
 	* reload for login on anamous reload for the nav between user relaod for the delete of a user somehow
-	* Link on Team page to profile does not work!
-
-*************
-	* Show the users posts or something when logged in 
-OBJECTS:
-	Players
-		* Create services for this only needed on this page so no need for reducers or thunks!	
-*************		
+	* POST ISSUE fix it!		
 	
 	
    

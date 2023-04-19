@@ -15,17 +15,17 @@ const ApiConferenceTable = () => {
     let team_array =     sort_stuff();
     //sort_stuff();
     return(
-        <table className="table table-striped">
+        <table className="table table-striped p-0 m-0">
             <thead>
             <tr>
                 <th scope="col"> Team</th>
                 <th scope="col"> W</th>
                 <th scope="col"> L</th>
                 <th scope="col"> PCT</th>
-                <th scope="col"> GB</th>
+                <th className="d-none d-xl-block" scope="col"> GB</th>
                 <th scope="col"> HOME</th>
                 <th scope="col"> AWAY</th>
-                <th scope="col"> DIV</th>
+                <th className="d-none d-xl-block" scope="col"> DIV</th>
 
             </tr>
             </thead>

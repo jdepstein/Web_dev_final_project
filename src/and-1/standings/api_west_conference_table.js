@@ -30,10 +30,10 @@ const ApiWestConferenceTable = () => {
                 <th scope="col"> W</th>
                 <th scope="col"> L</th>
                 <th scope="col"> PCT</th>
-                <th scope="col"> GB</th>
+                <th className="d-none d-xl-block" scope="col"> GB</th>
                 <th scope="col"> HOME</th>
                 <th scope="col"> AWAY</th>
-                <th scope="col"> DIV</th>
+                <th className="d-none d-xl-block" scope="col"> DIV</th>
 
             </tr>
             </thead>

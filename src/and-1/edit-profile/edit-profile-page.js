@@ -42,6 +42,8 @@ function EditProfilePage()
     const updateUserBio = (target) => {setProfile({...profile, "bio": target})}
     const updateUserTag = (target) => {setProfile({...profile, "favoriteTeam": target})}
     const updateUserDateOfBirth = (target) => {setProfile({...profile, "dateOfBirth": target})}
+    const updateUserEmail = (target) => {setProfile({...profile, "email": target})}
+
 
 
 
@@ -83,7 +85,7 @@ function EditProfilePage()
                         </input>
 
                         <label className="form-label" htmlFor="DOB"> Date of Birth</label>
-                        <input type="date" id="DOB" className="form-control w-50 mb-4" value={profile.date}
+                        <input type="date" id="DOB" className="form-control w-50 mb-4" value={profile.dateOfBirth}
                             onChange={(e) => updateUserDateOfBirth(e.target.value)}
                         ></input>
 
@@ -93,6 +95,12 @@ function EditProfilePage()
                         <textarea id="Bio" className="form-control w-75 mb-4" value={profile.bio}
                             onChange={(e) => updateUserBio(e.target.value)}
                         ></textarea>
+                        <label className="form-label" htmlFor="email"> email</label>
+                        <input  id="email" className="form-control w-50 mb-4" value={profile.email}
+                            onChange={(e) => updateUserDateOfBirth(e.target.value)}
+                        ></input>
+
+
                         <label className="form-label" htmlFor="FavoriteTeam"> Favorite Team</label>
                         <select  className="form-control w-50 shadow-none mt-3"
                             onChange={(e) => updateUserTag(e.target.value)}
