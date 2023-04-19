@@ -6,18 +6,32 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import ForumItem from '../forum/forum-item';
 import {useParams} from "react-router";
-import {likePlayer, unlikePlayer, findPlayer, createPlayer} from "../services/player-service";
+import {findPlayer, createPlayer} from "../services/player-service";
 import {findPlayerPosts} from "../services/posts-service";
+import {getLikedBy, likePlayer, unlikePlayer} from "../services/playerLike-service";
+
+
+
+function isLiked(likes, user) {
+    if (likes === null)
+        return false;
+    for (let i = 0; i < likes.length; i++) {
+        if (likes[i].liker._id === user._id) {
+            return true;
+        }
+    }
+    return false;
+}
 
 
 function PlayerItem() {
-    const dispatch = useDispatch()
     const {pid} = useParams()
     const {currentUser} = useSelector( state => state.UserData)
     const [personalInfo, setPersonalInfo] = useState([])
     const [playerStats, setPlayerStats] = useState('')
     const [player, setPlayer] = useState('')
     const [posts, setPosts] = useState([])
+    const [likes, setLikes] = useState([]);
 
 
     useEffect(() => {
@@ -25,7 +39,8 @@ function PlayerItem() {
         fetchStats()
         fetchPlayer()
         fetchPlayerPosts()
-    }, [pid])
+        fetchLikes()
+    }, [pid, player._id])
 
     const fetchStats = () => {
         const options = {
@@ -75,13 +90,15 @@ function PlayerItem() {
             team = playerStats[0].team.name
         }
         if (player === "player" || player === null){
-            await createPlayer({"name" : personalInfo[0].firstname + " " + personalInfo[0].lastname, "pid" : pid, "team" : team,
+            const player1 = await createPlayer({"name" : personalInfo[0].firstname + " " + personalInfo[0].lastname, "pid" : pid, "team" : team,
                     "position": personalInfo[0].leagues.standard.pos, "number" : personalInfo[0].leagues.standard.jersey ? personalInfo[0].leagues.standard.jersey : 0 ,
                      "liked": true, likes: 1 });
+            await likePlayer(player._id);
+
             window.location.reload()
         }
         else {
-            await likePlayer(pid);
+            await likePlayer(player._id);
             window.location.reload()
             }
       }
@@ -89,7 +106,7 @@ function PlayerItem() {
 
    const unliked = async () => {
       if (currentUser !== undefined && currentUser._id !== undefined){ 
-         await unlikePlayer(player.pid);
+         await unlikePlayer(player._id);
             window.location.reload()
       }
    }
@@ -101,10 +118,13 @@ function PlayerItem() {
         setPosts(await findPlayerPosts(pid))
    }
 
-    let isLiked = false
-    if (player !== "player" && player !== null) {
-        isLiked = player.liked
-    }
+   const fetchLikes = async () => {
+        if(player !== "player" && player !== null && player !== undefined && player !== ''){
+            setLikes(await getLikedBy(player._id))
+        }
+   }
+
+
     let pts = 0
     let rb = 0
     let as = 0
@@ -149,14 +169,20 @@ function PlayerItem() {
                                     !currentUser ?
                                         <></>
                                         :
-                                        isLiked ?
-                                            <i className="fa fa-heart nav-item float-end text-white h3 me-4 mt-2"
-                                                onClick={unliked}>
-                                            </i>
-                                            :
-                                            <i className="fa fa-heart nav-item float-end text-white h3 me-4 mt-2 fw-normal"
-                                                onClick={liked}>
+                                        isLiked(likes, currentUser) ?
+                                            <div className='nav-item float-end text-white h3 me-4 mt-2'>
+                                                {likes.length} 
+                                                <i className="fa fa-heart text-white h3 ms-1"
+                                                    onClick={unliked}>
                                                 </i>
+                                            </div>
+                                            :
+                                            <div className='nav-item float-end text-white h3 me-4 mt-2'>
+                                                {likes.length}
+                                                <i className="fa fa-heart nav-item float-end text-white h3 ms-1 fw-normal"
+                                                    onClick={liked}>
+                                                    </i>
+                                            </div>
                                 }
                             </div>
                         </div>
@@ -202,7 +228,7 @@ function PlayerItem() {
                             </div>
                         </div>
                     </div>
-                    {isLiked &&
+                    {isLiked(likes, currentUser) &&
                         <CreatePost data={{"from_team" :
                                     playerStats[0] ? playerStats[0].team.name.split(" ")[playerStats[0].team.name.split(" ").length - 1].toLowerCase() : "None",
                                 
