@@ -56,7 +56,7 @@ const ApiConferenceTableItem = (
             <td>{data.conference.win}</td>
             <td>{data.conference.loss}</td>
             <td>{data.win.percentage}</td>
-            <td className="d-none d-xl-block">{data.division.gamesBehind}</td>
+            <td className="d-none d-xl-block">{data.division.gamesBehind != null ? data.division.gamesBehind : "-" }</td>
             <td>{data.win.home} - {data.loss.home}</td>
             <td>{data.win.away} - {data.loss.away}</td>
             <td className="d-none d-xl-block"> {data.division.win} - {data.division.loss}</td>
