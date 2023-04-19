@@ -1,7 +1,6 @@
 import {Link} from "react-router-dom";
 
 function CreatePost(data) {
-    console.log(data)
     if (!data.data) {
         data = {from_team : "None", pid: "-1"}
     }

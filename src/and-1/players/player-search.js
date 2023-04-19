@@ -84,7 +84,7 @@ const PlayerSearch = () =>
                     {
                         if (results[i+1] !== undefined) {
                             return (
-                                <div className="row p-0 m-0 ms-1 me-1">
+                                <div key={i} className="row p-0 m-0 ms-1 me-1">
                                     <PlayerComponent player={results[i]}/>
                                         <div className="col-2"></div>
                                     <PlayerComponent player={results[i+1]}/>
@@ -93,9 +93,9 @@ const PlayerSearch = () =>
                         }
                         else{
                             return (
-                                <>
+                                <div key={i}>
                                     <PlayerComponent player={results[i]}/>
-                                </>
+                                </div>
                             )
                         }
                     }
