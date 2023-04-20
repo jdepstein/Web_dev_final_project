@@ -1,21 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { getFollowers } from '../../services/follow-service';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { followUser, unfollowUser } from '../../services/follow-service';
-import {updateTeamThunk} from "../../thunks/teams-thunks";
-import {useDispatch} from "react-redux";    
-
-
-
-function isfollowing(followers, user) {
-    for (let i = 0; i < followers.length; i++) {
-        if (followers[i].follower._id === user._id) {
-            return true;
-        }
-    }
-    return false;
-}
+    
 
 
 
@@ -46,14 +32,10 @@ function FollowTeamNav(passeduser){
                     </li>
                     <li className="nav-item">
                         <Link className="ps-2 text-white nav-link" to={
-                            "/teams/" + (teams.name) +  "/team-schedule"}>Schedule</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="ps-2 text-white nav-link" to={
                             "/teams/" + (teams.name) + "/team-forum"}>Team Forum</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="ps-2 text-white nav-link" to="#">Tickets</Link>
+                        <Link className="ps-2 text-white nav-link" to="https://www.ticketmaster.com/nba/?landing=c&awtrc=true&c=SEM_TMNBA_ggl_1571491344_129894278138_nba%20tickets&GCID=0&gclid=Cj0KCQjwxYOiBhC9ARIsANiEIfZKWNepkIV20sq48euLs0qF2Pf5DOneyD5DXachPuwZpHRHR1AbDrQaAlvCEALw_wcB&gclsrc=aw.ds">Tickets</Link>
                     </li>
                 </ul>
                 { isCurrent ?
