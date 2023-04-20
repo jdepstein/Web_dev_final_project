@@ -22,7 +22,7 @@ function TeamForumPage() {
 
             <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center">
                 <ForumTitle/>
-                <CreatePost data={{"from_team" : teamName.toLocaleLowerCase()} }/>
+                <CreatePost data={{"from_team" : teamName.toLocaleLowerCase(),  "pid": "-1"} }/>
                 {
                     posts.map((post, i) =>
                         <ForumItem key={post._id} post={post}/>

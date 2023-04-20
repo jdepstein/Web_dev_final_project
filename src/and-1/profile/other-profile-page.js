@@ -17,6 +17,7 @@ import ProfileStats from "./profile-stats";
 import Followers from "./followers";
 import { getLikedPlayers } from "../services/playerLike-service";
 import Likes from './likes';
+import {Link} from "react-router-dom";
 
 
 
@@ -33,32 +34,28 @@ function OtherProfilePage() {
     const [following, setFollowing] = useState([]);
     const [isCurrent, setIsCurrent] = useState(false);
     const [likedPlayers, setLikedPlayers] = useState([]);
-
-
-    useEffect(() => {
+    const [hitFollow, setHitFollow] = useState(false);
+    
+  
+     useEffect(() => {
         let ignore = false;
-        dispatch(findUserThunk(handle)).then(() => {
-            fetchFollowers();
-            fetchFollowing();
+       dispatch(findUserThunk(handle)).then((action) => {
+            const u = action.payload;
+            fetchFollowers(u);
+            fetchFollowing(u);
             fetchLikes();
-            if (!ignore) {
-                if (user !== undefined){
-                    if( user !== []) {
-                        if (user.role === "team"){
-                            navigate("/teams/" + user.handle)
-                        }
-                    }
-                }
-            }
+            dispatch(findUserPostsThunk(handle))
         });
-        return () => {
-          ignore = true;
-        }
-    }, [handle, user.handle])
-
+    }, [handle, hitFollow])
+/*
     useEffect(() => {
+        dispatch(findUserThunk(handle))
         dispatch(findUserPostsThunk(handle))
+        fetchFollowers();
+        fetchFollowing();
+        fetchLikes();
     }, [])
+*/
 
 
     if(currentUser !== null) {
@@ -68,14 +65,14 @@ function OtherProfilePage() {
         }
     }
 
-    const fetchFollowers = async () => {
+    const fetchFollowers = async (user) => {
         if (user !== undefined && user._id !== undefined){ 
             const response = await getFollowers(user._id);
             setFollowers(response);
         }
     }
 
-    const fetchFollowing = async () => {
+    const fetchFollowing = async (user) => {
         if (user !== undefined && user._id !== undefined){ 
             const response = await getFollowing(user._id);
             setFollowing(response);
@@ -85,14 +82,14 @@ function OtherProfilePage() {
     const follow = async () => {
         if (user !== undefined && user._id !== undefined){ 
             await followUser(user._id);
-            window.location.reload()
+            setHitFollow(!hitFollow)
         }
     }
 
     const unfollow = async () => {
         if (user !== undefined && user._id !== undefined){ 
             await unfollowUser(user._id);
-            window.location.reload()
+            setHitFollow(!hitFollow)
         }
     }
 
@@ -105,7 +102,7 @@ function OtherProfilePage() {
     return (
         <>
             {isCurrent ? 
-                <ProfilePage handle={currentUser.handle}/>
+                <ProfilePage/>
                 :
                 <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
                     {user !== null ?

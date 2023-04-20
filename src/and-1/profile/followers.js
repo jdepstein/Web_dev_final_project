@@ -13,11 +13,19 @@ function Followers(data = {followers : {}, following : {}})
                     {
                     followers.map((follow,i) => {
                         return (
+                            follow.follower.role === "team" ?
+
+                            <Link key={i} className='text-decoration-none' to={"/teams/"+follow.follower.handle}>
+                                 <li className="list-group-item m-0" key={i}>
+                                {follow.follower.handle}
+                                    </li>
+                             </Link>
+                            :
                             <Link key={i} className='text-decoration-none' to={"/profile/"+follow.follower.handle}>
                                 <li className="list-group-item m-0" key={i}>
                                     {follow.follower.handle}
                                 </li>
-                            </Link>
+                            </Link>    
                         )
                     })
                     }
@@ -28,13 +36,21 @@ function Followers(data = {followers : {}, following : {}})
                 <ul className="list-group mt-2 me-2 ms-2">
                     {
                 following.map((follow,i) => {
-                    return ( 
+                    return (
+                        follow.followed.role === "team" ?
+
+                        <Link key={i} className='text-decoration-none' to={"/teams/"+follow.followed.handle}>
+                             <li className="list-group-item m-0" key={i}>
+                            {follow.followed.handle}
+                                </li>
+                         </Link>
+                        :
                         <Link key={i} className='text-decoration-none' to={"/profile/"+follow.followed.handle}>
-                            <li className="list-group-item m-0">
+                            <li className="list-group-item m-0" key={i}>
                                 {follow.followed.handle}
                             </li>
-                        </Link>
-                        )
+                        </Link>    
+                    )
                     })
                     }
                 </ul>     

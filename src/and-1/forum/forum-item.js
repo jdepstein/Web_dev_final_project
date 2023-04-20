@@ -24,7 +24,6 @@ function ForumItem(
      }
 
     
-
     return (
         <div className="mb-1">
             <div className="border-3 h5 text-center border-bottom pb-2 pt-3">
@@ -35,7 +34,7 @@ function ForumItem(
                        <Link to={`/profile/`+ post.userHandle}> <img alt="" src={"../../" + post.profilePic} className="a1-profile-pic ms-4"/> </Link>
                 </div>
                 <div className="col-10 col-xl-11">
-                    <div>{post.post_content}</div>
+                    <div className="ms-3">{post.post_content}</div>
                 </div>
             </div>
             <div className="mb-1 text-center fw-bold mt-2 mb-2">
@@ -43,9 +42,9 @@ function ForumItem(
                 {post.tag !== "general" ?
                     <Link className="text-decoration-none" to={`/teams/${post.tag}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 me-1 " + post.tagColor}>{post.tag}</span></Link>
                     :
-                    <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span>
+                    <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 me-1 " + post.tagColor}>{post.tag}</span>
                 }
-                {post.player ? 
+                {post.player !== -1 && post.player !== "undefined" && post.player !== undefined && post.player !== null ? 
                     <Link className="text-decoration-none" to={`/players/player/${post.player}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.player}</span></Link>
                     :
                     <></> 

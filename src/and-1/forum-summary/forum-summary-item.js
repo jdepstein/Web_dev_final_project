@@ -64,9 +64,9 @@ function ForumSummaryItem(
                         {post.tag !== "general" ?
                             <Link className="text-decoration-none" to={`/teams/${post.tag}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 me-1 " + post.tagColor}>{post.tag}</span></Link>
                          :
-                            <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.tag}</span>
+                            <span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 me-1 " + post.tagColor}>{post.tag}</span>
                         }   
-                        {post.player ? 
+                        {post.player !== -1 && post.player !== "undefined" && post.player !== undefined && post.player !== null ? 
                             <Link className="text-decoration-none" to={`/players/player/${post.player}`}><span className={"flex-wrap text-inline rounded-pill fw-bold text-white a1-width-content text-center ps-3 pe-3 pt-1 pb-1 " + post.tagColor}>{post.player}</span></Link>
                             :
                             <></> 

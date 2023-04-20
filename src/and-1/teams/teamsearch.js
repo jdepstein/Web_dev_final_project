@@ -33,7 +33,7 @@ function TeamSearch() {
                                 {
                                     teams.slice(i, i + 5).map((team, i) =>
                                         <div  key={i} className="col-2">
-                                            <Link onClick={window.location.reload} to={team.name.toLowerCase()}>
+                                            <Link  to={team.name.toLowerCase()}>
                                                 <img alt="" className="a1-image_team_page " src={team.logo}/>
                                             </Link>
                                         </div>

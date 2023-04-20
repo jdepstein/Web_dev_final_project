@@ -28,7 +28,7 @@ function ForumPage() {
         else {
             dispatch(findTeamPostsThunk(topic.toLocaleLowerCase())) 
             }
-    }, [])
+    }, [topic])
     return (
         <>
             {!loading &&

@@ -15,6 +15,7 @@ import {useState} from "react";
 import { getFollowers, getFollowing } from "../services/follow-service";
 import ProfileStats from "./profile-stats";
 import { getLikedPlayers } from "../services/playerLike-service";
+import { Navigate } from "react-router-dom";
 
 
 function ProfilePage() {
@@ -36,8 +37,9 @@ function ProfilePage() {
         
     }, [currentUser])
 
+    
     if (!currentUser) {
-        navigate("/login")
+        return (<Navigate to="/login"/>)
     }
     else if(currentUser !== null && currentUser.role === "team") {
         navigate("/teams/" + currentUser.handle)

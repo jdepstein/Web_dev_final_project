@@ -24,31 +24,9 @@ function FollowTeamNav(passeduser){
     const user = passeduser.passeduser.user
 
 
-    const [followers, setFollowers] = useState([]);
     const [isCurrent, setIsCurrent] = useState(false)
-    const dispatch = useDispatch();
     const {currentUser} = useSelector(state => state.UserData)
 
-    const fetchFollowers = async () => {
-        const response = await getFollowers(user._id);
-        setFollowers(response);
-    }
-
-    useEffect(() => {
-        fetchFollowers();
-    }
-    , [])
-
-
-    const follow = async () => {
-        await followUser(user._id);
-        window.location.reload()
-    }
-
-    const unfollow = async () => {
-        await unfollowUser(user._id);
-        window.location.reload()
-    }
 
     if(currentUser !== null) {
         if (user.handle === currentUser.handle){
@@ -85,39 +63,7 @@ function FollowTeamNav(passeduser){
                         </button>
                     </Link>
                     :
-                    <>
-                        {   
-                            !currentUser ?
-                                <></>
-                                :
-                            teams.liked ?
-                                <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2"
-                                onClick={() =>  dispatch(updateTeamThunk({
-                                    ...teams, liked: false, likes: teams.likes - 1}))}>
-                                </i>
-                                :
-                                <i className="fa fa-heart nav-item float-end text-white h3 me-3 mt-2 fw-normal"
-                                onClick={() =>  dispatch(updateTeamThunk({
-                                        ...teams, liked: true, likes: teams.likes + 1}))}>
-                                </i>
-                        }
-                        {
-                            !currentUser?
-                                <></>
-                        
-                                :
-                                isfollowing(followers, currentUser) ?
-                                    <button onClick={unfollow}
-                                            className="nav-item float-end rounded-pill a1-bg-red text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3  border-0">
-                                        Unfollow
-                                    </button>
-                                :
-                                <button onClick={follow}
-                                    className="nav-item float-end rounded-pill a1-bg-blue text-white fw-bold pt-2 pb-2 ps-3 pe-3 me-3 border-0">
-                                    Follow
-                                </button>
-                        }
-                    </>
+                    <></>
                 }
         </nav>
     </div>

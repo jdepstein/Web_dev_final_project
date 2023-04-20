@@ -54,7 +54,7 @@ function SidebarItem(
                     lowercase_text !== 'logout' && lowercase_text !== 'admin' ?
 
                     <>    
-                        <Link onClick={window.location.reload} to={"/" + nav.link} className="wd-no-underline">
+                        <Link to={"/" + nav.link} className="wd-no-underline">
                             <i  className=
                                 {`float-start me-2 pt-1 ${nav.icon}
                                     ${active === lowercase_text ? 'a1-text-red':'text-dark'}

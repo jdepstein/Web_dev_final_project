@@ -32,14 +32,14 @@ function PlayerItem() {
     const [player, setPlayer] = useState('')
     const [posts, setPosts] = useState([])
     const [likes, setLikes] = useState([]);
-
+    const [hittingLike, sethittingLike] = useState(false);
+    
     useEffect(() => {
         fetchMe()
         fetchStats()
         fetchPlayer()
         fetchPlayerPosts()
-        fetchLikes()
-    }, [pid, player._id])
+    }, [hittingLike])
 
     const fetchStats = () => {
         const options = {
@@ -92,13 +92,13 @@ function PlayerItem() {
             const player1 = await createPlayer({"name" : personalInfo[0].firstname + " " + personalInfo[0].lastname, "pid" : pid, "team" : team,
                     "position": personalInfo[0].leagues.standard.pos, "number" : personalInfo[0].leagues.standard.jersey ? personalInfo[0].leagues.standard.jersey : 0 ,
                      "liked": true, likes: 1 });
-            await likePlayer(player._id);
+            await likePlayer(player1._id);
+            sethittingLike(!hittingLike);
 
-            window.location.reload()
         }
         else {
             await likePlayer(player._id);
-            window.location.reload()
+            sethittingLike(!hittingLike);
             }
       }
    }
@@ -106,18 +106,21 @@ function PlayerItem() {
    const unliked = async () => {
       if (currentUser !== undefined && currentUser._id !== undefined){ 
          await unlikePlayer(player._id);
-            window.location.reload()
+         sethittingLike(!hittingLike);
       }
    }
    const fetchPlayer = async () => {
-        setPlayer(await findPlayer(pid))
+        await findPlayer(pid).then(player=>{
+            setPlayer(player)
+            fetchLikes(player)
+        })
    }
 
    const fetchPlayerPosts = async () => {
         setPosts(await findPlayerPosts(pid))
    }
 
-   const fetchLikes = async () => {
+   const fetchLikes = async (player) => {
         if(player !== "player" && player !== null && player !== undefined && player !== ''){
             setLikes(await getLikedBy(player._id))
         }
@@ -237,19 +240,27 @@ function PlayerItem() {
                     }
                     {
                         posts.map(post =>
-                            <ForumItem post={post}/>
+                            <ForumItem key={post._id} post={post}/>
                         )
                     }
                     <h5 className='text-dark text-bold a1-font-family text-center mt-2'>Liked By</h5>
                     <ul className="list-group mt-2 me-2 ms-2">
                     {
                         likes.map((like,i) => {
-                            return ( 
+                            return (
+                                like.liker.role === "team" ?
+                                <Link key={i} className='text-decoration-none' to={"/teams/"+like.liker.handle}>
+                                <li className="list-group-item m-0">
+                                    {like.liker.handle}
+                                </li>
+                                </Link>
+                                :
                                 <Link key={i} className='text-decoration-none' to={"/profile/"+like.liker.handle}>
                                     <li className="list-group-item m-0">
                                         {like.liker.handle}
                                     </li>
                                 </Link>
+                                
                                 )
                             })
                     }

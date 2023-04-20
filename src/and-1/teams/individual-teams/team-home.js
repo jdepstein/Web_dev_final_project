@@ -83,8 +83,7 @@ function TeamHomePage()
                     <div className="h5 text-dark a1-font-family fw-bold text-center">
                         {user.stadium}
                     </div>
-                    <div className="h4 text-dark a1-font-family fw-bold mt-5 text-center border-bottom pb-3 mb-2">
-                        <span className="me-2 text-secondary">Likes:</span> {teams.likes}
+                    <div className="h4 text-dark a1-font-family fw-bold mt-2 text-center border-bottom pb-3 mb-2">
                         <FollowersTeam passeduser={user}/>
                     </div>
                     <div>
