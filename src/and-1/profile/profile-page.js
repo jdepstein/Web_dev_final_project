@@ -31,22 +31,32 @@ function ProfilePage() {
     const [likedPlayers, setLikedPlayers] = useState([]);
     const {posts} = useSelector(state => state.postData)
     const [isEdditing, setIsEdditing] = useState(false);
+
     useEffect(() => {
         findTeamsThunk()
-        dispatch(findUserPostsThunk(currentUser.handle))
-        fetchFollowers();
-        fetchFollowing();
-        fetchLikes();
+        dispatch(profileThunk()).then((response) => {
+            if (response.payload._id !== undefined && isEdditing === false) {
+                dispatch(findUserPostsThunk(currentUser.handle))
+                fetchFollowers();
+                fetchFollowing();
+                fetchLikes();
+                console.log(response.payload)
+            }
+        }).catch(err => {})
         
-        
-    }, [currentUser,isEdditing])
-    
+    }, [isEdditing,
+         currentUser ? currentUser.bio : null,
+         currentUser ? currentUser.location : null,
+         currentUser ? currentUser.favoriteTeam : null,
+         currentUser ? currentUser.dateOfBirth : null,
+         currentUser ? currentUser.email : null,
+         currentUser ? currentUser.name : null])
+
     if (!currentUser) {
         return (<Navigate to="/login"/>)
     }
-    else if(currentUser !== null && currentUser.role === "team") {
-        navigate("/teams/" + currentUser.handle)
-    }
+    
+    
 
     const fetchFollowers = async () => {
         const response = await getFollowers(currentUser._id);
@@ -73,8 +83,9 @@ function ProfilePage() {
     const updateUserDateOfBirth = (target) => {setProfile({...profile, "dateOfBirth": target})}
     const updateUserEmail = (target) => {setProfile({...profile, "email": target})}
     const updateProfileHandler = async () => {
-        dispatch(updateUserThunk(profile))
-        setIsEdditing(!isEdditing)
+        dispatch(updateUserThunk(profile)).then((response) => {
+            setIsEdditing(!isEdditing)
+        })
     }   
     
   
