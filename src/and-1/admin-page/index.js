@@ -24,7 +24,7 @@ function AdminPage () {
     }, [])
 
 
-    if (!currentUser) {
+    if (!currentUser || currentUser.role !== "admin") {
         return (
           <>
             <ApiLatestResults/>
@@ -41,7 +41,7 @@ function AdminPage () {
 
   return (
     <>
-        {currentUser && 
+        {currentUser && currentUser.role === "admin" &&
              <>
              <ApiLatestResults/>
              <div className="row p-0 m-0">

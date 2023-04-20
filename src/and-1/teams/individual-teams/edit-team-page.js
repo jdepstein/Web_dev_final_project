@@ -23,6 +23,7 @@ function EditTeamPage() {
 
     const updateTeamLocation = (target) => {setProfile({...profile, "location": target})}
     const updateTeamStadium = (target) => {setProfile({...profile, "stadium": target})}
+    const updateTeamEmail = (target) => {setProfile({...profile, "email": target})}
     
     if (currentUser !== null) {
 
@@ -67,6 +68,11 @@ function EditTeamPage() {
                             <label className="form-label" htmlFor="stadium"> Stadium</label>
                             <input id="stadium" className="form-control w-50 mb-4" value={profile.stadium}
                                 onChange={(e) => updateTeamStadium(e.target.value)}></input>
+
+                            <label className="form-label" htmlFor="email"> Email</label>
+                            <input id="email" className="form-control w-50 mb-4" value={profile.email}
+                                onChange={(e) => updateTeamEmail(e.target.value)}></input>
+                                    
                         </div>
                     </div>
                 </>

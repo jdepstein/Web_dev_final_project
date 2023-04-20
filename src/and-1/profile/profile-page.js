@@ -36,11 +36,13 @@ function ProfilePage() {
         findTeamsThunk()
         dispatch(profileThunk()).then((response) => {
             if (response.payload._id !== undefined && isEdditing === false) {
+                if (response.payload.role === "team"){
+                    navigate("/teams/" + response.payload.handle)
+                        }
                 dispatch(findUserPostsThunk(currentUser.handle))
                 fetchFollowers();
                 fetchFollowing();
                 fetchLikes();
-                console.log(response.payload)
             }
         }).catch(err => {})
         

@@ -41,21 +41,15 @@ function OtherProfilePage() {
         let ignore = false;
        dispatch(findUserThunk(handle)).then((action) => {
             const u = action.payload;
+            if(u.role === "team") {
+                navigate("/teams/" + u.handle);
+            }
             fetchFollowers(u);
             fetchFollowing(u);
             fetchLikes();
             dispatch(findUserPostsThunk(handle))
         });
     }, [handle, hitFollow])
-/*
-    useEffect(() => {
-        dispatch(findUserThunk(handle))
-        dispatch(findUserPostsThunk(handle))
-        fetchFollowers();
-        fetchFollowing();
-        fetchLikes();
-    }, [])
-*/
 
 
     if(currentUser !== null) {
