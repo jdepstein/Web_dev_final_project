@@ -20,6 +20,12 @@ function EditProfilePage()
         dispatch(findTeamsThunk()).then(result => {
             if (!ignore) {
                 setProfile(currentUser)
+                if (currentUser !== null) {
+
+                    if (currentUser.role === "team"){
+                        navigate("/teams/" + currentUser.handle)
+                    }
+                }
                 if (profile === null || currentUser === null ){
                     navigate("/login")
                 }
@@ -39,9 +45,11 @@ function EditProfilePage()
     const updateUserEmail = (target) => {setProfile({...profile, "email": target})}
 
 
+
+
     return (
         <>
-        {profile !== null && teams.length &&
+        {profile !== null &&
             <div className="container-fluid col-9 col-lg-7 col-xl-8 p-0 border-start border-end align-content-center p-0 m-0">
                 <div className="h3 text-dark a1-font-family fw-bold mt-3 mb-2 ms-2">
                 <span>
@@ -55,7 +63,7 @@ function EditProfilePage()
                         <img alt="" src={profile.profilePicture} className="opacity-50 a1-image_146_round a1-pos-profile position-absolute border border-5 border-white m-0 p-0"/>
                     </div>
                     <div className="col-7 mt-2">
-                        <Link to="/profile">
+                        <Link onClick={window.location.reload} to="/profile">
                             <button className="a1-bg-blue rounded-pill pt-2 pb-2 ps-3 pe-3 text-white fw-bold float-end me-2 border-0"
                                     onClick={() => dispatch(updateUserThunk(profile))}
                                 >
@@ -89,7 +97,7 @@ function EditProfilePage()
                         ></textarea>
                         <label className="form-label" htmlFor="email"> email</label>
                         <input  id="email" className="form-control w-50 mb-4" value={profile.email}
-                            onChange={(e) => updateUserEmail(e.target.value)}
+                            onChange={(e) => updateUserDateOfBirth(e.target.value)}
                         ></input>
 
 

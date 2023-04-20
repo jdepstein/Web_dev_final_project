@@ -13,7 +13,6 @@ function ProfileRouting() {
         <Routes> 
 
                 <Route index element={<Profile/>}/>
-                <Route path="/edit-profile" element={<EditProfile/>}/>
                 <Route path={"/:handle"} element={<OtherProfile/>}/>
         </Routes>
 
