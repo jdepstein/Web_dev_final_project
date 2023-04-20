@@ -17,6 +17,7 @@ import { getLikedPlayers } from "../services/playerLike-service";
 import { Navigate } from "react-router-dom";
 import { findTeamsThunk } from "../thunks/teams-thunks";
 import { updateUserThunk } from "../thunks/users-thunks";
+import { profileThunk } from "../thunks/users-thunks";
 
 
 function ProfilePage() {
@@ -31,17 +32,14 @@ function ProfilePage() {
     const {posts} = useSelector(state => state.postData)
     const [isEdditing, setIsEdditing] = useState(false);
     useEffect(() => {
-        if (currentUser !== null){
-            dispatch(findUserPostsThunk(currentUser.handle))
-            fetchFollowers();
-            fetchFollowing();
-            fetchLikes();
-            findTeamsThunk()
-
-        }
+        findTeamsThunk()
+        dispatch(findUserPostsThunk(currentUser.handle))
+        fetchFollowers();
+        fetchFollowing();
+        fetchLikes();
         
-    }, [currentUser, isEdditing])
-
+        
+    }, [currentUser,isEdditing])
     
     if (!currentUser) {
         return (<Navigate to="/login"/>)
@@ -74,7 +72,7 @@ function ProfilePage() {
     const updateUserTag = (target) => {setProfile({...profile, "favoriteTeam": target})}
     const updateUserDateOfBirth = (target) => {setProfile({...profile, "dateOfBirth": target})}
     const updateUserEmail = (target) => {setProfile({...profile, "email": target})}
-    const updateProfileHandler= () => {
+    const updateProfileHandler = async () => {
         dispatch(updateUserThunk(profile))
         setIsEdditing(!isEdditing)
     }   
@@ -123,7 +121,7 @@ function ProfilePage() {
                                     </input>
 
                                     <label className="form-label" htmlFor="DOB"> Date of Birth</label>
-                                    <input type="date" id="DOB" className="form-control w-50 mb-4" value={profile.dateOfBirth}
+                                    <input type="date" id="DOB" className="form-control w-50 mb-4"
                                         onChange={(e) => updateUserDateOfBirth(e.target.value)}
                                     ></input>
 
