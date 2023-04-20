@@ -9,14 +9,15 @@ const PlayerSearch = () =>
     const {search} = useParams();
     const [searchValue, setSearch] = useState('');
     const [container, setContainer] = useState([])
-    const [finalPoint, setFinalPoint] = useState('')
 
     useEffect(() => {
-        fetchMe()
-    }, [finalPoint])
+        if (search !== undefined) {
+            fetchMe()
+        }
+        
+    }, [search])
 
     const fetchMe = () => {
-
         const options = {
             method: 'GET',
             headers: {
@@ -25,7 +26,7 @@ const PlayerSearch = () =>
             }
         };
 
-        fetch(`https://api-nba-v1.p.rapidapi.com/players?name=${searchValue}`, options)
+        fetch(`https://api-nba-v1.p.rapidapi.com/players?name=${search}`, options)
             .then(response => {
                 return response.json();
             })
@@ -34,10 +35,7 @@ const PlayerSearch = () =>
             })
             .catch(err => console.error(err));
     }
-    const submitHandler = e => {
-        e.preventDefault()
-        setFinalPoint(searchValue)
-    }
+
     let results = []
     if (container !== undefined) {
         results =  container.filter((player) => player.leagues.standard != null)
@@ -61,7 +59,7 @@ const PlayerSearch = () =>
                                     <span className="bg-transparent border-0 input-group-text" id="basic-addon1">
                                     <img alt="" src="../images/magnifying-glass-solid.svg" className="a1-filter-black ps-1" width="25" height="20"/>
                                     </span>
-                            <form onSubmit={submitHandler}>
+                            <form>
                                 <input type="text" className="shadow-none border-0 bg-transparent test-dark form-control"
                                        placeholder="Search API" aria-label="Search Tuiter" aria-describedby="basic-addon1"
                                        onChange={(event) => setSearch(event.target.value)} />
@@ -72,7 +70,7 @@ const PlayerSearch = () =>
                 <div className="col-2 mt-3 mt-md-2 pt-md-1 p-1">
                     <div className="align-content-center">
                         <Link className="m-0 p-0" to={`/players/`+searchValue}>
-                            <i onClick={(event) => setFinalPoint(searchValue)} className="mt-md-1 p-md-1 wd-font-family-arial h2 text-white fw-normal a1-no_underline fa fa-arrow-alt-circle-right"></i>
+                            <i className="mt-md-1 p-md-1 wd-font-family-arial h2 text-white fw-normal a1-no_underline fa fa-arrow-alt-circle-right"></i>
                         </Link>
                     </div>
                 </div>
